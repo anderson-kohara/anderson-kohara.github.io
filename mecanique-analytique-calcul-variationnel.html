@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Cours de mécanique analytique : chapitre 2, calcul variationnel et équations d’Euler-Lagrange.">
+    <meta name="theme-color" content="#f5f5f0">
+    <title>Mécanique analytique — Calcul variationnel — Anderson Kohara</title>
+    <script>try { document.documentElement.dataset.theme = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch { document.documentElement.dataset.theme = 'light'; }</script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="i18n.js" defer></script><script src="script.js" defer></script>
+    <script>window.MathJax = { svg: { fontCache: 'global' } };</script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-svg.js"></script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header page-width">
+        <a class="brand" href="index.html" aria-label="Anderson Kohara, home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Anderson Kohara</span></a>
+        <div class="header-actions"><span class="header-location">ESME <span aria-hidden="true">·</span> Lyon</span><label class="sr-only" for="language-select">Language</label><select class="language-select" id="language-select"><option value="en">EN</option><option value="pt-BR">PT-BR</option><option value="fr">FR</option></select><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg><span class="theme-label">Dark mode</span></button></div>
+      </header>
+      <main class="course-main page-width" id="top" lang="fr" data-no-translate>
+        <a class="back-link" href="teaching.html"><span aria-hidden="true">←</span> Retour aux supports de cours</a>
+        <section class="course-hero" aria-labelledby="course-title"><div><p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> Support de cours · En français</p><h1 id="course-title">Mécanique<br><span>analytique</span><span class="title-dot">.</span></h1><p class="course-byline">Anderson Kohara <span aria-hidden="true">·</span> Chapitre 2 — Calcul variationnel</p></div><div class="course-hero-mark" aria-hidden="true"><span>δ</span><span>𝓕</span><span>∫</span></div></section>
+        <section class="course-intro" aria-label="Introduction au chapitre"><p>Ce chapitre introduit le calcul variationnel : fonctionnelles, variations à extrémités fixes et équation d’Euler-Lagrange. Les problèmes du plus court chemin, de la brachistochrone et des géodésiques conduisent ensuite naturellement au principe de Hamilton et aux équations de Lagrange.</p><p class="course-session-meta"><span><strong>Prérequis :</strong> dérivation, intégration par parties et énergie mécanique</span></p></section>
+        <div class="course-layout">
+          <aside class="course-sidebar"><nav class="course-toc" aria-label="Sommaire du chapitre"><p>Dans ce chapitre</p><a href="#pourquoi"><span>01</span>Pourquoi varier ?</a><a href="#fonctionnelles"><span>02</span>Fonctionnelles</a><a href="#variation"><span>03</span>Variation</a><a href="#euler-lagrange"><span>04</span>Euler-Lagrange</a><a href="#beltrami"><span>05</span>Identité de Beltrami</a><a href="#applications"><span>06</span>Applications</a><a href="#geodesiques"><span>07</span>Géodésiques</a><a href="#hamilton"><span>08</span>Principe de Hamilton</a><a href="#resume"><span>09</span>Résumé</a><a class="course-toc-top" href="#top">Retour en haut ↑</a></nav></aside>
+          <article class="course-content">
+            <h2 class="course-subheading" id="pourquoi">Pourquoi une formulation variationnelle ?</h2>
+            <p>Dans le chapitre précédent, nous avons décrit le mouvement à partir des lois de Newton. Cette approche est très efficace lorsque les forces et les coordonnées du système sont simples. Lorsque le nombre de degrés de liberté augmente ou que le système est soumis à des contraintes, l’écriture directe des équations de Newton devient rapidement complexe.</p>
+            <p>Le calcul variationnel fournit une autre formulation : au lieu de chercher directement l’équation différentielle du mouvement, on cherche une fonction qui rend <em>stationnaire</em> une quantité appelée <em>fonctionnelle</em>. Cette méthode est à la base du principe de moindre action.</p>
+            <div class="course-equation">\[\boxed{\text{Problème différentiel}\quad\longleftrightarrow\quad\text{Problème variationnel}}\]</div>
+
+            <h2 class="course-chapter" id="fonctionnelles">Fonctionnelles</h2>
+            <p>En analyse classique, une fonction associe un nombre à une variable : \(x\longmapsto f(x)\). Une fonctionnelle associe au contraire un nombre à une fonction entière. Considérons :</p>
+            <div class="course-equation">\[\mathcal{F}[y]=\int_{x_i}^{x_f}f\left(y(x),y'(x),x\right)\,dx,\qquad y'=\frac{dy}{dx}.\]<span class="course-equation-index">(1)</span></div>
+            <p>Le problème variationnel consiste à déterminer la fonction \(y(x)\) pour laquelle la fonctionnelle est stationnaire :</p>
+            <div class="course-equation">\[\boxed{\delta\mathcal{F}=0}.\]<span class="course-equation-index">(2)</span></div>
+            <p>Une fonctionnelle stationnaire peut correspondre à un minimum, à un maximum ou à un point selle.</p>
+
+            <h2 class="course-chapter" id="variation">La variation d’une fonction</h2>
+            <p>Considérons une famille de fonctions voisines :</p>
+            <div class="course-equation">\[y_\alpha(x)=y(x)+\alpha\,\eta(x),\qquad \eta(x_i)=\eta(x_f)=0.\]<span class="course-equation-index">(3)</span></div>
+            <p>Le paramètre réel \(\alpha\) mesure l’écart à la fonction \(y\), tandis que \(\eta(x)\) est une fonction arbitraire. Les extrémités sont maintenues fixes. La fonctionnelle devient :</p>
+            <div class="course-equation">\[\mathcal{F}(\alpha)=\int_{x_i}^{x_f}f\left(y_\alpha,y_\alpha',x\right)\,dx,\qquad \left.\frac{d\mathcal{F}}{d\alpha}\right|_{\alpha=0}=0.\]<span class="course-equation-index">(4)</span></div>
+            <p>La variation de la fonction et celle de sa dérivée sont :</p>
+            <div class="course-equation">\[\delta y=\left.\frac{\partial y_\alpha}{\partial\alpha}\right|_{\alpha=0}=\eta(x),\qquad \delta y'=\frac{d}{dx}\delta y=\eta'(x).\]<span class="course-equation-index">(5)</span></div>
+            <p>Ainsi, la variation de la fonctionnelle s’écrit :</p>
+            <div class="course-equation">\[\delta\mathcal{F}=\int_{x_i}^{x_f}\left(\frac{\partial f}{\partial y}\eta+\frac{\partial f}{\partial y'}\eta'\right)dx.\]<span class="course-equation-index">(6)</span></div>
+
+            <h2 class="course-chapter" id="euler-lagrange">Dérivation de l’équation d’Euler-Lagrange</h2>
+            <p>Intégrons le second terme par parties :</p>
+            <div class="course-equation">\[\int_{x_i}^{x_f}\frac{\partial f}{\partial y'}\eta'\,dx=\left[\frac{\partial f}{\partial y'}\eta\right]_{x_i}^{x_f}-\int_{x_i}^{x_f}\frac{d}{dx}\left(\frac{\partial f}{\partial y'}\right)\eta\,dx.\]<span class="course-equation-index">(7)</span></div>
+            <p>Les variations s’annulent aux extrémités ; le terme de bord disparaît. Comme \(\eta(x)\) est arbitraire, la condition \(\delta\mathcal{F}=0\) impose :</p>
+            <div class="course-equation">\[\boxed{\frac{\partial f}{\partial y}-\frac{d}{dx}\left(\frac{\partial f}{\partial y'}\right)=0}.\]<span class="course-equation-index">(8)</span></div>
+            <div class="course-activity"><h3>Résultat fondamental</h3><p>Pour \(\mathcal{F}[y]=\int_{x_i}^{x_f}f(y,y',x)\,dx\), la stationnarité \(\delta\mathcal{F}=0\) conduit à l’équation d’Euler-Lagrange.</p></div>
+            <h3 class="course-subheading">Premier exemple : le plus court chemin dans le plan</h3>
+            <p>La longueur d’une courbe \(y(x)\) est \(L=\int_{x_i}^{x_f}\sqrt{1+y'^2}\,dx\). Ici \(f(y,y')=\sqrt{1+y'^2}\) et \(\partial f/\partial y=0\), donc :</p>
+            <div class="course-equation">\[\frac{d}{dx}\left(\frac{y'}{\sqrt{1+y'^2}}\right)=0\qquad\Longrightarrow\qquad \boxed{y(x)=ax+b}.\]<span class="course-equation-index">(9)</span></div>
+            <p>La courbe de longueur minimale entre deux points du plan est donc une droite.</p>
+
+            <h2 class="course-chapter" id="beltrami">L’identité de Beltrami</h2>
+            <p>La dérivée totale de \(f(y,y',x)\) et l’équation d’Euler-Lagrange donnent :</p>
+            <div class="course-equation">\[\boxed{\frac{d}{dx}\left(f-y'\frac{\partial f}{\partial y'}\right)=\frac{\partial f}{\partial x}}.\]<span class="course-equation-index">(10)</span></div>
+            <p>Si \(f\) ne dépend pas explicitement de \(x\), cette relation se simplifie :</p>
+            <div class="course-equation">\[\boxed{f-y'\frac{\partial f}{\partial y'}=C}.\]<span class="course-equation-index">(11)</span></div>
+
+            <h2 class="course-chapter" id="applications">Applications</h2>
+            <h3 class="course-subheading">La brachistochrone</h3>
+            <p>Un point matériel glisse sans frottement, au repos initial, sous l’action de la pesanteur. Parmi toutes les courbes reliant deux points, nous cherchons celle qui minimise le temps de parcours. La conservation de l’énergie donne \(v=\sqrt{2gy}\), tandis que \(ds=\sqrt{1+y'^2}\,dx\).</p>
+            <div class="course-equation">\[t[y]=\int_{x_i}^{x_f}\sqrt{\frac{1+y'^2}{2gy}}\,dx.\]<span class="course-equation-index">(12)</span></div>
+            <p>La fonction ne dépend pas explicitement de \(x\). L’identité de Beltrami donne, après simplification :</p>
+            <div class="course-equation">\[\frac{1}{\sqrt{2gy(1+y'^2)}}=C,\qquad \boxed{y(1+y'^2)=2a}.\]<span class="course-equation-index">(13)</span></div>
+            <p>La solution est une cycloïde :</p>
+            <div class="course-equation">\[\boxed{\begin{aligned}x(\theta)&=x_0+a(\theta-\sin\theta),\\y(\theta)&=y_0+a(1-\cos\theta).\end{aligned}}\]<span class="course-equation-index">(14)</span></div>
+            <div class="course-activity"><h3>À retenir</h3><p>Temps de parcours minimal \(\Longrightarrow \delta t=0 \Longrightarrow\) cycloïde.</p></div>
+            <h3 class="course-subheading">Exercice : surface de révolution minimale</h3>
+            <p>Considérons une courbe \(y(x)\) tournée autour de l’axe \(y\). Un élément de surface vaut \(dA=2\pi x\,dl\), avec \(dl=\sqrt{1+y'^2}\,dx\). Il suffit donc de minimiser \(\mathcal{F}[y]=\int x\sqrt{1+y'^2}\,dx\).</p>
+            <figure class="course-figure"><img src="resources/Classes/mecanique-analytique/solide_revolution.jpg" alt="Surface de révolution obtenue par rotation d’une courbe autour de l’axe y" loading="lazy"><figcaption><span class="course-figure-index">Figure 1.</span> Surface de révolution obtenue par rotation autour de l’axe \(y\).</figcaption></figure>
+            <div class="course-equation">\[\frac{d}{dx}\left(\frac{xy'}{\sqrt{1+y'^2}}\right)=0,\qquad \boxed{\frac{xy'}{\sqrt{1+y'^2}}=C}.\]<span class="course-equation-index">(15)</span></div>
+            <ol><li>Déterminer l’équation différentielle vérifiée par \(y(x)\).</li><li>Résoudre cette équation et représenter le profil obtenu.</li><li>Calculer la surface de révolution correspondante.</li><li>Interpréter physiquement la forme obtenue.</li></ol>
+
+            <h2 class="course-chapter" id="geodesiques">Les géodésiques</h2>
+            <p>Une géodésique est une courbe qui rend stationnaire la distance entre deux points soumis à une contrainte géométrique. Dans le plan, c’est une droite ; sur une surface courbe, le problème est plus riche.</p>
+            <h3 class="course-subheading">Exercice : géodésique sur une sphère</h3>
+            <ol><li>Écrire la longueur d’une courbe reliant deux points en coordonnées sphériques.</li><li>Appliquer l’équation d’Euler-Lagrange.</li><li>Montrer que la géodésique est un grand cercle de la sphère.</li><li>Interpréter géométriquement le résultat.</li></ol>
+            <div class="course-equation">\[\boxed{\text{Sur une sphère, les géodésiques sont les grands cercles.}}\]</div>
+            <h3 class="course-subheading">Exercice : géodésique sur un cylindre</h3>
+            <div class="course-equation">\[x=R\cos\theta,\qquad y=R\sin\theta,\qquad ds^2=R^2d\theta^2+dz^2.\]<span class="course-equation-index">(16)</span></div>
+            <ol><li>Construire la fonctionnelle de longueur sur le cylindre.</li><li>Utiliser l’équation d’Euler-Lagrange.</li><li>Montrer qu’après déroulement la géodésique est une droite.</li><li>En déduire qu’après réenroulement, elle correspond à une hélice.</li></ol>
+            <div class="course-equation">\[x(t)=R\cos(\omega t),\qquad y(t)=R\sin(\omega t),\qquad z(t)=vt.\]<span class="course-equation-index">(17)</span></div>
+            <h3 class="course-subheading">Exercice : géodésique sur un cône</h3>
+            <p>Considérons \(z=1-\sqrt{x^2+y^2}\), avec \(A=(0,-1,0)\) et \(B=(0,1,0)\).</p>
+            <ol><li>Établir l’élément de longueur sur la surface et construire la fonctionnelle.</li><li>Déterminer la géodésique et calculer sa longueur.</li><li>Interpréter cette géodésique comme le chemin le plus court autour d’un volcan.</li></ol>
+            <p>Une méthode élégante consiste à développer le cône dans un plan : la géodésique devient alors un segment de droite dans ce plan développé.</p>
+
+            <h2 class="course-chapter" id="hamilton">Du calcul variationnel à la mécanique analytique</h2>
+            <p>Pour un système décrit par une coordonnée généralisée \(q(t)\), considérons la fonctionnelle :</p>
+            <div class="course-equation">\[\boxed{S[q]=\int_{t_i}^{t_f}L(q,\dot q,t)\,dt}.\]<span class="course-equation-index">(18)</span></div>
+            <p>Cette quantité est l’<em>action</em>, et \(L\) le <em>Lagrangien</em>. Le principe de Hamilton affirme que la trajectoire physique rend l’action stationnaire : \(\boxed{\delta S=0}\).</p>
+            <div class="course-equation">\[\delta S=\int_{t_i}^{t_f}\left(\frac{\partial L}{\partial q}\delta q+\frac{\partial L}{\partial\dot q}\delta\dot q\right)dt,\qquad \delta\dot q=\frac{d}{dt}\delta q.\]<span class="course-equation-index">(19)</span></div>
+            <p>Après intégration par parties, les positions initiale et finale étant fixées, \(\delta q(t_i)=\delta q(t_f)=0\). Puisque \(\delta q(t)\) est arbitraire :</p>
+            <div class="course-equation">\[\boxed{\frac{d}{dt}\left(\frac{\partial L}{\partial\dot q}\right)-\frac{\partial L}{\partial q}=0}.\]<span class="course-equation-index">(20)</span></div>
+            <div class="course-activity"><h3>Idée fondamentale</h3><p>Le calcul variationnel permet de passer de \(\delta S=0\) aux équations de Lagrange : une formulation de la dynamique fondée sur un principe variationnel.</p></div>
+
+            <h2 class="course-chapter" id="resume">Résumé du chapitre</h2>
+            <div class="course-table-wrap"><table><tbody><tr><th>Fonction</th><td>\(y(x)\)</td></tr><tr><th>Fonctionnelle</th><td>\(\mathcal{F}[y]=\int f(y,y',x)\,dx\)</td></tr><tr><th>Variation</th><td>\(y_\alpha=y+\alpha\eta\), avec \(\eta(x_i)=\eta(x_f)=0\)</td></tr><tr><th>Stationnarité</th><td>\(\delta\mathcal{F}=0\)</td></tr><tr><th>Euler-Lagrange</th><td>\(\frac{\partial f}{\partial y}-\frac{d}{dx}\frac{\partial f}{\partial y'}=0\)</td></tr><tr><th>Beltrami</th><td>\(f-y'\frac{\partial f}{\partial y'}=C\) si \(f\) ne dépend pas explicitement de \(x\)</td></tr><tr><th>Action</th><td>\(S[q]=\int L(q,\dot q,t)\,dt\)</td></tr><tr><th>Principe de Hamilton</th><td>\(\delta S=0\)</td></tr><tr><th>Équations de Lagrange</th><td>\(\frac{d}{dt}\frac{\partial L}{\partial\dot q}-\frac{\partial L}{\partial q}=0\)</td></tr></tbody></table></div>
+            <div class="course-equation">\[\boxed{\text{Principe variationnel}\quad\Longrightarrow\quad\text{équations du mouvement}}\]</div>
+            <p class="course-end"><a class="course-download" href="mecanique-analytique.html">← Chapitre 1 : Fondements newtoniens</a></p>
+          </article>
+        </div>
+      </main>
+      <footer class="site-footer page-width"><span>© <span id="year">2026</span> Anderson Kohara</span><span>Physics · Research · Teaching</span></footer>
+    </div>
+  </body>
+</html>

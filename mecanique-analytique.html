@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Cours complet de mécanique analytique : chapitre 1, rappels et fondements de la mécanique newtonienne.">
+    <meta name="theme-color" content="#f5f5f0">
+    <title>Mécanique analytique — Anderson Kohara</title>
+    <script>try { document.documentElement.dataset.theme = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch { document.documentElement.dataset.theme = 'light'; }</script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="i18n.js" defer></script><script src="script.js" defer></script>
+    <script>window.MathJax = { svg: { fontCache: 'global' } };</script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-svg.js"></script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header page-width">
+        <a class="brand" href="index.html" aria-label="Anderson Kohara, home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Anderson Kohara</span></a>
+        <div class="header-actions"><span class="header-location">ESME <span aria-hidden="true">·</span> Lyon</span><label class="sr-only" for="language-select">Language</label><select class="language-select" id="language-select"><option value="en">EN</option><option value="pt-BR">PT-BR</option><option value="fr">FR</option></select><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg><span class="theme-label">Dark mode</span></button></div>
+      </header>
+      <main class="course-main page-width" id="top" lang="fr" data-no-translate>
+        <a class="back-link" href="teaching.html"><span aria-hidden="true">←</span> Retour aux supports de cours</a>
+        <section class="course-hero" aria-labelledby="course-title"><div><p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> Support de cours · En français</p><h1 id="course-title">Mécanique<br><span>analytique</span><span class="title-dot">.</span></h1><p class="course-byline">Anderson Kohara <span aria-hidden="true">·</span> Chapitre 1</p></div><div class="course-hero-mark" aria-hidden="true"><span>ℒ</span><span>θ</span><span>∇</span></div></section>
+        <section class="course-intro" aria-label="Introduction au cours"><p>Ce chapitre reprend les fondements de la mécanique newtonienne avant d'introduire les coordonnées généralisées, le principe de moindre action et les équations d'Euler-Lagrange. Le pendule simple puis le double pendule permettent de comprendre pourquoi la mécanique analytique offre une formulation plus systématique.</p><a class="course-download course-download-secondary" href="mecanique-analytique-calcul-variationnel.html">Chapitre 2 : Calcul variationnel <span aria-hidden="true">→</span></a></section>
+        <div class="course-layout">
+          <aside class="course-sidebar"><nav class="course-toc" aria-label="Sommaire du chapitre"><p>Dans ce chapitre</p><a href="#introduction"><span>01</span>Introduction</a><a href="#cinematique"><span>02</span>Cinématique</a><a href="#dynamique"><span>03</span>Dynamique et forces</a><a href="#energie"><span>04</span>Travail et énergie</a><a href="#contraintes"><span>05</span>Contraintes</a><a href="#pendule"><span>06</span>Pendule simple</a><a href="#double-pendule"><span>07</span>Double pendule</a><a href="#analytique"><span>08</span>Vers le lagrangien</a><a href="#exercices"><span>09</span>Exercices</a><a class="course-toc-top" href="#top">Retour en haut ↑</a></nav></aside>
+          <article class="course-content">
+            <h2 class="course-subheading" id="introduction">Introduction</h2>
+            <p>La mécanique newtonienne constitue l'un des cadres fondamentaux de la physique classique. Elle décrit le mouvement des systèmes matériels à partir de leurs propriétés cinématiques et des interactions auxquelles ils sont soumis.</p>
+            <p>Nous allons progressivement passer d'une description newtonienne à une formulation fondée sur les coordonnées généralisées, le principe de moindre action et les équations d'Euler-Lagrange. Cette première étape rappelle les notions essentielles et met en évidence les difficultés qui apparaissent lorsque le nombre de degrés de liberté augmente.</p>
+            <ol><li>Rappeler la cinématique et les lois de Newton.</li><li>Introduire travail, puissance et énergie.</li><li>Distinguer coordonnées indépendantes et contraintes.</li><li>Étudier le pendule simple puis le double pendule.</li><li>Motiver la mécanique analytique.</li></ol>
+
+            <h2 class="course-chapter" id="cinematique">Cinématique newtonienne</h2>
+            <h3 class="course-subheading">Position vitesse et accélération</h3>
+            <p>Dans un référentiel donné, la position d'un point matériel est décrite par le vecteur position. La vitesse est sa dérivée temporelle et l'accélération est la dérivée de la vitesse :</p>
+            <div class="course-equation">\[\vec r(t)=\overrightarrow{OM}(t),\qquad \vec v(t)=\frac{d\vec r}{dt},\qquad \vec a(t)=\frac{d^2\vec r}{dt^2}.\]<span class="course-equation-index">(1)</span></div>
+            <p>En coordonnées cartésiennes, les vecteurs de base sont constants :</p>
+            <div class="course-equation">\[\vec r=x\vec e_x+y\vec e_y+z\vec e_z,\quad \vec v=\dot x\vec e_x+\dot y\vec e_y+\dot z\vec e_z,\quad \vec a=\ddot x\vec e_x+\ddot y\vec e_y+\ddot z\vec e_z.\]<span class="course-equation-index">(2)</span></div>
+            <h3 class="course-subheading">Coordonnées polaires</h3>
+            <p>Pour un mouvement plan, les coordonnées polaires sont souvent plus naturelles. Les vecteurs unitaires dépendent eux-mêmes de l'angle :</p>
+            <div class="course-equation">\[\frac{d\vec e_r}{dt}=\dot\theta\vec e_\theta,\qquad \frac{d\vec e_\theta}{dt}=-\dot\theta\vec e_r.\]<span class="course-equation-index">(3)</span></div>
+            <div class="course-equation">\[\vec v=\dot r\vec e_r+r\dot\theta\vec e_\theta,\qquad \vec a=(\ddot r-r\dot\theta^2)\vec e_r+(r\ddot\theta+2\dot r\dot\theta)\vec e_\theta.\]<span class="course-equation-index">(4)</span></div>
+
+            <h2 class="course-chapter" id="dynamique">Dynamique et forces usuelles</h2>
+            <h3 class="course-subheading">Quantité de mouvement et lois de Newton</h3>
+            <p>La quantité de mouvement d'un point matériel de masse constante est définie par \(\vec p=m\vec v\). Dans un référentiel inertiel, les trois lois de Newton sont :</p>
+            <ol><li><strong>Principe d'inertie.</strong> Un corps isolé reste au repos ou en mouvement rectiligne uniforme.</li><li><strong>Principe fondamental de la dynamique.</strong> La résultante des forces est la dérivée temporelle de la quantité de mouvement.</li><li><strong>Principe des actions réciproques.</strong> Deux corps en interaction exercent l'un sur l'autre des forces de même intensité et de directions opposées.</li></ol>
+            <div class="course-equation">\[\sum_i\vec F_i=\frac{d\vec p}{dt}=m\vec a,\qquad \vec F_{A\rightarrow B}=-\vec F_{B\rightarrow A}.\]<span class="course-equation-index">(5)</span></div>
+            <h3 class="course-subheading">Forces usuelles</h3>
+            <p>Au voisinage de la Terre, le poids d'un corps de masse m est \(\vec P=m\vec g\), avec \(g\simeq9{,}81\,\mathrm{m\,s^{-2}}\). Dans un repère vertical orienté vers le haut, \(\vec P=-mg\vec e_z\).</p>
+            <p>Une surface peut exercer une réaction normale, qui est une force de contrainte. Dans un modèle simple de frottement dynamique, l'intensité vaut \(F_f=\mu N\) ; le frottement est dissipatif. Pour un ressort idéal de raideur k, la force de rappel est :</p>
+            <div class="course-equation">\[\vec F_r=-kx\vec e_x.\]<span class="course-equation-index">(6)</span></div>
+
+            <h2 class="course-chapter" id="energie">Travail puissance et énergie</h2>
+            <h3 class="course-subheading">Travail et puissance</h3>
+            <p>Le travail élémentaire d'une force lors d'un déplacement infinitésimal est son produit scalaire avec ce déplacement. Entre deux points, le travail dépend en général du chemin suivi.</p>
+            <div class="course-equation">\[dW=\vec F\cdot d\vec r,\qquad W_{A\rightarrow B}=\int_{\mathcal C}\vec F\cdot d\vec r,\qquad \mathcal P=\frac{dW}{dt}=\vec F\cdot\vec v.\]<span class="course-equation-index">(7)</span></div>
+            <h3 class="course-subheading">Forces conservatives et énergie potentielle</h3>
+            <p>Une force est conservative lorsque son travail entre deux points ne dépend que des positions initiale et finale. Le travail sur un chemin fermé est alors nul et il existe une énergie potentielle U :</p>
+            <div class="course-equation">\[\oint\vec F\cdot d\vec r=0,\qquad \vec F=-\nabla U,\qquad W_{A\rightarrow B}=-\Delta U.\]<span class="course-equation-index">(8)</span></div>
+            <p>Pour la pesanteur, on peut choisir \(U(z)=mgz+C\). Pour un ressort idéal, l'énergie potentielle est \(U(x)=\frac12kx^2+C\).</p>
+            <h3 class="course-subheading">Théorème de l'énergie cinétique</h3>
+            <p>En utilisant la deuxième loi de Newton et \(d\vec r=\vec vdt\), le travail total s'écrit :</p>
+            <div class="course-equation">\[W_{A\rightarrow B}=\int m\frac{d\vec v}{dt}\cdot\vec v\,dt=m\int\vec v\cdot d\vec v=\frac12mv_B^2-\frac12mv_A^2.\]<span class="course-equation-index">(9)</span></div>
+            <p>On définit donc l'énergie cinétique par \(K=\frac12mv^2\) et l'on obtient \(\Delta K=W_{\mathrm{total}}\). Si toutes les forces sont conservatives, \(\Delta K=-\Delta U\), d'où :</p>
+            <div class="course-equation">\[E=K+U=\text{constante}.\]<span class="course-equation-index">(10)</span></div>
+
+            <h2 class="course-chapter" id="contraintes">Degrés de liberté et contraintes</h2>
+            <p>Décrire une particule libre dans le plan demande deux coordonnées cartésiennes. Si elle est contrainte à rester sur un cercle de rayon l, la relation géométrique suivante rend ces coordonnées dépendantes :</p>
+            <div class="course-equation">\[x^2+y^2=l^2.\]<span class="course-equation-index">(11)</span></div>
+            <p>On peut alors choisir un seul angle : \(x=l\sin\theta\), \(y=-l\cos\theta\). Le nombre de degrés de liberté est le nombre de coordonnées indépendantes nécessaires pour déterminer la configuration. Ces coordonnées seront notées \(q_1,q_2,\ldots,q_N\) et appelées coordonnées généralisées.</p>
+
+            <h2 class="course-chapter" id="pendule">Application Le pendule simple</h2>
+            <h3 class="course-subheading">Description et bilan des forces</h3>
+            <p>Le pendule simple est une masse ponctuelle m suspendue à un fil inextensible, sans masse, de longueur l. Le point de suspension est fixe et le mouvement se déroule dans un plan vertical. La configuration est décrite par un seul angle : le système a un degré de liberté.</p>
+            <figure class="course-figure"><img src="resources/Classes/mecanique-analytique/pendule.png" alt="Schéma d'un pendule simple" loading="lazy"><figcaption><span class="course-figure-index">Figure 1.</span> Pendule simple.</figcaption></figure>
+            <div class="course-equation">\[q=\theta,\qquad \vec T=-T\vec e_r,\qquad \vec P=mg\cos\theta\vec e_r-mg\sin\theta\vec e_\theta.\]<span class="course-equation-index">(12)</span></div>
+            <h3 class="course-subheading">Équation du mouvement</h3>
+            <p>La longueur est constante : r=l, donc la vitesse radiale et l'accélération radiale associée sont nulles. L'accélération devient</p>
+            <div class="course-equation">\[\vec a=-l\dot\theta^2\vec e_r+l\ddot\theta\vec e_\theta.\]<span class="course-equation-index">(13)</span></div>
+            <p>La projection de la deuxième loi de Newton sur la direction tangentielle élimine la tension :</p>
+            <div class="course-equation">\[-mg\sin\theta=ml\ddot\theta,\qquad \boxed{\ddot\theta+\frac{g}{l}\sin\theta=0}.\]<span class="course-equation-index">(14)</span></div>
+            <p>L'équation est non linéaire. La tension agit dans la direction radiale et impose principalement la contrainte géométrique.</p>
+            <h3 class="course-subheading">Petites oscillations et énergie</h3>
+            <p>Lorsque l'amplitude est petite, \(\sin\theta\simeq\theta\). L'équation devient celle d'un oscillateur harmonique :</p>
+            <div class="course-equation">\[\ddot\theta+\frac{g}{l}\theta=0,\qquad \omega_0=\sqrt{\frac{g}{l}},\qquad T_0=2\pi\sqrt{\frac{l}{g}}.\]<span class="course-equation-index">(15)</span></div>
+            <p>Sans frottements, l'énergie mécanique est conservée :</p>
+            <div class="course-equation">\[E=\frac12ml^2\dot\theta^2+mgl(1-\cos\theta)=\text{constante}.\]<span class="course-equation-index">(16)</span></div>
+
+            <h2 class="course-chapter" id="double-pendule">Du pendule simple au double pendule</h2>
+            <p>Le double pendule comporte deux masses ponctuelles, deux segments rigides de longueurs \(l_1,l_2\) et deux angles \(\theta_1,\theta_2\). Il possède donc deux degrés de liberté.</p>
+            <figure class="course-figure"><img src="resources/Classes/mecanique-analytique/pendule_double.png" alt="Schéma d'un double pendule" loading="lazy"><figcaption><span class="course-figure-index">Figure 2.</span> Double pendule.</figcaption></figure>
+            <div class="course-equation">\[x_1=l_1\sin\theta_1,\quad y_1=-l_1\cos\theta_1,\quad x_2=l_1\sin\theta_1+l_2\sin\theta_2,\quad y_2=-l_1\cos\theta_1-l_2\cos\theta_2.\]<span class="course-equation-index">(17)</span></div>
+            <div class="course-equation">\[v_1^2=l_1^2\dot\theta_1^2,\qquad v_2^2=l_1^2\dot\theta_1^2+l_2^2\dot\theta_2^2+2l_1l_2\dot\theta_1\dot\theta_2\cos(\theta_1-\theta_2).\]<span class="course-equation-index">(18)</span></div>
+            <p>Le dernier terme met en évidence le couplage entre les degrés de liberté. Avec Newton, il faut déterminer les forces de contrainte, écrire les équations vectorielles, projeter sur des directions adaptées puis éliminer les tensions. Les lois restent valables, mais l'organisation du calcul devient laborieuse.</p>
+            <div class="course-table-wrap"><table><caption>Comparaison entre les deux systèmes</caption><thead><tr><th></th><th>Pendule simple</th><th>Double pendule</th></tr></thead><tbody><tr><td>Degrés de liberté</td><td>1</td><td>2</td></tr><tr><td>Coordonnées naturelles</td><td>θ</td><td>θ₁, θ₂</td></tr><tr><td>Équations</td><td>Une équation</td><td>Deux équations couplées</td></tr><tr><td>Description newtonienne</td><td>Simple</td><td>Rapidement laborieuse</td></tr></tbody></table></div>
+
+            <h2 class="course-chapter" id="analytique">Vers la mécanique analytique</h2>
+            <p>La question centrale est la suivante : comment obtenir directement les équations du mouvement à partir des coordonnées indépendantes, sans déterminer explicitement toutes les forces de contrainte ?</p>
+            <p>La formulation analytique incorpore les contraintes géométriques dans le choix des coordonnées et construit les équations à partir d'une quantité scalaire fondée sur les énergies :</p>
+            <div class="course-equation">\[\mathcal L=K-U,\qquad \frac{d}{dt}\left(\frac{\partial\mathcal L}{\partial\dot q_i}\right)-\frac{\partial\mathcal L}{\partial q_i}=0.\]<span class="course-equation-index">(19)</span></div>
+
+            <h2 class="course-chapter" id="exercices">Exercices</h2>
+            <ol><li><strong>Chute libre.</strong> Un objet de masse 2 kg est lâché sans vitesse initiale d'une hauteur de 10 m. Déterminer sa vitesse et son énergie cinétique à l'impact, puis vérifier le théorème de l'énergie cinétique.</li><li><strong>Plan incliné.</strong> Un bloc de masse 5 kg glisse sur un plan d'angle 30°, avec un coefficient de frottement dynamique de 0,2. Déterminer la réaction normale, le frottement, l'accélération et la vitesse après 3 s.</li><li><strong>Ressort.</strong> Un ressort de raideur 100 N m⁻¹ est comprimé de 0,10 m. Déterminer son énergie potentielle et la vitesse d'une masse de 0,5 kg au retour à la longueur naturelle.</li><li><strong>Pendule simple.</strong> Pour une longueur de 1 m et un angle initial de 20°, écrire l'équation exacte, l'approximation des petites oscillations, la période et l'énergie mécanique.</li><li><strong>Degrés de liberté.</strong> Les déterminer pour une particule libre dans l'espace, une particule sur un cercle, un pendule simple et un double pendule plan.</li><li><strong>Double pendule.</strong> Établir les coordonnées des masses, calculer leurs vitesses et expliquer l'origine du couplage.</li></ol>
+            <h2 class="course-subheading">À retenir</h2>
+            <ul><li>Les lois de Newton relient forces et accélérations.</li><li>Pour une force conservative, \(\vec F=-\nabla U\), et l'énergie mécanique est conservée en l'absence de dissipation.</li><li>Les contraintes réduisent le nombre de coordonnées indépendantes.</li><li>Les coordonnées généralisées décrivent directement la configuration utile du système.</li><li>La mécanique analytique fournit une méthode systématique pour les systèmes contraints et couplés.</li></ul>
+          </article>
+        </div>
+      </main>
+      <footer class="site-footer page-width"><span>© <span id="year">2026</span> Anderson Kohara</span><span>Physics · Research · Teaching</span></footer>
+    </div>
+  </body>
+</html>

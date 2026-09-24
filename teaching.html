@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Physics class material by Anderson Kohara.">
+    <meta name="theme-color" content="#f5f5f0">
+    <title>Class Material — Anderson Kohara</title>
+    <script>try { document.documentElement.dataset.theme = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch { document.documentElement.dataset.theme = 'light'; }</script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="i18n.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header page-width">
+        <a class="brand" href="index.html" aria-label="Anderson Kohara, home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Anderson Kohara</span></a>
+        <div class="header-actions"><span class="header-location">ESME <span aria-hidden="true">·</span> Lyon</span><label class="sr-only" for="language-select">Language</label><select class="language-select" id="language-select"><option value="en">EN</option><option value="pt-BR">PT-BR</option><option value="fr">FR</option></select><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg><span class="theme-label">Dark mode</span></button></div>
+      </header>
+      <main class="teaching-main page-width">
+        <a class="back-link" href="index.html"><span aria-hidden="true">←</span> Back to homepage</a>
+        <div class="teaching-intro"><p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> Teaching</p><h1>Class<br>material<span class="title-dot">.</span></h1><p>Course notes and exercises for students of physics.</p></div>
+        <div class="teaching-grid">
+          <a class="teaching-course-card" href="mecanique-analytique.html" lang="fr" data-no-translate>
+            <span class="card-top"><span class="card-number">02 / Cours</span><span class="card-arrow" aria-hidden="true">↗</span></span>
+            <span class="teaching-course-title">Mécanique<br>analytique</span>
+            <span class="teaching-course-description">Deux séances : fondements newtoniens, contraintes, calcul variationnel et principe de Hamilton.</span>
+            <span class="teaching-course-meta">Français · 2 séances</span>
+          </a>
+          <a class="teaching-course-card" href="booster-physique.html">
+            <span class="card-top"><span class="card-number">01 / Course</span><span class="card-arrow" aria-hidden="true">↗</span></span>
+            <span class="teaching-course-title" lang="fr">Cours Booster —<br>Physique Mathématique</span>
+            <span class="teaching-course-description">Foundations of mathematical physics, with lessons, worked examples, exercises, and diagrams.</span>
+            <span class="teaching-course-meta">French · 3 chapters</span>
+          </a>
+        </div>
+      </main>
+      <footer class="site-footer page-width"><span>© <span id="year">2026</span> Anderson Kohara</span><span>Physics · Research · Teaching</span></footer>
+    </div>
+  </body>
+</html>

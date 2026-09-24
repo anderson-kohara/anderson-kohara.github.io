@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Anderson Kohara is a physics professor and researcher specializing in QCD and hadronic interactions.">
+    <meta name="theme-color" content="#f5f5f0">
+    <title>Anderson Kohara — Physics Professor &amp; Researcher</title>
+    <script>
+      try {
+        const savedTheme = localStorage.getItem('theme');
+        document.documentElement.dataset.theme = savedTheme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      } catch {
+        document.documentElement.dataset.theme = 'light';
+      }
+    </script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="i18n.js" defer></script>
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header page-width">
+        <a class="brand" href="index.html" aria-label="Anderson Kohara, home">
+          <span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span>
+          <span>Anderson Kohara</span>
+        </a>
+        <div class="header-actions">
+          <span class="header-location">ESME <span aria-hidden="true">·</span> Lyon</span>
+          <label class="sr-only" for="language-select">Language</label>
+          <select class="language-select" id="language-select"><option value="en">EN</option><option value="pt-BR">PT-BR</option><option value="fr">FR</option></select>
+          <button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false">
+            <svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4"></circle>
+              <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+            </svg>
+            <span class="theme-label">Dark mode</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="page-width home-main">
+        <section class="hero" aria-labelledby="hero-title">
+          <div class="hero-copy">
+            <p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> Physics · Research · Teaching</p>
+            <h1 id="hero-title">Anderson<br><span>Kohara</span><span class="title-dot">.</span></h1>
+            <p class="hero-role">Professor of Physics <span aria-hidden="true">/</span> Researcher</p>
+            <div class="bio-block">
+              <p>Anderson Kohara holds a BSc, MSc, and PhD in physics from the Universidade Federal do Rio de Janeiro. He specializes in QCD and hadronic interactions and has worked extensively on the theoretical description of elastic proton–proton scattering.</p>
+              <p>He is currently a professor at ESME in Lyon.</p>
+            </div>
+          </div>
+
+          <figure class="portrait-panel">
+            <div class="portrait-frame">
+              <img src="resources/Photo.png" alt="Portrait of Anderson Kohara" width="800" height="800" fetchpriority="high">
+            </div>
+            <figcaption><span>Anderson Kohara</span><span>Physics professor &amp; researcher</span></figcaption>
+          </figure>
+        </section>
+
+        <section class="resources" aria-labelledby="resources-title">
+          <div class="section-heading">
+            <p class="section-kicker">Discover more</p>
+            <h2 id="resources-title">Explore my work<span class="title-dot">.</span></h2>
+          </div>
+          <div class="resource-grid">
+            <a class="resource-card" href="cv.html">
+              <span class="card-top"><span class="card-number">01 / Profile</span><span class="card-arrow" aria-hidden="true">↗</span></span>
+              <span class="card-title">Curriculum<br>vitae</span>
+              <span class="card-bottom">Full CV <span>View CV</span></span>
+            </a>
+            <a class="resource-card" href="publications.html">
+              <span class="card-top"><span class="card-number">02 / Research</span><span class="card-arrow" aria-hidden="true">↗</span></span>
+              <span class="card-title">Publications</span>
+              <span class="card-bottom">Publication list <span>33 records</span></span>
+            </a>
+            <a class="resource-card" href="teaching.html">
+              <span class="card-top"><span class="card-number">03 / Teaching</span><span class="card-arrow" aria-hidden="true">↗</span></span>
+              <span class="card-title">Class<br>material</span>
+              <span class="card-bottom">Physics resources <span>1 course</span></span>
+            </a>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer page-width"><span>© <span id="year">2026</span> Anderson Kohara</span><span>Physics · Research · Teaching</span></footer>
+    </div>
+  </body>
+</html>

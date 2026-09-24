@@ -1,0 +1,1573 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Cours Booster — Physique Mathématique by Anderson Kohara: a French course with lessons, worked examples, exercises, figures, and equations.">
+    <meta name="theme-color" content="#f5f5f0">
+    <title>Cours Booster — Physique Mathématique — Anderson Kohara</title>
+    <script>try { document.documentElement.dataset.theme = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch { document.documentElement.dataset.theme = 'light'; }</script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="i18n.js" defer></script>
+    <script src="script.js" defer></script>
+    <script>
+      window.MathJax = {
+        loader: {load: ['[tex]/physics', '[tex]/cancel']},
+        tex: {packages: {'[+]': ['physics', 'cancel']}, processEscapes: true},
+        svg: {fontCache: 'global'}
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-svg.js"></script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header page-width">
+        <a class="brand" href="index.html" aria-label="Anderson Kohara, home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Anderson Kohara</span></a>
+        <div class="header-actions"><span class="header-location">ESME <span aria-hidden="true">·</span> Lyon</span><label class="sr-only" for="language-select">Language</label><select class="language-select" id="language-select"><option value="en">EN</option><option value="pt-BR">PT-BR</option><option value="fr">FR</option></select><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg><span class="theme-label">Dark mode</span></button></div>
+      </header>
+      <main class="course-main page-width" id="top">
+        <a class="back-link" href="teaching.html"><span aria-hidden="true">←</span> Back to class material</a>
+        <section class="course-hero" aria-labelledby="course-title">
+          <div><p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> Course material · In French</p><h1 id="course-title">Cours Booster —<br><span>Physique Mathématique</span><span class="title-dot">.</span></h1><p class="course-byline">Anderson Kohara <span aria-hidden="true">·</span> First-year preparatory cycle</p></div>
+          <div class="course-hero-mark" aria-hidden="true"><span>∑</span><span>∫</span><span>∇</span></div>
+        </section>
+        <section class="course-intro" lang="fr" data-no-translate aria-label="Introduction au cours"><p>Bienvenue dans ce petit cours de booster en physique !!
+Ce document regroupe des notes personnelles que j’ai préparées pour aider les étudiants de la première année du cycle prépa à mieux comprendre certains concepts de base en physique classique. L’objectif est simple : proposer un accompagnement clair et pratique pour renforcer ce qui est vu en cours.</p><p>Ces notes ne remplacent évidemment pas les livres de référence en physique, qui restent essentiels pour aller plus loin et approfondir les notions. Il s’agit ici d’un support complémentaire, pensé pour guider, débloquer et donner un peu de recul sur les sujets abordés.</p><p>Je m’excuse d’avance s’il y a quelques fautes de français ou de petites imprécisions scientifiques. N’hésitez surtout pas à me les signaler : vos retours sont les bienvenus pour améliorer ce support !</p><p>Bonne lecture et bon courage dans vos études !</p></section>
+        <div class="course-layout">
+          <aside class="course-sidebar"><nav class="course-toc" aria-label="Course chapters"><p>On this page</p><a href="#course-section-2"><span>01</span>Homogénéités des équations (3 séances)</a><a href="#course-section-39"><span>02</span>Dérivées, intégrales et équations différentielles (2 séances)</a><a href="#course-section-105"><span>03</span>Vecteurs et ses opérations (2 séances)</a><a class="course-toc-top" href="#top">Return to top ↑</a></nav></aside>
+          <article class="course-content" lang="fr" data-no-translate><h2 class="course-subheading" id="course-section-1">Objectif du cours</h2>
+<p>Renforcer les bases mathématiques appliquées à la physique, avec un focus sur l’intuition, la rigueur et les applications concrètes. Ce cours vise à préparer les élèves à mieux aborder les enseignements scientifiques du supérieur.</p>
+<h2 class="course-chapter" id="course-section-2">Homogénéités des équations (3 séances)</h2>
+<h3 class="course-subheading" id="course-section-3">La démarche scientifique</h3>
+<ul>
+<li>
+<p><strong>La démarche scientifique:</strong> La première partie des démarche scientifique est composée par des observations et les expériences. Cela correspond à la phase empirique des sciences. La deuxième partie est la modélisation et réalisation de calcule, correspondant à la phase  théorique des sciences.</p>
+</li>
+<li>
+<p><strong>L&#x27;objective d&#x27;une théorie scientifique:</strong> Comme son principale objective, une théorie doit être capable d&#x27;expliquer un phénomène naturel sur la base de ses postulats et théorèmes, faire des prédictions par les biais de calcules.</p>
+</li>
+<li>
+<p><strong>Réfutabilité d&#x27;une théorie scientifique:</strong> Une théorie scientifique n’est pas simplement vraie ou fausse. La théorie doit être capable d’expliquer les phénomènes avec une certaine marge d’erreur.</p>
+</li>
+<li>
+<p><strong>Intelligibilités des résultats:</strong> La théorie ou l&#x27;expérience doit être reproductible et vérifiable par d&#x27;autres scientifiques les résultats doivent être rapportés dans un langage scientifique.</p>
+</li>
+<li>
+<p><strong>Intuition ou raison?</strong> En science, le langage courant n&#x27;a pas d&#x27;importance : je pense que..., à mon avis..., vos explications doivent être basées sur la démarche scientifique ex: d&#x27;après les travaux scientifiques des auteurs...</p>
+</li>
+</ul>
+<h3 class="course-subheading" id="course-section-4">Grandeurs physiques, unités du SI</h3>
+<p>Ces sont des caractéristiques mesurables d&#x27;un phénomène, d&#x27;un corps ou d&#x27;une substance. Chaque grandeur est exprimée dans une unité appropriée.</p>
+<p><strong>Définition:</strong> Une grandeur physique est une propriété quantifiable de l’espace-temps, de la matière ou d’un phénomène.</p>
+<ol>
+<li>
+<p><strong>Grandeur scalaire:</strong> masse, température, temps, énergie, pression, etc... <br> Ex: La <strong>masse</strong>  peut être mesuré en kg.  \(M=(70\pm 1 )\, {\rm kg}\)</p>
+<figure class="course-figure" id="course-figure-1"><img src="resources/Classes/booster-physique/poid.png" alt="La masse d&#x27;un corps" loading="lazy"><figcaption><span class="course-figure-index">Figure 1.</span> La masse d&#x27;un corps</figcaption></figure>
+</li>
+<li>
+<p><strong>Les grandeurs physiques vectorielle:</strong> vitesse, accélération, force, quantité de mouvement, moment cinétique, champs électrique, champs magnétique, etc..<br> La <strong>vitesse</strong> du vent est une grandeur physique vectorielle: un vecteur dont la norme est en m/s, la direction et le sens sont ceux du vent.</p>
+<div class="course-equation" id="course-equation-1">\[\begin{gathered}\vec{v}=\left((30\pm 2)\vec{e}_x+(-20\pm 2)\vec{e}_y+(4\pm 2)\vec{e}_z\right)~{\rm m/s}\end{gathered}\]<span class="course-equation-index">(1)</span></div>
+<figure class="course-figure" id="course-figure-2"><img src="resources/Classes/booster-physique/vent.png" alt="Vitesse du vent" loading="lazy"><figcaption><span class="course-figure-index">Figure 2.</span> Vitesse du vent</figcaption></figure>
+</li>
+<li>
+<p><strong>Les grandeurs tensorielle:</strong> Moment d&#x27;inertie, tenseur de stress, <br> La répartition de la masse dans un objet en rotation est appelée moment d’inertie. Il s&#x27;agit d&#x27;une quantité tensorielle qui peut être mesuré en kg m².</p>
+<div class="course-equation" id="course-equation-2">\[\begin{gathered}I=\begin{bmatrix}
+x_1 &amp; x_2 &amp; x_3\\
+y_1 &amp; y_2 &amp; y_3 \\
+z_1 &amp; z_2 &amp; z_3 
+\end{bmatrix}~{\rm kg.m^2}\end{gathered}\]<span class="course-equation-index">(2)</span></div>
+</li>
+</ol>
+<p>Généralement les grandeurs physiques sont présentées comme</p>
+<div class="course-equation" id="course-equation-3">\[\begin{gathered}G=(g\pm \Delta g)~ {\rm unit\&#x27;e}\end{gathered}\]<span class="course-equation-index">(3)</span></div>
+<p>où \(G\) c&#x27;est la grandeur physique, \(g\) la valeur numérique et \(\Delta g\) son incertitude.</p>
+<ul>
+<li>
+<p>Ne commettez pas l&#x27;erreur de penser que seul \(g\) est important. \(g\) sans l&#x27;unité ne veut rien dire  (résultat invalide sauf, pour des grandeurs sans unités (p.ex. indice optique d’un milieu, etc)</p>
+</li>
+<li>
+<p>Dans le cas d’une mesure, \(g\) sans l’erreur \(\Delta g\) ne permet pas de découvrir comment la quantité a été mesurée (résultat invalide)</p>
+</li>
+</ul>
+<p><strong>Exemple</strong>: Quelle que soit la taille « réelle » d’un objet, la plupart des informations que nous pouvons extraire dépendent de l’instrument utilisé pour mesurer la taille. Nous supposons que nous utilisons un ruban pour mesuré la taille d&#x27;un morceau de bois</p>
+<figure class="course-figure" id="course-figure-3"><img src="resources/Classes/booster-physique/mesure.png" alt="La mesure d&#x27;un morceau de parallélépipède." loading="lazy"><figcaption><span class="course-figure-index">Figure 3.</span> La mesure d&#x27;un morceau de parallélépipède.</figcaption></figure>
+<p><strong>Interdit de faire: oublier ou mélanger des unités </strong></p>
+<ul>
+<li>
+<p>Vous mesurez un volume \(V\) à l’aide d’une éprouvette et vous notez sur votre compte-rendu \(V\)=10. Dix quoi? Litres? m\(^3\)? cm\(^3\)? Ne pas spécifier les unités ici rend le résultat inutilisable. Quelqu’un qui devra ultérieurement reprendre vos résultats sera incapable d’interpréter cette information</p>
+</li>
+<li>
+<p>Vous effectuez une application numérique pour calculer une vitesse moyenne à partir de la relation \(v=D/T\). On vous donne \(D\)=10 m et \(T\)=1 s et vous concluez \(v\)=10 km/h. Perdu, la valeur numérique est bonne mais l’unité est erronée, ce sont des m/s et non des km/h.</p>
+</li>
+<li>
+<p>Vous calculer une tension à l’aide de la loi d’Ohm: \(V=R\,I\). Vous obtenez \(V\)=10 A. Perdu, la tension se mesure en Volts.</p>
+</li>
+</ul>
+<h3 class="course-subheading" id="course-section-5">Ordres de grandeur en physique</h3>
+<p>Les <strong>ordres de grandeur</strong> permettent d&#x27;estimer la taille, la durée, la masse ou toute autre quantité physique caractéristique d’un phénomène ou d’un objet, sans entrer dans les détails précis des calculs. Ils donnent une idée de l’échelle pertinente dans un contexte donné.</p>
+<h3 class="course-subheading" id="course-section-6">Définition</h3>
+<p>Un ordre de grandeur d’une quantité est une approximation de cette quantité à la puissance de dix la plus proche. Cela revient à dire qu’on exprime une grandeur sous la forme :</p>
+<div class="course-equation" id="course-equation-62">\[x \approx 10^n \quad \text{où } n \in \mathbb{Z}\]<span class="course-equation-index">(4)</span></div>
+<p>Cette approximation est utile pour comparer rapidement des quantités ou estimer la validité d’un résultat.</p>
+<h3 class="course-subheading" id="course-section-7">Exemples classiques</h3>
+<ul>
+<li>
+<p>Taille d’un atome : \(10^{-10}\) m</p>
+</li>
+<li>
+<p>Taille d’un être humain : \(10^{0}\) m</p>
+</li>
+<li>
+<p>Rayon de la Terre : \(6,4 \times 10^6\) m \(\approx 10^7\) m</p>
+</li>
+<li>
+<p>Distance Terre-Soleil (1 ua) : \(1,5 \times 10^{11}\) m \(\approx 10^{11}\) m</p>
+</li>
+<li>
+<p>Durée d’un battement de cœur : \(\sim 1\) s</p>
+</li>
+<li>
+<p>Durée de la lumière pour traverser un atome : \(\sim 10^{-18}\) s</p>
+</li>
+<li>
+<p>Masse d’un électron : \(9,1 \times 10^{-31}\) kg \(\approx 10^{-30}\) kg</p>
+</li>
+<li>
+<p>Masse d’un humain : \(\sim 10^{2}\) kg</p>
+</li>
+<li>
+<p>Masse de la Terre : \(6 \times 10^{24}\) kg</p>
+</li>
+</ul>
+<h3 class="course-subheading" id="course-section-8">Utilité des ordres de grandeur</h3>
+<ul>
+<li>
+<p><strong>Vérification de cohérence</strong> : Un résultat dont l’ordre de grandeur est absurde peut signaler une erreur de raisonnement ou de calcul.</p>
+</li>
+<li>
+<p><strong>Simplification</strong> : Permet de simplifier les calculs dans les modèles ou les raisonnements sans perte significative de précision.</p>
+</li>
+<li>
+<p><strong>Hiérarchisation</strong> : Aide à identifier les effets dominants dans un système physique.</p>
+</li>
+</ul>
+<h3 class="course-subheading" id="course-section-9">Notation scientifique</h3>
+<p>Pour exprimer les ordres de grandeur, on utilise la notation scientifique :</p>
+<div class="course-equation" id="course-equation-63">\[x = a \times 10^n \quad \text{avec } 1 \leq |a| &lt; 10\]<span class="course-equation-index">(5)</span></div>
+<p>Exemple : \(6,02 \times 10^{23}\) (constante d’Avogadro)</p>
+<h3 class="course-subheading" id="course-section-10">Échelle logarithmique</h3>
+<p>Les ordres de grandeur s’expriment souvent en échelle logarithmique, ce qui facilite la représentation de données très dispersées, par exemple sur des graphes semi-logarithmiques ou logarithmiques.</p>
+<h3 class="course-subheading" id="course-section-11">Règles pour les arrondis</h3>
+<p>L’arrondi d’un nombre à une précision souhaitée se détermine à partir du chiffre suivant, s’il existe.</p>
+<ul>
+<li>
+<p><strong>Arrondi par défaut:</strong> si le chiffre suivant la précision souhaitée est 0, 1 ,2, 3, 4, on arrondit à la valeur inférieure en tronquant à la précision souhaitée.</p>
+</li>
+<li>
+<p><strong>Arrondi par excès</strong> -- si le chiffre suivant la précision souhaitée est 5, 6, 7, 8, 9, on arrondit à la valeur supérieure en tronquant à la précision souhaitée.</p>
+</li>
+</ul>
+<h3 class="course-subheading" id="course-section-12">Exemples:</h3>
+<ul>
+<li>
+<p>arrondir \(\pi\) On donne \(\pi\simeq\)3,14159… La valeur de \(\pi\) arrondie au millième est 3,142. Il s’agit dans ce cas d’un arrondi par excès. La valeur de \(\pi\) arrondie à l’unité est 3, par défaut (\(\pi\simeq\)3, très pratique pour trouver des ordres de grandeurs).</p>
+</li>
+<li>
+<p>Poids d&#x27;un bagage Supposons qu’à l’aéroport vos bagages pèsent P=23,4 Kg et la limite est de 23 kg. Dans ce cas, il est courant d&#x27;utiliser l&#x27;arrondi par défaut \(P\simeq  \)23 Kg. Mais si la mesure est de 23,8 kg, le contrôleur pourrait alors utiliser un arrondi par excès \(P\simeq\) 24 Kg.</p>
+</li>
+</ul>
+<h3 class="course-subheading" id="course-section-13">Formats d’écritures d’un résultat numérique</h3>
+<ul>
+<li>
+<p><strong></strong>\(\blacktriangleright\) Écriture décimale}} : on écrit le résultat sous sa forme décimale usuelle en conservant le nombre de chiffres significatifs adéquat et en arrondissant si nécessaire.</p>
+</li>
+<li>
+<p><strong></strong>\(\blacktriangleright\) Écriture scientifique}} : on écrit le résultat sous la forme « \(n,m \times 10^p\) »</p>
+<p>où \(n\) est un entier compris entre 1 et 9 (inclus), \(m\) les décimales significatives et \(p\) un exposant entier (positif ou négatif).</p>
+<p><em>Exemples</em>:   \(0,052 = 5,2 \times 10^{-2}\) ;   \(29,6 = 2,96 \times 10^1\)</p>
+</li>
+<li>
+<p><strong></strong>\(\blacktriangleright\) Écriture ingénieur}} : on écrit le résultat sous la forme « \(n,m \times 10^{3p}\) »</p>
+<p>\(p\) est un entier, ce qui permet d’utiliser les préfixes des multiples et sous-multiples. On ajuste la valeur de \(n\) en fonction de l’exposant obtenu.</p>
+<p><em>Exemples</em>:   \(0,052 \, \text{A} = 52 \times 10^{-3} \, \text{A} = 52 \, \text{mA}\) ;   \(1,02 \times 10^7 \, \text{V} = 10,2 \times 10^6 \, \text{V} = 10,2 \, \text{MV}\)</p>
+</li>
+</ul>
+<h3 class="course-subheading" id="course-section-14">Règles pour les chiffres significatifs</h3>
+<p>Les chiffres significatifs permettent d&#x27;indiquer la précision d&#x27;une mesure ou d&#x27;un résultat. Voici les règles principales à connaître :</p>
+<ul>
+<li>
+<p><strong>Tous les chiffres non nuls sont significatifs.</strong></p>
+<p><em>Exemple</em> : 42,7 a <strong>3 chiffres significatifs</strong>.</p>
+</li>
+<li>
+<p><strong>Les zéros situés entre des chiffres significatifs sont significatifs.</strong></p>
+<p><em>Exemple</em> : 302 a <strong>3 chiffres significatifs</strong>.</p>
+</li>
+<li>
+<p><strong>Les zéros à gauche du premier chiffre non nul ne sont <em>pas</em> significatifs.</strong></p>
+<p><em>Exemple</em> : 0,0045 a <strong>2 chiffres significatifs</strong>.</p>
+</li>
+<li>
+<p><strong>Les zéros à droite du dernier chiffre non nul sont significatifs si une virgule est présente.</strong></p>
+<p><em>Exemples</em> :</p>
+<ul>
+<li>
+<p>50,0 a <strong>3 chiffres significatifs</strong>.</p>
+</li>
+<li>
+<p>2,300 a <strong>4 chiffres significatifs</strong>.</p>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>En notation scientifique, tous les chiffres de la mantisse sont significatifs.</strong></p>
+<p><em>Exemple</em> : \(2,30 \times 10^3\) a <strong>3 chiffres significatifs</strong>.</p>
+</li>
+</ul>
+<p><strong>Règles pour les calculs</strong> :</p>
+<ul>
+<li>
+<p><strong>Addition / soustraction</strong> : le résultat est arrondi au même <em>nombre de décimales</em> que la donnée la moins précise.</p>
+<p><em>Exemple</em> : \(12,3 + 4,56 = 16,86 \rightarrow 16,9\)</p>
+</li>
+<li>
+<p><strong>Multiplication / division</strong> : le résultat a autant de <em>chiffres significatifs</em> que la donnée qui en a le moins.</p>
+<p><em>Exemple</em> : \(3,2 \times 2,51 = 8,032 \rightarrow 8,0\)</p>
+</li>
+</ul>
+<h3 class="course-subheading" id="course-section-15">Le système international des unités et les grandeurs de base </h3>
+<ol>
+<li>
+<p>Qu&#x27;est-ce qu&#x27;une unité de mesure?</p>
+<p>Une unité est une quantité standardisée utilisée pour mesurer une grandeur physique (comme la longueur, le temps, la masse…). Par exemple, on mesure une distance en mètres, un temps en secondes, etc.</p>
+<p>En physique, mesurer signifie attribuer une valeur numérique à une grandeur physique en la comparant à une référence appelée <strong>unité</strong>. Le <em>Système international d’unités</em> (SI) repose sur un ensemble minimal de <strong>7 unités de base</strong>, choisies pour représenter des grandeurs fondamentales qui sont :</p>
+<ul>
+<li>
+<p>universelles et indépendantes de toute expérience spécifique ;</p>
+</li>
+<li>
+<p>mesurables avec une grande précision ;</p>
+</li>
+<li>
+<p>suffisantes pour exprimer toutes les autres grandeurs physiques par combinaison.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Le Système international d&#x27;unités (SI)</p>
+<p>Le Système international (SI) est le système de mesure officiel utilisé en science et dans la majorité des pays. Il repose sur 7 unités de base à partir desquelles on peut définir toutes les autres unités (appelées unités dérivées).</p>
+<figure class="course-figure" id="course-figure-4"><img src="resources/Classes/booster-physique/7_unites_de_base.png" alt="Il définit sept grandeurs fondamentales, leur échelon de référence (l’unité) et un symbole pour l’unité. Important: toutes les autres unités ses exprimer par ces sept unités de base (les unités composées)" loading="lazy"><figcaption><span class="course-figure-index">Figure 4.</span> Il définit sept grandeurs fondamentales, leur échelon de référence (l’unité) et un symbole pour l’unité. 
+Important: toutes les autres unités ses exprimer par ces sept unités de base (les unités composées)
+</figcaption></figure>
+<div class="course-table-wrap"><table><caption>Les 7 unités de base du Système international (SI).</caption><thead><tr><th><strong>Grandeur physique</strong></th><th><strong>Symbole</strong></th><th><strong>Unité de base (nom)</strong></th><th><strong>Symbole de l’unité</strong></th></tr></thead><tbody><tr><td>longueur</td><td>\(l\)</td><td>mètre</td><td>m</td></tr><tr><td>masse</td><td>\(m\)</td><td>kilogramme</td><td>kg</td></tr><tr><td>temps</td><td>\(t\)</td><td>seconde</td><td>s</td></tr><tr><td>intensité électrique</td><td>\(I\)</td><td>ampère</td><td>A</td></tr><tr><td>température thermodynamique</td><td>\(T\)</td><td>kelvin</td><td>K</td></tr><tr><td>quantité de matière</td><td>\(n\)</td><td>mole</td><td>mol</td></tr><tr><td>intensité lumineuse</td><td>\(I_v\)</td><td>candela</td><td>cd</td></tr></tbody></table></div>
+<p>Ces unités de base sont associées à des <strong>dimensions physiques fondamentales</strong>, qui décrivent la nature de la grandeur mesurée, indépendamment de l’unité choisie.</p>
+</li>
+</ol>
+<h3 class="course-subheading" id="course-section-16">Les 7 dimensions physiques fondamentales</h3>
+<p>Les dimensions fondamentales représentent les catégories essentielles à partir desquelles toutes les autres grandeurs peuvent être construites. Elles sont notées par des symboles conventionnels :</p>
+<div class="course-table-wrap"><table><thead><tr><th><strong>Grandeur physique</strong></th><th><strong>Dimension</strong></th><th><strong>Unité SI</strong></th><th><strong>Description</strong></th></tr></thead><tbody><tr><td>Longueur</td><td>\([L]\)</td><td>mètre (m)</td><td>Distance dans l’espace</td></tr><tr><td>Temps</td><td>\([T]\)</td><td>seconde (s)</td><td>Durée d’un phénomène</td></tr><tr><td>Masse</td><td>\([M]\)</td><td>kilogramme (kg)</td><td>Inertie d’un corps</td></tr><tr><td>Intensité électrique</td><td>\([I]\)</td><td>ampère (A)</td><td>Flux de charges électriques</td></tr><tr><td>Température thermodynamique</td><td>\([\Theta]\)</td><td>kelvin (K)</td><td>Niveau d’agitation thermique</td></tr><tr><td>Quantité de matière</td><td>\([N]\)</td><td>mole (mol)</td><td>Nombre d’entités élémentaires</td></tr><tr><td>Intensité lumineuse</td><td>\([J]\)</td><td>candela (cd)</td><td>Flux lumineux perçu</td></tr></tbody></table></div>
+<p class="course-orphan-item">Les unités dérivées</p>
+<p>Ses unités sont composées par les unités de base. Quelque soit l&#x27;unité physique elle peut toujours être réécrite selon les 7 unités de base</p>
+<div class="course-table-wrap"><table><caption>Exemples d’unités dérivées dans le système international.</caption><thead><tr><th><strong>Grandeur</strong></th><th><strong>Formule SI</strong></th><th><strong>Unité dérivée (nom)</strong></th><th><strong>Symbole</strong></th></tr></thead><tbody><tr><td>Vitesse</td><td>\(\text{m}/\text{s}\)</td><td>mètre par seconde</td><td>m/s</td></tr><tr><td>Accélération</td><td>\(\text{m}/\text{s}^2\)</td><td>mètre par seconde carrée</td><td>m/s²</td></tr><tr><td>Force</td><td>\(\text{kg} \cdot \text{m}/\text{s}^2\)</td><td>newton</td><td>N</td></tr><tr><td>Énergie / Travail</td><td>\(\text{N} \cdot \text{m}\)</td><td>joule</td><td>J</td></tr><tr><td>Puissance</td><td>\(\text{J}/\text{s}\)</td><td>watt</td><td>W</td></tr><tr><td>Pression</td><td>\(\text{N}/\text{m}^2\)</td><td>pascal</td><td>Pa</td></tr></tbody></table></div>
+<h3 class="course-subheading" id="course-section-17">Les règles pour les dimensions</h3>
+<p><strong>Règle 1</strong> -- On ne peut ajouter ou soustraire que des unités identiques.</p>
+<p><strong>Règle 2</strong> -- Les deux membres d’une égalité doivent être de mêmes unités :</p>
+<div class="course-equation" id="course-equation-64">\[\text{Si } X = Y \text{ alors } \text{unité de } X = \text{unité de } Y\]<span class="course-equation-index">(6)</span></div>
+<p><strong>Règle 3</strong> -- L’unité de l’inverse d’une grandeur est égale à l’inverse de l’unité de la grandeur :</p>
+<div class="course-equation" id="course-equation-65">\[\text{unité de } \left( \frac{1}{X} \right) = (\text{unité de } X)^{-1}\]<span class="course-equation-index">(7)</span></div>
+<p><strong>Règle 4</strong> -- L’unité d’un produit (ou quotient) est le produit (ou quotient) des unités :</p>
+<div class="course-equation" id="course-equation-66">\[\text{unité de } (X \times Y) = \text{unité de } X \times \text{unité de } Y\]<span class="course-equation-index">(8)</span></div>
+<div class="course-equation" id="course-equation-67">\[\text{ou } \quad
+\text{unité de } \left( \frac{X}{Y} \right) = \frac{\text{unité de } X}{\text{unité de } Y}\]<span class="course-equation-index">(9)</span></div>
+<p><strong>Règle 5</strong> -- Les arguments et les images des fonctions mathématiques sont sans unités ; les nombres réels sont sans unités.<br> Exemples : \(\sin(x)\), \(\ln(x)\), \(\exp(x)\), où \(x\) est un nombre réel.</p>
+<p><strong>Règle 6</strong> -- Pour une dérivée, on a :</p>
+<div class="course-equation" id="course-equation-68">\[\text{unité de } \left( \frac{df}{dx} \right) = \text{unité de } f \cdot (\text{unité de } x)^{-1}\]<span class="course-equation-index">(10)</span></div>
+<div class="course-equation" id="course-equation-69">\[\text{unité de } \left( \frac{d^2 f}{dx^2} \right) = \text{unité de } f \cdot (\text{unité de } x)^{-2}\]<span class="course-equation-index">(11)</span></div>
+<p><strong>Les règles 2 et 5 permettent de vérifier la possible validité d’une expression / équation </strong></p>
+<h2 class="course-subheading" id="course-section-18">Exercices de révision : Les règles pour les dimensions</h2>
+<ul>
+<li>
+<p><strong>Addition et soustraction d&#x27;unités -- Règle 1</strong><br> Pour chaque expression suivante, indique si l&#x27;opération est possible du point de vue des unités. Justifie votre réponse.</p>
+<ol>
+<li>
+<p>\( 3\,\text{m} + 5\,\text{s} \)</p>
+</li>
+<li>
+<p>\( 7\,\text{J} - 2\,\text{kg}\cdot\text{m}^2/\text{s}^2 \)</p>
+</li>
+<li>
+<p>\( 100\,\text{cm} + 2\,\text{m} \)</p>
+</li>
+<li>
+<p>\( v + at \), avec \(v\) une vitesse, \(a\) une accélération, \(t\) un temps.</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Homogénéité des équations -- Règle 2 </strong><br></p>
+<p>Vérifie si chaque équation ci-dessous est homogène, c’est-à-dire si les deux membres ont la même unité. Justifie.</p>
+<ol>
+<li>
+<p>\( x = vt + \frac{1}{2}at^2 \)</p>
+</li>
+<li>
+<p>\( F = ma + v \)</p>
+</li>
+<li>
+<p>\( E = \frac{1}{2}mv^2 + mgh \)</p>
+</li>
+<li>
+<p>\( T = 2\pi \sqrt{\dfrac{L}{g}} \), période d’un pendule simple</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Inverses d’unités -- Règle 3</strong> <br></p>
+<p>Détermine l’unité des grandeurs suivantes :</p>
+<ol>
+<li>
+<p>\( \dfrac{1}{T} \), avec \(T\) en secondes</p>
+</li>
+<li>
+<p>\( \dfrac{1}{\rho} \), avec \(\rho\) en kg/m\(^3\)</p>
+</li>
+<li>
+<p>\( \dfrac{1}{R} \), avec \(R\) en ohms (\(\Omega\))</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Produit et quotient d’unités -- Règle 4</strong><br> Calcule les unités des expressions suivantes :</p>
+<ol>
+<li>
+<p>\( P = F \cdot v \), puissance (force × vitesse)</p>
+</li>
+<li>
+<p>\( a = \dfrac{F}{m} \)</p>
+</li>
+<li>
+<p>\( \eta = \dfrac{F/A}{v} \), viscosité dynamique</p>
+</li>
+<li>
+<p>\( E = \dfrac{hc}{\lambda} \), avec \(h\) en J\(\cdot\)s, \(c\) en m/s, \(\lambda\) en m</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Fonctions sans unités -- Règle 5</strong><br> Dans les expressions suivantes, détermine si elles sont valides du point de vue des unités. Si non, propose une correction.</p>
+<ol>
+<li>
+<p>\( \sin(t) \), avec \(t\) en secondes</p>
+</li>
+<li>
+<p>\( \ln(p/p_0) \), où \(p\) et \(p_0\) sont des pressions en Pa</p>
+</li>
+<li>
+<p>\( \exp(x/L) \), avec \(x\) et \(L\) des longueurs</p>
+</li>
+<li>
+<p>\( \ln(E) \), avec \(E\) en joules</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Unité des dérivées -- Règle 6</strong><br> Détermine l’unité des dérivées suivantes :</p>
+<ol>
+<li>
+<p>\( \dfrac{d\theta}{dt} \), avec \(\theta\) un angle sans unité et \(t\) en secondes</p>
+</li>
+<li>
+<p>\( \dfrac{d^2x}{dt^2} \), avec \(x\) en mètres</p>
+</li>
+<li>
+<p>\( \dfrac{dV}{dT} \), avec \(V\) en m\(^3\) et \(T\) en kelvins</p>
+</li>
+<li>
+<p>\( \dfrac{dI}{dV} \), avec \(I\) en ampères et \(V\) en volts</p>
+</li>
+</ol>
+</li>
+<li>
+<p><strong>Détection d’erreurs dimensionnelles</strong><br> Pour chaque expression suivante, détectez les éventuelles erreurs dimensionnelles. Corrigez-les si nécessaire.</p>
+<ol>
+<li>
+<p>\( v = \sqrt{2a + x} \), avec \(a\) en m/s\(^2\) et \(x\) en m</p>
+</li>
+<li>
+<p>\( E = mc + T \), avec \(c\) en m/s et \(T\) en K</p>
+</li>
+<li>
+<p>\( P = \dfrac{F \cdot x}{t} \), avec \(F\) une force, \(x\) une distance, \(t\) un temps</p>
+</li>
+</ol>
+</li>
+</ul>
+<h3 class="course-subheading" id="course-section-19">Expression de la dimension d’une grandeur</h3>
+<p>Soit \([G]\) une grandeur quelconque, alors la dimension de \([G]\) s’exprime toujours sous la forme:</p>
+<div class="course-equation" id="course-equation-4">\[\begin{gathered}{}[G]=[M]^{a}\,[T]^{b}\,[M]^{c}\,[\Theta]^{d}\,[I]^{e}\,[N]^{f}\,[J]^{g}\end{gathered}\]<span class="course-equation-index">(12)</span></div>
+<p>où \(a, b, c, d, e, f\) et \(g\) sont des exposants réels. <br> Exemple: si \(v\) est une vitesse alors \([v]=[L].[T]^{-1}\). <br></p>
+<p>Une grandeur purement numérique est sans dimension, c’est toujours le cas des grandeurs physique définies comme un rapport de deux grandeurs de mêmes unités. Dans ce cas, la grandeur est dite «adimensionnée». Exemple: la densité d’un liquide est définie comme le rapport de la masse volumique \(V\) du liquide sur la masse volumique de l’eau \(\rho_0\). C’est un coefficient sans unités. Dans ce cas on écrit \([G]=1\).</p>
+<h3 class="course-subheading" id="course-section-20">Homogénéité des équations</h3>
+<p>Une équation physique est dite <strong>homogène</strong> si tous ses termes possèdent les mêmes dimensions (ou unités). Cela signifie que l’on peut, en théorie, additionner ou soustraire les termes de l’équation.</p>
+<p>Par exemple, l&#x27;équation de la cinématique :</p>
+<div class="course-equation" id="course-equation-70">\[x(t) = x_0 + v_0 t + \frac{1}{2} a t^2\]<span class="course-equation-index">(13)</span></div>
+<p>est homogène car tous les termes ont la dimension d&#x27;une longueur \(\left[ L \right]\).</p>
+<p>L’homogénéité est une condition nécessaire (mais non suffisante) pour qu’une équation soit physiquement correcte. Elle permet d’éviter certaines erreurs de raisonnement ou de calcul.</p>
+<p><strong>Remarque :</strong> Une équation homogène n&#x27;est pas nécessairement vraie, mais une équation non homogène est forcément fausse.</p>
+<h3 class="course-subheading" id="course-section-21">Méthode de base pour vérifier une équation</h3>
+<p>Pour tester l’homogénéité (et donc la plausibilité) d’une équation, on suit les étapes suivantes :</p>
+<ol>
+<li>
+<p><strong>Identifier les grandeurs physiques</strong> présentes dans l’équation.</p>
+</li>
+<li>
+<p><strong>Exprimer la dimension</strong> de chaque grandeur en fonction des unités de base du Système International :</p>
+<div class="course-equation" id="course-equation-71">\[\begin{array}{ll}
+  \text{Longueur} &amp; [L] \\
+  \text{Temps} &amp; [T] \\
+  \text{Masse} &amp; [M] \\
+  \text{Température} &amp; [\Theta] \\
+  \text{Courant électrique} &amp; [I] \\
+  \text{Quantité de matière} &amp; [N] \\
+  \text{Intensité lumineuse} &amp; [J] \\
+  \end{array}\]<span class="course-equation-index">(14)</span></div>
+</li>
+<li>
+<p><strong>Remplacer chaque terme de l’équation</strong> par sa dimension.</p>
+</li>
+<li>
+<p><strong>Vérifier que tous les termes</strong> ont la même dimension.</p>
+</li>
+</ol>
+<p><strong>Exemple :</strong></p>
+<p>Vérifions l’homogénéité de la formule de l’énergie cinétique :</p>
+<div class="course-equation" id="course-equation-72">\[E = \frac{1}{2}mv^2\]<span class="course-equation-index">(15)</span></div>
+<ul>
+<li>
+<p>Masse : \([m] = [M]\)</p>
+</li>
+<li>
+<p>Vitesse : \([v] = [L][T]^{-1}\) donc \([v^2] = [L^2][T]^{-2}\)</p>
+</li>
+<li>
+<p>Donc : \([E] = [M][L^2][T]^{-2}\)</p>
+</li>
+</ul>
+<p>On retrouve bien la dimension d&#x27;une énergie, ce qui confirme que l&#x27;équation est homogène.</p>
+<h3 class="course-subheading" id="course-section-22">Exemples classiques</h3>
+<h3 class="course-subheading" id="course-section-23">Chute libre</h3>
+<div class="course-equation" id="course-equation-59">\[h = \frac{1}{2}gt^2\]<span class="course-equation-index">(16)</span></div>
+<div class="course-equation" id="course-equation-73">\[[h] = m,\ [g] = m\cdot s^{-2},\ [t^2] = s^2 \Rightarrow [gt^2] = m \Rightarrow \text{homogène.}\]<span class="course-equation-index">(17)</span></div>
+<h3 class="course-subheading" id="course-section-24">Loi de Newton</h3>
+<div class="course-equation" id="course-equation-60">\[F = ma\]<span class="course-equation-index">(18)</span></div>
+<div class="course-equation" id="course-equation-74">\[[F] = kg.m.s^{-2}, [m] = kg, [a] = m.s^{-2} \Rightarrow [ma] = kg.m.s^{-2} \Rightarrow\]<span class="course-equation-index">(19)</span></div>
+<p>homogène.</p>
+<h3 class="course-subheading" id="course-section-25">Énergie cinétique</h3>
+<div class="course-equation" id="course-equation-61">\[E_k = \frac{1}{2}mv^2\]<span class="course-equation-index">(20)</span></div>
+<div class="course-equation" id="course-equation-75">\[E_k= kg.m^2.s^{-2}, [v^2] = m^2.s^{-2} \Rightarrow [mv^2] = kg.m^2.s^{-2}\Rightarrow\]<span class="course-equation-index">(21)</span></div>
+<p>homogène.</p>
+<h2 class="course-subheading" id="course-section-26">Exercices de révision</h2>
+<ol>
+<li>
+<p>Vérifier l&#x27;homogénéité de l&#x27;équation suivante : \(s = vt + \frac{1}{2}at^2\)</p>
+</li>
+<li>
+<p>Vérifier si l&#x27;expression \(P = Fv + E\) est homogène (P : puissance, F : force, v : vitesse, E : énergie)</p>
+</li>
+<li>
+<p>Trouver une erreur d&#x27;unité dans l&#x27;équation : \(T = 2\pi\sqrt{m/k}\) (indice : T : période, m : masse, k : constante de raideur)</p>
+</li>
+</ol>
+<h3 class="course-subheading" id="course-section-27">Théorème de Vaschy-Buckingham/ Théorème de \(\Pi\)</h3>
+<p><strong>Théorème (Vaschy-Buckingham).</strong> <em>Soit un problème physique impliquant</em> \(n\) <em>grandeurs physiques indépendantes</em> \(Q_1, Q_2, \dots, Q_n\), <em>exprimées en fonction de</em> \(p\) <em>grandeurs fondamentales (ou unités de base), avec</em> \(p &lt; n\). <em>S’il existe une relation de la forme</em></p>
+<div class="course-equation" id="course-equation-76">\[F(Q_1, Q_2, \dots, Q_n) = 0~,\]<span class="course-equation-index">(22)</span></div>
+<p><em>alors cette relation peut être réécrite sous la forme équivalente</em></p>
+<div class="course-equation" id="course-equation-77">\[f(\pi_1, \pi_2, \dots, \pi_{n-p}) = 0~,\]<span class="course-equation-index">(23)</span></div>
+<p><em>où chaque</em> \(\pi_k\) <em>est une grandeur sans dimension (appelée <strong>groupe</strong></em> \(\pi\)<em>), construite comme une combinaison monomiale des grandeurs physiques :</em></p>
+<div class="course-equation" id="course-equation-78">\[\pi_k = Q_1^{\alpha_1^{(k)}} Q_2^{\alpha_2^{(k)}} \dots Q_n^{\alpha_n^{(k)}} \quad \text{telle que} \quad [\pi_k] = 1.\]<span class="course-equation-index">(24)</span></div>
+<p>L&#x27;idée de ce théorème est de trouver les expressions de \(\pi_k\)</p>
+<h3 class="course-subheading" id="course-section-28">Exemple: Théorème de Pythagore</h3>
+<p>La célèbre relation de Pythagore des triangles rectangles peut facilement être déduite par l’analyse dimensionnelle.</p>
+<figure class="course-figure" id="course-figure-10"><img src="resources/Classes/booster-physique/diagram-1.png" alt="Triangle rectangle" loading="lazy"><figcaption><span class="course-figure-index">Figure 5.</span> Triangle rectangle</figcaption></figure>
+<h3 class="course-subheading" id="course-section-29">Exemple: L&#x27;équation d&#x27;état d&#x27;un gaz parfait</h3>
+<p>Nous connaissons l&#x27;équation d&#x27;état d&#x27;un gaz parfait</p>
+<div class="course-equation" id="course-equation-5">\[\begin{gathered}P\,V=n\,R\,T\end{gathered}\]<span class="course-equation-index">(25)</span></div>
+<p>où \(P\) est la pression, \(V\) le volume, \(n\) le nombre de moles, \(R\) la constante fondamentale de la loi des gaz parfait et \(T\) la température dans l&#x27;échelle absolue. Imaginons que nous ne connaissons pas cette loi, mais nous savons que il doit exister une relation que relie \(P\), \(V\) et \(T\) dont les dimensions sont \([P]=[M]\,[L]^{-1}\,[T]^{-2}\), \([V]=[L]^3\), \([T]=[\Theta]\). On se pose la question suivante : Est-il possible d&#x27;avoir une combinaison de ces trois grandeurs de sorte à obtenir une grandeur adimensionnelle \([\pi]=1\) ?</p>
+<div class="course-equation" id="course-equation-6">\[\begin{gathered} \pi=P^{\alpha}\,V^{\beta}\,T^{\gamma}  \implies \\
+[\pi]=([M]\,[L]^{-1}\,[T]^{-2})^{\alpha}\,([L]^3)^{\beta}\,([\Theta])^{\gamma}  \\
+1= [M]^{\alpha}\,[L]^{-\alpha+3\beta}\,[T]^{-2\alpha}\,[\Theta]^{\gamma}\end{gathered}\]<span class="course-equation-index">(26)</span></div>
+<p>Les exposants nous donnent un système d&#x27;équation du type</p>
+<div class="course-equation" id="course-equation-53">\[\begin{aligned}{}[M] &amp;: \alpha = 0 \\
+    [L] &amp;:-\alpha+3\beta = 0 \\
+    [T] &amp;: -2\alpha = 0 \\
+    [\Theta] &amp;: \gamma = 0\end{aligned}\]<span class="course-equation-index">(27)</span></div>
+<p>Regardez que ce système nous donne une solution triviale. Nous pouvons conclure que pour qu&#x27;on puisse obtenir une solution non triviale, nous avons besoin d&#x27;autres grandeurs physiques. Maintenant nous ajoutons la constante de la loi des gaz parfait \(R\) et le nombre de moles \(n\), dont les dimensions sont respectivement \([R]=[M]\,[L]^2\,[T]^{-2}\,[N]^{-1}\,[\Theta]^{-1}\) et \([n]=[N]\).</p>
+<div class="course-equation" id="course-equation-7">\[\begin{gathered} \pi=P^{\alpha}\,V^{\beta}\,T^{\gamma}\,R^{\delta}\,n^{\varphi} \implies \\
+[\pi]=([M]\,[L]^{-1}\,[T]^{-2})^{\alpha}\,([L]^3)^{\beta}\,[\Theta]^{\gamma}\,([M]\,[L]^2\,[T]^{-2}\,[N]^{-1})^{\delta}\,[N]^{\varphi}  \\
+ 1= [M]^{\alpha+\delta}\,[L]^{-\alpha+3\beta+2\delta}\,[T]^{-2\alpha-2\delta}\,[\Theta]^{\gamma}\,[N]^{-\delta+\varphi}\end{gathered}\]<span class="course-equation-index">(28)</span></div>
+<p>Nous obtenons un nouveau système d&#x27;équations</p>
+<div class="course-equation" id="course-equation-54">\[\begin{aligned}{}[M] &amp;: \alpha +\delta= 0  \implies \alpha=-\delta\\
+    [L] &amp;:-\alpha+3\beta+2\delta = 0 \implies \alpha=\beta\\
+    [T] &amp;: -2\alpha-2\delta = 0 \implies \alpha=-\delta\\
+    [\Theta] &amp;: \gamma = 0\\
+    [N] &amp;: -\delta+\varphi = 0 \implies \delta=\varphi\end{aligned}\]<span class="course-equation-index">(29)</span></div>
+<p>En remplacent les exposants dans l&#x27;éq.(<a href="#course-equation-7">28</a>) nous obtenons</p>
+<div class="course-equation" id="course-equation-8">\[\begin{gathered}\pi=P^{\alpha}\,V^{\alpha}\,T^{-\alpha}\,R^{-\alpha}\,n^{-\alpha}\end{gathered}\]<span class="course-equation-index">(30)</span></div>
+<p>Prenons alors la racine de \(\alpha\) nous obtenons</p>
+<div class="course-equation" id="course-equation-9">\[\begin{gathered}\pi=\frac{P\,V}{n\,R\,T}\end{gathered}\]<span class="course-equation-index">(31)</span></div>
+<p>où \(\pi\) c&#x27;est un coefficient sans dimensions et dans ce cas il vaut l&#x27;unité.</p>
+<h2 class="course-subheading" id="course-section-30">Problème guidé:  Némesis et la propulsion plasma</h2>
+<p>Contexte intergalactique sur la planète <strong>\&#x27;Eritro</strong>, les lois de la physique ressemblent à celles de la Terre : les grandeurs fondamentales sont la masse \(M\), la longueur \(L\) et le temps \(T\).</p>
+<p>Le super-héros local, <strong>Némesis</strong>, utilise un moteur dorsal à plasma qui lui permet de voler à très grande vitesse. Les scientifiques éritroniens pensent que la vitesse finale \(v\) atteinte par Némesis dépend de:</p>
+<ul>
+<li>
+<p>la puissance du moteur \(P\)        \, [P] = \([M] [L]^2 [T]^{-3}\)</p>
+</li>
+<li>
+<p>la masse de Némesis \(m\)      \, [m] = \([M]\)</p>
+</li>
+<li>
+<p>la densité d&#x27;énergie du carburant \(\rho \quad [\rho] = [M] [L]^{-1} [T]^{-2}\)</p>
+</li>
+</ul>
+<p>Ils supposent donc une relation de la forme :</p>
+<div class="course-equation" id="course-equation-79">\[v = f(P, m, \rho)\]<span class="course-equation-index">(32)</span></div>
+<h2 class="course-subheading" id="course-section-31">Votre mission</h2>
+<p>À l&#x27;aide du théorème de Vaschy-Buckingham :</p>
+<ol>
+<li>
+<p>Déterminez le nombre de groupes sans dimension ({ \(\pi\)-groupes}) que l&#x27;on peut former.</p>
+</li>
+<li>
+<p>Construisez ces groupes sans dimension.</p>
+</li>
+<li>
+<p>En déduisez une expression de la vitesse \(v\) à un facteur numérique près.</p>
+</li>
+<li>
+<p>Donnez une interprétation physique (intuitive) du résultat.</p>
+</li>
+</ol>
+<h2 class="course-subheading" id="course-section-32"> Indices pour les super-héros</h2>
+<ul>
+<li>
+<p>Le théorème de Buckingham-Vaschy vous indique qu’il suffit d’utiliser les dimensions pour établir une relation entre les grandeurs.</p>
+</li>
+<li>
+<p>Vous pouvez chercher des combinaisons \(\pi = v^a P^b m^c \rho^d\) sans dimension.</p>
+</li>
+</ul>
+<h2 class="course-subheading" id="course-section-33"> Facultatif : Extension de mission</h2>
+<ul>
+<li>
+<p>Que se passerait-il si Némesis changeait de carburant avec une autre densité d’énergie ?</p>
+</li>
+<li>
+<p>Peut-on estimer la vitesse maximale qu’un humain atteindrait avec la même technologie ?</p>
+</li>
+</ul>
+<h2 class="course-subheading" id="course-section-34">Corrigé</h2>
+<p><strong>Étape 1 : Analyse dimensionnelle des variables</strong></p>
+<div class="course-equation" id="course-equation-55">\[\begin{aligned}{}[v] &amp;= [L] [T]^{-1} \\
+    [P] &amp;= [M] [L]^2 [T]^{-3} \\
+    [m] &amp;= [M] \\
+    [\rho] &amp;= [M] [L]^{-1} [T]^{-2}\end{aligned}\]<span class="course-equation-index">(33)</span></div>
+<p>Il y a 4 grandeurs et 3 dimensions fondamentales (\([M]\), \([L]\), \([T]\)) \(\Rightarrow \) 1 groupe sans dimension.</p>
+<p><strong>Étape 2 : Construction du groupe sans dimension</strong> \(\pi\)</p>
+<p>On cherche :</p>
+<div class="course-equation" id="course-equation-80">\[\pi = v^a P^b m^c \rho^d \quad \text{sans dimension.}\]<span class="course-equation-index">(34)</span></div>
+<p>On écrit les dimensions :</p>
+<div class="course-equation" id="course-equation-81">\[[\pi] = ([L [T]^{-1})^a ([M] [L]^2 [T]^{-3})^b [M]^c ([M] [L]^{-1} [T]^{-2})^d\]<span class="course-equation-index">(35)</span></div>
+<div class="course-equation" id="course-equation-82">\[= [M]^{b + c + d} [L]^{a + 2b - d} [T]^{-a - 3b - 2d}\]<span class="course-equation-index">(36)</span></div>
+<p>On impose que chaque exposant soit nul :</p>
+<div class="course-equation" id="course-equation-56">\[\begin{aligned}{}[M] &amp;: b + c + d = 0 \\
+    [L] &amp;: a + 2b - d = 0 \\
+    [T] &amp;: -a - 3b - 2d = 0\end{aligned}\]<span class="course-equation-index">(37)</span></div>
+<p>On résout ce système (par exemple en posant \(b=1\)) :</p>
+<div class="course-equation" id="course-equation-57">\[\begin{aligned}b &amp;= 1 \\
+    c &amp;= -2 \\
+    d &amp;= 1 \\
+    a &amp;= -1\end{aligned}\]<span class="course-equation-index">(38)</span></div>
+<p><strong>Étape 3 : Expression de la vitesse</strong></p>
+<p>Le groupe sans dimension est donc :</p>
+<div class="course-equation" id="course-equation-83">\[\pi = \frac{P \rho}{v m^2} \Rightarrow v \propto \frac{P \rho}{m^2}\]<span class="course-equation-index">(39)</span></div>
+<p>On isole \(v\) :</p>
+<div class="course-equation" id="course-equation-84">\[v = C \cdot \frac{P \rho}{m^2}, \quad \text{où $C$ est un facteur sans dimension}\]<span class="course-equation-index">(40)</span></div>
+<p><strong>Étape 4 : Interprétation</strong></p>
+<ul>
+<li>
+<p>Plus la puissance du moteur est grande, plus la vitesse est grande.</p>
+</li>
+<li>
+<p>Plus la masse de Némesis est importante, plus il est difficile d’atteindre une grande vitesse (effet quadratique).</p>
+</li>
+<li>
+<p>Plus la densité d’énergie du carburant est élevée, plus la vitesse augmente.</p>
+</li>
+</ul>
+<h2 class="course-subheading" id="course-section-35">Exercices supplémentaires</h2>
+<h3 class="course-subheading" id="course-section-36">Exercice 1 : La période d’un pendule simple</h3>
+<p>On cherche la période \(T\) d’un pendule simple. On suppose qu’elle dépend uniquement de :</p>
+<ul>
+<li>
+<p>la longueur du fil \(\ell\) \([L]\)</p>
+</li>
+<li>
+<p>l’accélération gravitationnelle \(g\) \([L T^{-2}]\)</p>
+</li>
+</ul>
+<p><strong>Objectif :</strong> Utilisez le théorème de Vaschy-Buckingham pour retrouver la loi donnant la période \(T\).</p>
+<h3 class="course-subheading" id="course-section-37">Exercice 2 : Vitesse d’écoulement d’un fluide dans un tuyau</h3>
+<p>La vitesse moyenne \(v\) d’un fluide dans un tuyau dépend de :</p>
+<ul>
+<li>
+<p>la pression \(\Delta P\) appliquée entre les extrémités \([M L^{-1} T^{-2}]\)</p>
+</li>
+<li>
+<p>le rayon du tuyau \(R\) \([L]\)</p>
+</li>
+<li>
+<p>la viscosité dynamique du fluide \(\eta\) \([M L^{-1} T^{-1}]\)</p>
+</li>
+</ul>
+<p><strong>Objectif :</strong> Déterminez la dépendance de \(v\) avec ces grandeurs.</p>
+<h3 class="course-subheading" id="course-section-38">Exercice 3 : Force de traînée sur un objet en chute libre</h3>
+<p>La force de traînée \(F\) exercée sur un objet se déplaçant dans un fluide dépend de :</p>
+<ul>
+<li>
+<p>la vitesse \(v\) de l’objet \([L T^{-1}]\)</p>
+</li>
+<li>
+<p>la surface frontale \(A\) \([L^2]\)</p>
+</li>
+<li>
+<p>la densité du fluide \(\rho\) \([M L^{-3}]\)</p>
+</li>
+</ul>
+<p><strong>Objectif :</strong> Utilisez une analyse dimensionnelle pour trouver une expression de \(F\) en fonction de \(v\), \(A\) et \(\rho\).</p>
+<h2 class="course-chapter" id="course-section-39">Dérivées, intégrales et équations différentielles (2 séances)</h2>
+<h3 class="course-subheading" id="course-section-40">Exemple : mouvement rectiligne</h3>
+<ul>
+<li>
+<p><strong>Position</strong> : \(x(t)\)</p>
+</li>
+<li>
+<p><strong>Vitesse</strong> : \(v(t) = \dv{x}{t}\)</p>
+</li>
+<li>
+<p><strong>Accélération</strong> : \(a(t) = \dv[2]{x}{t}\)</p>
+</li>
+</ul>
+<figure class="course-figure" id="course-figure-11"><img src="resources/Classes/booster-physique/diagram-2.png" alt="Position, vitesse et accélération : dérivées successives" loading="lazy"><figcaption><span class="course-figure-index">Figure 6.</span> Position, vitesse et accélération : dérivées successives</figcaption></figure>
+<h3 class="course-subheading" id="course-section-41">Dérivées</h3>
+<p>Les dérivées sont essentielles en physique pour modéliser des grandeurs dynamiques. Elles permettent d’exprimer rigoureusement des notions intuitives comme la vitesse ou l’accélération, et sont présentes dans toutes les lois fondamentales.</p>
+<p>Passons en revue les dérivés. Une dérivée d&#x27;une fonction mathématique \(f(x)\) définie sur un intervalle de \(\mathbb{R}\) est définie par la limite d&#x27;un rapport</p>
+<div class="course-equation" id="course-equation-10">\[\begin{gathered}f&#x27;(x):=\frac{df}{dx}=\lim_{\Delta x \to 0} \frac{f(x+\Delta x)-f(x)}{\Delta x} ~,\end{gathered}\]<span class="course-equation-index">(41)</span></div>
+<p>où \(\Delta x \) correspond à un intervalle de la variable indépendante \(x\). Elle correspond au taux de variation instantané de \(f\) à l’instant \(t_0\).</p>
+<figure class="course-figure" id="course-figure-12"><img src="resources/Classes/booster-physique/diagram-3.png" alt="Interprétation géométrique de la dérivée : pente de la tangente" loading="lazy"><figcaption><span class="course-figure-index">Figure 7.</span> Interprétation géométrique de la dérivée : pente de la tangente</figcaption></figure>
+<h3 class="course-subheading" id="course-section-42"> Exemples:</h3>
+<p>Étant donné \(f(x)=a\,x\) avec une constante  \(a\), l&#x27;Eq. (<a href="#course-equation-10">41</a>) nous donne</p>
+<div class="course-equation" id="course-equation-11">\[\begin{gathered}\frac{df}{dx}=\lim_{\Delta x \to 0} \frac{a\,(x+\Delta x)-a\,x}{\Delta x}=\frac{a\,\Delta x}{\Delta x}=a ~.\end{gathered}\]<span class="course-equation-index">(42)</span></div>
+<p>Si \(f(x)=a\,x^n\) où \(n\) est un entier, sa dérivée est donné par</p>
+<div class="course-equation" id="course-equation-12">\[\begin{gathered}  \frac{df}{dx}=\lim_{\Delta \to 0} \frac{a\,(x+\Delta x)^n-a\,x^n}{\Delta x}=\lim_{\Delta \to 0} \frac{a\,\sum_{k=0}^n\binom{n}{k}x^{n-k}{\Delta x}^{k}-a\,x^n}{\Delta x}  \\
+  =\lim_{\Delta x \to 0}\frac{a\,x^{n}+a\,\sum_{k=1}^n\binom{n}{k}x^{n-k}{\Delta x}^{k}-a\,x^n}{\Delta x}=\lim_{\Delta x \to 0}a\,\sum_{k=1}^n\binom{n}{k}x^{n-k}{\Delta x}^{k-1}  \\
+  =\lim_{\Delta x \to 0}a\,\Big[\binom{n}{1}x^{n-1}{\Delta x}^{1-1}+\binom{n}{2}x^{n-2}{\Delta x}^{2-1}+\binom{n}{3}x^{n-3}{\Delta x}^{3-1}+...\Big] \\
+  =\lim_{\Delta x \to 0}a\,n\,x^{n-1}+\frac{(n-1)}{2}x^{n-2}\lim_{\Delta x \to 0}\cancelto{0}{{\Delta x}^{1}}+\frac{(n-2)}{3!}x^{n-3}\cancelto{0}{{\Delta x}^{2}}+...\Big]  \\
+  =a\,n\,x^{n-1}~\end{gathered}\]<span class="course-equation-index">(43)</span></div>
+<p>Notez que le binôme de Newton a été utilisé pour exprimer le terme \((x+\Delta x)^n\)</p>
+<div class="course-equation" id="course-equation-13">\[\begin{gathered} (x+\Delta x)^n=\sum_{k=0}^n\binom{n}{k}x^{n-k}{\Delta x}^{k}=\binom{n}{0}x^{n-0}{\Delta x}^{0}+\sum_{k=1}^n\binom{n}{k}x^{n-k}{\Delta x}^{k}  \\
+   =x^{n}+\sum_{k=1}^n\binom{n}{k}x^{n-k}{\Delta x}^{k}~.\end{gathered}\]<span class="course-equation-index">(44)</span></div>
+<h4 class="course-subheading" id="course-section-43"> Démontrez que:</h4>
+<div class="course-equation" id="course-equation-14">\[\begin{gathered}\frac{df}{dx}=a\,\alpha\,x^{\alpha-1}~.\end{gathered}\]<span class="course-equation-index">(45)</span></div>
+<h4 class="course-subheading" id="course-section-44">Les propriétés des dérivées:</h4>
+<h4 class="course-subheading" id="course-section-45"> Étant donnés une fonction \(f(x)\) définie comme \(f:x\mapsto\mathbb{R}\) et une constante quelconque \(k\)</h4>
+<ol>
+<li>
+<p>La dérivée d&#x27;une fonction constante est égal à zéro</p>
+<div class="course-equation" id="course-equation-15">\[\begin{gathered}\frac{dk}{dx}=0\end{gathered}\]<span class="course-equation-index">(46)</span></div>
+<p>quelque soit la constante \(k\).</p>
+</li>
+<li>
+<p>La dérivée d&#x27;une fonction quelconque multipliée par une constante arbitraire \(k\) est égal a la constante multiplié par la dérivée de la fonction</p>
+<div class="course-equation" id="course-equation-16">\[\begin{gathered}\frac{d(k\,f(x))}{dx}=k\,\frac{df}{dx}\end{gathered}\]<span class="course-equation-index">(47)</span></div>
+</li>
+<li>
+<p>La dérivée est une opération linéaire</p>
+<div class="course-equation" id="course-equation-17">\[\begin{gathered}\frac{d}{dx}(f(x)+g(x))=\frac{df(x)}{dx}+\frac{dg(x)}{dx}\end{gathered}\]<span class="course-equation-index">(48)</span></div>
+</li>
+<li>
+<p>La dérivée du produit de deux fonctions est la somme du produit de la dérivée de chaque fonction à la fois. On suppose \(h(x)=f(x)\,g(x)\)</p>
+<div class="course-equation" id="course-equation-18">\[\begin{gathered}\frac{dh(x)}{dx}=\frac{df(x)}{dx}\,g(x)+f(x)\,\frac{dg(x)}{dx}\end{gathered}\]<span class="course-equation-index">(49)</span></div>
+</li>
+<li>
+<p>La règle de la chaîne. Étant donnée une fonction composé du type \(h(x)=f(g(x))=f\circ g\), la dérivée de \(h(x)\)</p>
+<div class="course-equation" id="course-equation-19">\[\begin{gathered}\frac{dh(x)}{dx}=h&#x27;=f&#x27;(g(x))g&#x27;(x)= \frac{df(g(x))}{dg}\frac{dg(x)}{dx} ~.\end{gathered}\]<span class="course-equation-index">(50)</span></div>
+</li>
+</ol>
+<h3 class="course-subheading" id="course-section-46">Astuce: Les fonctions avec une puissance au dénominateur du type \(f(x)=\frac{b}{(a+x)^{\alpha}}\) peuvent s&#x27;écrire sous la forme \(f(x)=b\,(a+x)^{-\alpha}\) et sa dérivée est donnée par l&#x27;Eq(<a href="#course-equation-14">45</a>).</h3>
+<h2 class="course-subheading" id="course-section-47">Exercices de révision</h2>
+<p>Calculez les dérivés des fonctions ci-dessous (\(a\) et \(b\) sont des constantes)</p>
+<ol>
+<li>
+<p>\(f(x)=\frac{b}{x^2}\)</p>
+</li>
+<li>
+<p>\( f(x)=a(1+x^2)\)</p>
+</li>
+<li>
+<p>\(f(x)=\frac{a+x}{x^3}\)</p>
+</li>
+<li>
+<p>\(f(x)=\frac{a+x}{(a^2-x^2)^2}\)</p>
+</li>
+<li>
+<p>\(f(x)=(a+x)^2\,(b-x^3)\)</p>
+</li>
+<li>
+<p>\(f(x)=(a+x)^2\,(b-x^3)^3\)</p>
+</li>
+<li>
+<p>\(f(x)=\frac{(a+x)^2}{(a^2-x^2)}\)</p>
+</li>
+<li>
+<p>\(f(x)=\frac{(a+x)}{(a^2-x^2)^2}(1+x)^b\)</p>
+</li>
+</ol>
+<h4 class="course-subheading" id="course-section-48">Dérivées d&#x27;ordre supérieur</h4>
+<h3 class="course-subheading" id="course-section-49">Définition</h3>
+<p>Soit \(f\) une fonction dérivable sur un intervalle \(I\). Sa <strong>dérivée seconde</strong>, notée \(f&#x27;&#x27;(x)\) ou \(\dv[2]{f}{x}\), est la dérivée de sa dérivée première :</p>
+<div class="course-equation" id="course-equation-85">\[f&#x27;&#x27;(x) = \dv{}{x} \left( \dv{f}{x} \right)\]<span class="course-equation-index">(51)</span></div>
+<p>De même, on définit la <strong>dérivée d&#x27;ordre </strong>\(n\)} de \(f\) par récurrence :</p>
+<div class="course-equation" id="course-equation-86">\[f^{(n)}(x) = \dv[n]{f}{x}
+\quad\text{(si cette dérivée existe)}\]<span class="course-equation-index">(52)</span></div>
+<h3 class="course-subheading" id="course-section-50">Interprétation physique</h3>
+<p>Les dérivées d’ordre supérieur apparaissent naturellement en physique. Par exemple :</p>
+<ul>
+<li>
+<p>\(\dv{x}{t}\) : vitesse (1er dérivée de la position)</p>
+</li>
+<li>
+<p>\(\dv[2]{x}{t}\) : accélération (2eme dérivée)</p>
+</li>
+<li>
+<p>\(\dv[3]{x}{t}\) : <strong>coup de fouet</strong> (<em>jerk</em>) — utile dans les systèmes mécaniques sensibles</p>
+</li>
+</ul>
+<h3 class="course-subheading" id="course-section-51">Exemples classiques</h3>
+<ul>
+<li>
+<p>\(f(x) = x^4 \Rightarrow f&#x27;(x) = 4x^3,\ f&#x27;&#x27;(x) = 12x^2,\ f^{(3)}(x) = 24x,\ f^{(4)}(x) = 24\)</p>
+</li>
+<li>
+<p>\(f(x) = \cos(x) \Rightarrow f^{(n)}(x)\) suit un motif périodique : \(\cos, -\sin, -\cos, \sin, \dots\)</p>
+</li>
+<li>
+<p>\(f(x) = e^{kx} \Rightarrow \forall n,\ f^{(n)}(x) = k^n e^{kx}\)</p>
+</li>
+</ul>
+<h2 class="course-subheading" id="course-section-52">Exercices — Dérivées d’ordre supérieur</h2>
+<h3 class="course-subheading" id="course-section-53">Calcul direct</h3>
+<p>Calculez les trois premières dérivées des fonctions suivantes :</p>
+<ol>
+<li>
+<p>\(f(x) = \sin(2x)\)</p>
+</li>
+<li>
+<p>\(g(x) = \frac{1}{x}\)</p>
+</li>
+<li>
+<p>\(h(x) = x^3 \ln(x)\)</p>
+</li>
+</ol>
+<p><strong>Correction :</strong></p>
+<ul>
+<li>
+<p>\(f&#x27;(x) = 2\cos(2x)\), \(f&#x27;&#x27;(x) = -4\sin(2x)\), \(f^{(3)}(x) = -8\cos(2x)\)</p>
+</li>
+<li>
+<p>\(g&#x27;(x) = -\frac{1}{x^2}\), \(g&#x27;&#x27;(x) = \frac{2}{x^3}\), \(g^{(3)}(x) = -\frac{6}{x^4}\)</p>
+</li>
+<li>
+<p>\(h&#x27;(x) = 3x^2\ln(x) + x^2\), etc. (produit de fonctions)</p>
+</li>
+</ul>
+<h3 class="course-subheading" id="course-section-54">Fonction exponentielle</h3>
+<p>Soit \(f(x) = e^{2x}\).</p>
+<ol>
+<li>
+<p>Calculez \(f^{(n)}(x)\) pour \(n = 1,\ 2,\ 3\)</p>
+</li>
+<li>
+<p>Donnez une expression générale de \(f^{(n)}(x)\)</p>
+</li>
+</ol>
+<p><strong>Correction :</strong></p>
+<div class="course-equation" id="course-equation-87">\[f^{(n)}(x) = 2^n e^{2x}\]<span class="course-equation-index">(53)</span></div>
+<h3 class="course-subheading" id="course-section-55"> Interprétation physique</h3>
+<p>Un point matériel a pour position \(x(t) = t^4 - 4t^2 + 2\)</p>
+<ol>
+<li>
+<p>Déterminez la vitesse \(v(t)\), l’accélération \(a(t)\) et le coup de fouet \(j(t)\)</p>
+</li>
+<li>
+<p>Donnez leur valeur à \(t = 1\)</p>
+</li>
+<li>
+<p>Quelle est la signification physique d’un coup de fouet positif ?</p>
+</li>
+</ol>
+<p><strong>Correction :</strong></p>
+<div class="course-equation" id="course-equation-88">\[v(t) = 4t^3 - 8t,\quad a(t) = 12t^2 - 8,\quad j(t) = 24t\]<span class="course-equation-index">(54)</span></div>
+<div class="course-equation" id="course-equation-89">\[\text{À } t = 1 :\quad v = -4,\ a = 4,\ j = 24\]<span class="course-equation-index">(55)</span></div>
+<h3 class="course-subheading" id="course-section-56"> Dérivée d’ordre supérieur et tableau de signes</h3>
+<p>On donne la fonction \(f\) telle que :</p>
+<ul>
+<li>
+<p>\(f&#x27;(x) = 0\) pour \(x = 1,\ x = 4\)</p>
+</li>
+<li>
+<p>\(f&#x27;&#x27;(x) = 0\) pour \(x = 2\)</p>
+</li>
+<li>
+<p>\(f^{(3)}(2) \neq 0\)</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>Quelles sont les natures possibles des points \(x = 1,\ 2,\ 4\) ?</p>
+</li>
+<li>
+<p>Peut-on conclure que \(x = 2\) est un point d’inflexion ? Pourquoi ?</p>
+</li>
+<li>
+<p>Donnez un exemple de fonction vérifiant ces conditions.</p>
+</li>
+</ol>
+<p><strong>Indication :</strong> Si \(f&#x27;&#x27;(2) = 0\) mais \(f^{(3)}(2) \neq 0\), alors \(x = 2\) est bien un <strong>point d&#x27;inflexion</strong>.</p>
+<h4 class="course-subheading" id="course-section-57">Quand la dérivée s’annule</h4>
+<p>Comme la dérivée représente le taux de variation de fonction autour d&#x27;une point \(x_0\), quand la dérivée d&#x27;une fonction est nulle, sa tangente est parallèle à l&#x27;axe \(x\). Dans ce cas, nous trouvons soit un point de minimum soit un point de maximum</p>
+<div class="course-equation" id="course-equation-20">\[\begin{gathered}\frac{df(x)}{dx}\Bigg|_{x_0}=\frac{df(x)}{dx}\Bigg|_{x_1}=0~.\end{gathered}\]<span class="course-equation-index">(56)</span></div>
+<p>Dans le cas où la dérivée est nulle dans tout le domaine cela implique que la fonction \(f(x)\)  est une constante \(f(x)=cste\) par rapport à la variable indépendante \(x\).</p>
+<figure class="course-figure" id="course-figure-13"><img src="resources/Classes/booster-physique/diagram-4.png" alt="Illustration du cours 13" loading="lazy"><figcaption>Figure 8.</figcaption></figure>
+<p>Pour savoir si un point de dérivée nulle est un max. ou un min. nous prenons la dérivée seconde et nous avalions son signe autour d&#x27;un point extrême. Si il s&#x27;agit d&#x27;un \(&#x27;&#x27;+&#x27;&#x27;\) c&#x27;est un point de min. , dans le cas de signe \(&#x27;&#x27;-&#x27;&#x27;\) c&#x27;est un point de max.</p>
+<div class="course-equation" id="course-equation-21">\[\begin{gathered}\frac{d}{dx}\frac{df(x)}{dx}\ &gt;0 \implies  f(x_0)~~{\rm est~point~min.}\end{gathered}\]<span class="course-equation-index">(57)</span></div>
+<div class="course-equation" id="course-equation-22">\[\begin{gathered}\frac{d}{dx}\frac{df(x)}{dx}\ &lt;0 \implies  f(x_0)~~{\rm est~point~max.}\end{gathered}\]<span class="course-equation-index">(58)</span></div>
+<p>Quand la dérivée seconde d&#x27;une fonction s&#x27;annule, cela représente une condition nécessaire pour arriver à un point d&#x27;inflexion, qui se trouve entre deux points de max. et de min.</p>
+<div class="course-equation" id="course-equation-23">\[\begin{gathered}\frac{d}{dx}\frac{df(x)}{dx}=0  \to {\rm point~d&#x27;inflexion}~.\end{gathered}\]<span class="course-equation-index">(59)</span></div>
+<p>Pour avoir une condition suffisante il faut que la dérivée troisième existe et ne s&#x27;annule pas au point d&#x27;inflexion.</p>
+<p>Fréquemment nous utilisons les dérivées nulles pour extrémiser une fonction et trouver ses points de max. et de min. locaux. De cette façon, nous pouvons dessiner l&#x27;allure des fonctions qui ont des formes analytiques compliquées. Une autre applications pratique est de trouver les points de stabilité des fonctions. Cette technique nous permet d&#x27;étudier le comportement local de phénomènes physiques.</p>
+<h2 class="course-subheading" id="course-section-58">Exercices sur les dérivées et l&#x27;allure des fonctions</h2>
+<p>Ces exercices ont pour but d’interpréter le rôle des dérivées premières et secondes pour tracer l’allure d’une fonction.</p>
+<h3 class="course-subheading" id="course-section-59"> Étude à partir de \(f&#x27;(x)\) et \(f&#x27;&#x27;(x)\)</h3>
+<p>On considère une fonction \(f\) définie sur \(\mathbb{R}\). On sait que :</p>
+<div class="course-equation" id="course-equation-90">\[f&#x27;(x) =
+\begin{cases}
+&gt; 0 &amp; \text{si } x &lt; -2 \text{ ou } x &gt; 3 \\
+= 0 &amp; \text{si } x = -2 \text{ ou } x = 3 \\
+&lt; 0 &amp; \text{si } -2 &lt; x &lt; 3 \\
+\end{cases}\]<span class="course-equation-index">(60)</span></div>
+<div class="course-equation" id="course-equation-91">\[f&#x27;&#x27;(x) =
+\begin{cases}
+&lt; 0 &amp; \text{si } x &lt; 0 \\
+&gt; 0 &amp; \text{si } x &gt; 0 \\
+\end{cases}\]<span class="course-equation-index">(61)</span></div>
+<ol>
+<li>
+<p>Déterminer les intervalles de croissance et de décroissance.</p>
+</li>
+<li>
+<p>Identifier les maximums et minimums locaux.</p>
+</li>
+<li>
+<p>Identifier les intervalles de concavité (convexe / concave).</p>
+</li>
+<li>
+<p>Donner une esquisse qualitative de la courbe de \(f\).</p>
+</li>
+</ol>
+<p><strong>Correction guidée :</strong></p>
+<ul>
+<li>
+<p>\(f\) est croissante sur \((-\infty, -2)\) et \((3, \infty)\) ; décroissante sur \((-2, 3)\)</p>
+</li>
+<li>
+<p>Maximum local en \(x = -2\), minimum local en \(x = 3\)</p>
+</li>
+<li>
+<p>\(f\) est concave (\(f&#x27;&#x27; &lt; 0\)) sur \((-\infty, 0)\), convexe (\(f&#x27;&#x27; &gt; 0\)) sur \((0, +\infty)\)</p>
+</li>
+</ul>
+<h3 class="course-subheading" id="course-section-60"> Points stationnaires et inflexion</h3>
+<p>Une fonction \(g\) est telle que :</p>
+<ul>
+<li>
+<p>\(g&#x27;(x) = 0\) pour \(x = -1,\ 2,\ 5\)</p>
+</li>
+<li>
+<p>\(g&#x27;&#x27;(-1) &gt; 0\), \(g&#x27;&#x27;(2) &lt; 0\), \(g&#x27;&#x27;(5) = 0\)</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>Quel est le comportement de \(g\) en \(x = -1\) ? Et en \(x = 2\) ?</p>
+</li>
+<li>
+<p>Que peut-on dire de \(x = 5\) ?</p>
+</li>
+<li>
+<p>Dessiner une allure possible de la courbe.</p>
+</li>
+</ol>
+<p><strong>Indications :</strong></p>
+<ul>
+<li>
+<p>\(g&#x27;&#x27;(-1) &gt; 0 \Rightarrow\) minimum local</p>
+</li>
+<li>
+<p>\(g&#x27;&#x27;(2) &lt; 0 \Rightarrow\) maximum local</p>
+</li>
+<li>
+<p>\(g&#x27;&#x27;(5) = 0\) n’est pas suffisant pour conclure : peut être un point d&#x27;inflexion</p>
+</li>
+</ul>
+<h3 class="course-subheading" id="course-section-61"> Déduction de la courbe</h3>
+<p>Une fonction \(h\) a les propriétés suivantes : - \(h&#x27;(x)\) change de signe en \(x = 0\) et \(x = 4\) - \(h&#x27;(x) &gt; 0\) sur \((-\infty, 0)\) et \((4, +\infty)\) - \(h&#x27;&#x27;(x) &lt; 0\) sur tout \(\mathbb{R}\)</p>
+<ol>
+<li>
+<p>Quelle est l’allure de \(h(x)\) ?</p>
+</li>
+<li>
+<p>Combien de maximums ou minimums locaux possède-t-elle ?</p>
+</li>
+<li>
+<p>Peut-elle avoir un point d&#x27;inflexion ?</p>
+</li>
+</ol>
+<p><strong>Correction rapide :</strong></p>
+<ul>
+<li>
+<p>\(h\) est croissante \(\to\) décroissante \(\to\) croissante : minimum local en \(x = 0\), maximum local en \(x = 4\)</p>
+</li>
+<li>
+<p>\(f&#x27;&#x27; &lt; 0\) partout \(\Rightarrow\) toujours concave : pas de point d&#x27;inflexion</p>
+</li>
+</ul>
+<h4 class="course-subheading" id="course-section-62">Dérivées partielles (facultatif)</h4>
+<p>Lorsqu’une fonction mathématique dépend de plusieurs variables, comme \(f(x,y)\), il est nécessaire de préciser par rapport à quelle variable on effectue la dérivation. Au lieu d’utiliser le symbole usuel \(\frac{df}{dx}\) ou \(f&#x27;\), on utilise le symbole :</p>
+<div class="course-equation" id="course-equation-24">\[\begin{gathered}\frac{\partial f}{\partial x}=\partial_x f\end{gathered}\]<span class="course-equation-index">(62)</span></div>
+<p>ou encore :</p>
+<div class="course-equation" id="course-equation-25">\[\begin{gathered}\frac{\partial f}{\partial y}=\partial_y f\end{gathered}\]<span class="course-equation-index">(63)</span></div>
+<p>si la dérivée est prise par rapport à \(x\) ou \(y\), respectivement. Le symbole \(\partial\) indique que la fonction dépend de plusieurs variables.</p>
+<p>Notez que l’effet de l’opérateur \(\partial_x\) est exactement le même que celui d’une dérivée ordinaire, mais appliqué à une fonction de plusieurs variables.</p>
+<p><strong>Exemple :</strong> \(f(x,y)=\dfrac{x\,y^2}{x+y^3}\)</p>
+<div class="course-equation" id="course-equation-26">\[\begin{gathered}\frac{\partial f}{\partial x}=\frac{\partial}{\partial x}\left(\frac{x\,y^2}{x+y^3}\right)=\frac{y^2}{x+y^3}\frac{\partial x}{\partial x}+xy^2\frac{\partial}{\partial x}\left(\frac{1}{x+y^3}\right)  \\
+    =\frac{y^2}{x+y^3}+xy^2\frac{\partial}{\partial x}(x+y^3)^ {-1}=\frac{y^2}{x+y^3}+xy^2(-1)(x+y^3)^{-2}  \\
+    =\frac{y^2}{x+y^3}-\frac{xy^2}{(x+y^3)^{2}}\end{gathered}\]<span class="course-equation-index">(64)</span></div>
+<p>On utilise ici la règle du produit. Si \(f(x)=g(x)h(x)\), la règle du produit indique que la dérivée par rapport à \(x\) est donnée par :</p>
+<div class="course-equation" id="course-equation-27">\[\begin{gathered}\frac{df}{dx}=f&#x27;=g&#x27;(x)h(x)+g(x)h&#x27;(x)=\frac{dg}{dx}h+g\frac{dh}{dx}  ~~~~.\end{gathered}\]<span class="course-equation-index">(65)</span></div>
+<p>On utilise aussi la règle de la chaîne, qui affirme que si \(f(x)=g(h(x))\), alors la dérivée est :</p>
+<div class="course-equation" id="course-equation-28">\[\begin{gathered}\frac{df}{dx}=f&#x27;=g&#x27;(h(x))h&#x27;= \frac{dg}{dh}\frac{dh}{dx} ~.\end{gathered}\]<span class="course-equation-index">(66)</span></div>
+<p>La dérivée partielle de la fonction \(f(x,y)=\dfrac{x\,y^2}{x+y^3}\) par rapport à \(y\) est :</p>
+<div class="course-equation" id="course-equation-29">\[\begin{gathered}\frac{\partial f}{\partial y}=\frac{\partial}{\partial y}\left(\frac{x\,y^2}{x+y^3}\right)=\frac{x}{x+y^3}\frac{\partial y^2}{\partial y}+xy^2\frac{\partial }{\partial y}(x+y^3)^{-1}  \\
+    =\frac{2yx}{x+y^3}+xy^2(-1)(x+y^3)^{-2} (3y^2)  \\
+    =\frac{2yx}{x+y^3}-\frac{3xy^4}{(x+y^3)^{2}}  ~.\end{gathered}\]<span class="course-equation-index">(67)</span></div>
+<h4 class="course-subheading" id="course-section-63">Exercices</h4>
+<p>Pour chacune des fonctions suivantes, calculez les dérivées partielles \(\partial_x\), \(\partial_y\) et \(\partial_z\) (où \(a\) et \(b\) sont des constantes) :</p>
+<ol>
+<li>
+<p>\(f(x,y)=b\frac{y}{x^2}\)</p>
+</li>
+<li>
+<p>\(f(x,y)=a(y+x^2)\)</p>
+</li>
+<li>
+<p>\(f(x,y)=\frac{a+x}{2-y^3}\)</p>
+</li>
+<li>
+<p>\(f(x,y)=\frac{a+y}{(2-x^3)^2}\)</p>
+</li>
+<li>
+<p>\(f(x,y)=(a+y)^2\,(b-x^3)\)</p>
+</li>
+<li>
+<p>\(f(x,z)=y(a+x)^2\,(b-z^3)^3\)</p>
+</li>
+<li>
+<p>\(f(x,y,z)=\frac{(a+x)}{(2-z^3)^2}(1+y)^b\)</p>
+</li>
+</ol>
+<h2 class="course-subheading" id="course-section-64">Exercices d&#x27;application</h2>
+<h3 class="course-subheading" id="course-section-65">Lecture graphique de la dérivée</h3>
+<p>On donne ci-dessous la courbe représentant la fonction \(x(t)\) :</p>
+<figure class="course-figure" id="course-figure-14"><img src="resources/Classes/booster-physique/diagram-5.png" alt="Illustration du cours 14" loading="lazy"><figcaption>Figure 9.</figcaption></figure>
+<ol>
+<li>
+<p>À quel(s) instant(s) la vitesse est-elle nulle ?</p>
+</li>
+<li>
+<p>Indiquez les intervalles où le mouvement est accéléré ou ralenti.</p>
+</li>
+<li>
+<p>Que peut-on dire de l’accélération au point où la courbe atteint un maximum ?</p>
+</li>
+</ol>
+<h3 class="course-subheading" id="course-section-66">Mouvement rectiligne</h3>
+<p>Un point matériel suit un mouvement donné par :</p>
+<div class="course-equation" id="course-equation-92">\[x(t) = 3t^2 - 2t + 1\]<span class="course-equation-index">(68)</span></div>
+<ol>
+<li>
+<p>Calculez la vitesse \(v(t)\) et l’accélération \(a(t)\).</p>
+</li>
+<li>
+<p>Déterminez l’instant où la vitesse est nulle.</p>
+</li>
+<li>
+<p>Le mouvement est-il accéléré ou ralenti à cet instant ?</p>
+</li>
+</ol>
+<p><strong>Correction :</strong></p>
+<div class="course-equation" id="course-equation-93">\[v(t) = \dv{x}{t} = 6t - 2, \quad a(t) = \dv[2]{x}{t} = 6\]<span class="course-equation-index">(69)</span></div>
+<div class="course-equation" id="course-equation-94">\[v(t) = 0 \Rightarrow t = \frac{1}{3}, \quad a(t) = 6 &gt; 0 \Rightarrow\ \text{mouvement accéléré.}\]<span class="course-equation-index">(70)</span></div>
+<h3 class="course-subheading" id="course-section-67">Chute verticale</h3>
+<p>Un objet est lancé verticalement vers le haut avec une vitesse initiale \(v_0 = 20\ \text{m/s}\), depuis une hauteur \(x_0 = 10\ \text{m}\). On néglige les frottements.</p>
+<ol>
+<li>
+<p>Écrivez l’expression de \(x(t)\).</p>
+</li>
+<li>
+<p>À quel instant l’objet atteint-il son point le plus haut ?</p>
+</li>
+<li>
+<p>Quelle est sa hauteur maximale ?</p>
+</li>
+<li>
+<p>À quel instant touche-t-il le sol ?</p>
+</li>
+</ol>
+<p><strong>Correction :</strong></p>
+<div class="course-equation" id="course-equation-95">\[x(t) = 10 + 20t - \frac{1}{2} \cdot 9.8 t^2
+\quad \Rightarrow\quad v(t) = 20 - 9.8t\]<span class="course-equation-index">(71)</span></div>
+<div class="course-equation" id="course-equation-96">\[v(t) = 0 \Rightarrow t = \frac{20}{9.8} \approx 2.04\ \text{s}\]<span class="course-equation-index">(72)</span></div>
+<div class="course-equation" id="course-equation-97">\[x_{\text{max}} = x(2.04) \approx 10 + 20(2.04) - 4.9(2.04)^2 \approx 30.4\ \text{m}\]<span class="course-equation-index">(73)</span></div>
+<div class="course-equation" id="course-equation-98">\[x(t_{\text{sol}}) = 0 \Rightarrow \text{résolution d’une équation quadratique}\]<span class="course-equation-index">(74)</span></div>
+<h3 class="course-subheading" id="course-section-68"> Oscillateur harmonique</h3>
+<p>Un objet est attaché à un ressort. Sa position est donnée par :</p>
+<div class="course-equation" id="course-equation-99">\[x(t) = A \cos(\omega t)\]<span class="course-equation-index">(75)</span></div>
+<p>avec \(A = 5\ \text{cm}\) et \(\omega = 2\ \text{rad/s}\).</p>
+<ol>
+<li>
+<p>Calculez la vitesse \(v(t)\) et l’accélération \(a(t)\).</p>
+</li>
+<li>
+<p>Quelle est la valeur maximale de la vitesse ? de l’accélération ?</p>
+</li>
+<li>
+<p>Interprétez physiquement ces résultats.</p>
+</li>
+</ol>
+<p><strong>Correction :</strong></p>
+<div class="course-equation" id="course-equation-100">\[v(t) = -A\omega \sin(\omega t),\quad a(t) = -A\omega^2 \cos(\omega t)\]<span class="course-equation-index">(76)</span></div>
+<div class="course-equation" id="course-equation-101">\[v_{\text{max}} = A\omega = 0.05 \times 2 = 0.1\ \text{m/s},\quad
+a_{\text{max}} = A\omega^2 = 0.05 \times 4 = 0.2\ \text{m/s}^2\]<span class="course-equation-index">(77)</span></div>
+<h3 class="course-subheading" id="course-section-69"> Loi de refroidissement de Newton (niveau plus avancé)</h3>
+<p>Un objet chaud est plongé dans un bain thermique à température constante \(T_{\text{env}} = 20^\circ\)C. Sa température \(T(t)\) évolue selon :</p>
+<div class="course-equation" id="course-equation-102">\[\dv{T}{t} = -k(T - T_{\text{env}})
+\quad\text{où } k &gt; 0\]<span class="course-equation-index">(78)</span></div>
+<ol>
+<li>
+<p>Vérifiez que \(T(t) = T_{\text{env}} + (T_0 - T_{\text{env}})e^{-kt}\) est solution.</p>
+</li>
+<li>
+<p>Que vaut \(\dv{T}{t}\) lorsque \(T = T_{\text{env}}\) ?</p>
+</li>
+<li>
+<p>Interprétez la constante \(k\) physiquement.</p>
+</li>
+</ol>
+<h3 class="course-subheading" id="course-section-70">Intégrales et applications en physique</h3>
+<h4 class="course-subheading" id="course-section-71">Motivation : pourquoi intégrer ?</h4>
+<p>En physique, de nombreuses grandeurs ne peuvent pas être calculées directement à un instant donné, mais plutôt par une <strong>accumulation</strong> de quantités élémentaires : longueur, énergie, masse, charge, travail, etc.</p>
+<p>L&#x27;intégrale permet justement de faire cette somme continue.</p>
+<h3 class="course-subheading" id="course-section-72">Définition intuitive</h3>
+<p>Soit une fonction continue \(f(t)\) définie sur un intervalle \([a, b]\). On peut approximer l’aire sous la courbe par une somme de rectangles :</p>
+<div class="course-equation" id="course-equation-103">\[\sum_{i=1}^n f(t_i) \Delta t\]<span class="course-equation-index">(79)</span></div>
+<p>Quand \(n \to \infty\) et \(\Delta t \to 0\), cette somme devient l’<strong>intégrale définie</strong> :</p>
+<div class="course-equation" id="course-equation-104">\[\int_a^b f(t)\,dt\]<span class="course-equation-index">(80)</span></div>
+<figure class="course-figure" id="course-figure-15"><img src="resources/Classes/booster-physique/diagram-6.png" alt="Approximation de l’aire sous la courbe par des rectangles" loading="lazy"><figcaption><span class="course-figure-index">Figure 10.</span> Approximation de l’aire sous la courbe par des rectangles</figcaption></figure>
+<h4 class="course-subheading" id="course-section-73">Interprétation géométrique</h4>
+<p>L’intégrale \(\displaystyle \int_a^b f(t)\,dt\) représente l’<strong>aire algébrique</strong> entre la courbe \(y = f(t)\) et l’axe des abscisses, entre \(t = a\) et \(t = b\).</p>
+<p>Si \(f(t) \geq 0\) sur l’intervalle, alors cette aire est positive.</p>
+<h3 class="course-subheading" id="course-section-74">Exemples physiques classiques</h3>
+<h4 class="course-subheading" id="course-section-75">1. Position et vitesse</h4>
+<p>Si \(v(t)\) est la vitesse d’un objet, alors la position est donnée par :</p>
+<div class="course-equation" id="course-equation-105">\[x(t) = x(t_0) + \int_{t_0}^t v(u)\,du\]<span class="course-equation-index">(81)</span></div>
+<h4 class="course-subheading" id="course-section-76">2. Travail d’une force variable</h4>
+<p>Le travail d’une force \(F(x)\) entre \(x = a\) et \(x = b\) est donné par :</p>
+<div class="course-equation" id="course-equation-106">\[W = \int_a^b F(x)\,dx\]<span class="course-equation-index">(82)</span></div>
+<h4 class="course-subheading" id="course-section-77">3. Quantité de chaleur reçue</h4>
+<p>Si un corps reçoit de l’énergie à un débit \(P(t)\) (puissance), alors l’énergie reçue entre \(t_1\) et \(t_2\) est :</p>
+<div class="course-equation" id="course-equation-107">\[E = \int_{t_1}^{t_2} P(t)\,dt\]<span class="course-equation-index">(83)</span></div>
+<h4 class="course-subheading" id="course-section-78">4. Charge électrique sur une surface</h4>
+<p>Si la densité de charge est \(\sigma(x)\) (en C/m²), la charge totale sur une plaque de longueur \(L\) est :</p>
+<div class="course-equation" id="course-equation-108">\[Q = \int_0^L \sigma(x)\,dx\]<span class="course-equation-index">(84)</span></div>
+<h3 class="course-subheading" id="course-section-79">Unités et interprétation dimensionnelle</h3>
+<p>Si \(f(t)\) a pour unité [U] et \(t\) pour unité [T], alors :</p>
+<div class="course-equation" id="course-equation-109">\[\int f(t)\,dt \text{ a pour unité } [U] \cdot [T]\]<span class="course-equation-index">(85)</span></div>
+<h4 class="course-subheading" id="course-section-80">Théorème fondamental du calcul intégral</h4>
+<p>Si \(F\) est une primitive de \(f\), alors :</p>
+<div class="course-equation" id="course-equation-110">\[\int_a^b f(x)\,dx = F(b) - F(a)\]<span class="course-equation-index">(86)</span></div>
+<p>Ce résultat permet de relier intégrale et dérivée. L&#x27;intégrale de borne supérieur indéfinie est écrite comme</p>
+<div class="course-equation" id="course-equation-30">\[\begin{gathered}F(x)=\int_a^{x}\,f(x&#x27;)\,dx&#x27;~,\end{gathered}\]<span class="course-equation-index">(87)</span></div>
+<p>La différence infinitésimal de la fonction \(F(x)\) s&#x27;exprime comme</p>
+<div class="course-equation" id="course-equation-31">\[\begin{gathered}F(x+\Delta x)-F(x)=\int_a^{x+\Delta x}\,f(x&#x27;)\,dx&#x27;-\int_a^{x}\,f(x&#x27;)\,dx&#x27;=\int_x^{x+\Delta x}\,f(x&#x27;)\,dx&#x27;~.\end{gathered}\]<span class="course-equation-index">(88)</span></div>
+<p>En prenant la limite quand \(\Delta x \to 0\) nous avons</p>
+<div class="course-equation" id="course-equation-32">\[\begin{gathered}\int_x^{x+\Delta x}\,f(x&#x27;)\,dx&#x27;\to f(x)\,\Delta x~,\end{gathered}\]<span class="course-equation-index">(89)</span></div>
+<p>et cela implique</p>
+<div class="course-equation" id="course-equation-33">\[\begin{gathered}\lim_{\Delta x\to 0}\frac{F(x+\Delta x)-F(x)}{\Delta x}=\frac{dF(x)}{dx}=f(x)~,\end{gathered}\]<span class="course-equation-index">(90)</span></div>
+<p>ce qui fait que l&#x27;intégrale soit l&#x27;opération inverse à la dérivée.</p>
+<p>Pour une fonction monôme du type</p>
+<div class="course-equation" id="course-equation-34">\[\begin{gathered}F(x)=a\,x^{\alpha}~,\end{gathered}\]<span class="course-equation-index">(91)</span></div>
+<p>sa dérivée est donné par</p>
+<div class="course-equation" id="course-equation-35">\[\begin{gathered}f(x)=\alpha\,a\,x^{\alpha-1}~,\end{gathered}\]<span class="course-equation-index">(92)</span></div>
+<p>pour que nous puissions obtenir sa primitive, nous prenons l&#x27;opération inverse. De manière générale, l&#x27;intégrale d&#x27;une fonction monôme quelconque est donné par</p>
+<div class="course-equation" id="course-equation-36">\[\begin{gathered}I(x)=\int^{x}a\,x&#x27;^{\alpha}\,dx&#x27;=a\,\frac{x^{\alpha+1}}{\alpha+1}+C\end{gathered}\]<span class="course-equation-index">(93)</span></div>
+<h4 class="course-subheading" id="course-section-81">Les propriétés des intégrales:</h4>
+<h4 class="course-subheading" id="course-section-82"> Étant donnés une fonction \(f(x)\) définie comme \(f:x\mapsto\mathbb{R}\) et une constante quelconque \(k\)</h4>
+<ol>
+<li>
+<p>L&#x27;intégrale d&#x27;une fonction quelconque multipliée par une constante arbitraire \(k\) est égal a la constante multiplié par l&#x27;intégrale de la fonction</p>
+<div class="course-equation" id="course-equation-37">\[\begin{gathered}\int^x k\,f(x&#x27;)\,dx&#x27;=k\,\int^x f(x&#x27;)\,dx&#x27;\end{gathered}\]<span class="course-equation-index">(94)</span></div>
+</li>
+<li>
+<p>L&#x27;intégrale est une opération linéaire</p>
+<div class="course-equation" id="course-equation-38">\[\begin{gathered}\int^{x}(f(x&#x27;)+g(x&#x27;))\,dx&#x27;=\int^x f(x&#x27;)\,dx&#x27;+\int^x g(x&#x27;)\,dx&#x27;\end{gathered}\]<span class="course-equation-index">(95)</span></div>
+</li>
+<li>
+<p>Intégration par changement de variable</p>
+<div class="course-equation" id="course-equation-39">\[\begin{gathered}\int^{\varphi(t)} f(x&#x27;)\,dx&#x27;=\int^{t} f(\varphi(t))\frac{d\varphi}{dt}\,dt~\end{gathered}\]<span class="course-equation-index">(96)</span></div>
+<p>où \(\varphi(t)=x\) et \(dx=\frac{d\varphi}{dt}dt\).</p>
+</li>
+<li>
+<p>L&#x27;intégrale par partie</p>
+<div class="course-equation" id="course-equation-40">\[\begin{gathered}\int_{a}^{b} u\,v&#x27;\,dx=u\,v\,\Big|_a^b-\int_{a}^{b}v\,u&#x27;\,dx ~.\end{gathered}\]<span class="course-equation-index">(97)</span></div>
+</li>
+</ol>
+<h2 class="course-subheading" id="course-section-83">Exercices d’application</h2>
+<h3 class="course-subheading" id="course-section-84"> Distance parcourue</h3>
+<p>Un objet se déplace avec une vitesse donnée par \(v(t) = 2t\), avec \(t\) en secondes, \(v\) en m/s.</p>
+<ol>
+<li>
+<p>Calculez la distance parcourue entre \(t = 0\) et \(t = 5\).</p>
+</li>
+<li>
+<p>Interprétez le résultat géométriquement.</p>
+</li>
+</ol>
+<p><strong>Correction :</strong></p>
+<div class="course-equation" id="course-equation-111">\[\int_0^5 2t\,dt = \left[t^2\right]_0^5 = 25\ \text{m}\]<span class="course-equation-index">(98)</span></div>
+<h3 class="course-subheading" id="course-section-85"> Travail d’une force</h3>
+<p>Une force \(F(x) = 3x^2\) agit sur un objet, \(x\) en mètres, \(F\) en N. Calculez le travail de \(x = 0\) à \(x = 2\).</p>
+<p><strong>Correction :</strong></p>
+<div class="course-equation" id="course-equation-112">\[W = \int_0^2 3x^2\,dx = \left[ x^3 \right]_0^2 = 8\ \text{J}\]<span class="course-equation-index">(99)</span></div>
+<h3 class="course-subheading" id="course-section-86"> Aire algébrique</h3>
+<p>On considère la fonction \(f(x) = x\) sur l’intervalle \([-1, 1]\).</p>
+<ol>
+<li>
+<p>Calculez \(\int_{-1}^1 x\,dx\)</p>
+</li>
+<li>
+<p>Calculez \(\int_0^1 x\,dx\) et \(\int_{-1}^0 x\,dx\)</p>
+</li>
+<li>
+<p>Interprétez la différence entre les deux résultats</p>
+</li>
+</ol>
+<p><strong>Correction :</strong></p>
+<div class="course-equation" id="course-equation-113">\[\int_{-1}^{1} x\,dx = 0 \quad\text{(aires opposées)}\]<span class="course-equation-index">(100)</span></div>
+<h3 class="course-subheading" id="course-section-87"> Somme approchée</h3>
+<p>Soit \(f(t) = t^2\) sur \([0,2]\). Approchez \(\int_0^2 f(t)\,dt\) en divisant \([0,2]\) en 4 intervalles, et en prenant pour chaque sous-intervalle la valeur de \(f\) au point gauche.</p>
+<p><strong>Correction :</strong></p>
+<div class="course-equation" id="course-equation-114">\[\Delta t = 0,5,\quad
+\sum f(t_i) \Delta t = (0^2 + 0,5^2 + 1^2 + 1,5^2) \cdot 0,5 = (0 + 0,25 + 1 + 2,25) \cdot 0,5 = 1,75\]<span class="course-equation-index">(101)</span></div>
+<p>Valeur exacte :</p>
+<div class="course-equation" id="course-equation-115">\[\int_0^2 t^2 dt = \left[\frac{t^3}{3}\right]_0^2 = \frac{8}{3} \approx 2,67\]<span class="course-equation-index">(102)</span></div>
+<h3 class="course-subheading" id="course-section-88">Introduction : Pourquoi des équations différentielles ?</h3>
+<p>Une équation différentielle exprime une loi physique fondamentale reliant une grandeur physique à sa variation dans le temps (ou dans l’espace).</p>
+<ul>
+<li>
+<p><strong>Exemples</strong> :</p>
+<ul>
+<li>
+<p>Vitesse : \(v(t) = \dfrac{dx(t)}{dt}\)</p>
+</li>
+<li>
+<p>Accélération : \(a(t) = \dfrac{d^2x(t)}{dt^2}\)</p>
+</li>
+<li>
+<p>Loi de Newton : \(m \dfrac{d^2x}{dt^2} = F(x, v, t)\)</p>
+</li>
+</ul>
+</li>
+</ul>
+<h4 class="course-subheading" id="course-section-89">Équations différentielles d’ordre 1 à variables séparables</h4>
+<p>Forme générale :</p>
+<div class="course-equation" id="course-equation-116">\[\dfrac{dy}{dt} = f(y, t)\]<span class="course-equation-index">(103)</span></div>
+<p>Si les variables sont séparables c&#x27;est possible de traité la dérivée algebriquement comme un rapport :</p>
+<div class="course-equation" id="course-equation-117">\[\dfrac{1}{f(y)} \, dy = dt\]<span class="course-equation-index">(104)</span></div>
+<h3 class="course-subheading" id="course-section-90">Exemple : Refroidissement de Newton</h3>
+<div class="course-equation" id="course-equation-118">\[\dfrac{dT}{dt} = -k(T - T_{\text{ext}})\]<span class="course-equation-index">(105)</span></div>
+<p>Solution :</p>
+<div class="course-equation" id="course-equation-119">\[T(t) = T_{\text{ext}} + (T_0 - T_{\text{ext}})e^{-kt}\]<span class="course-equation-index">(106)</span></div>
+<h3 class="course-subheading" id="course-section-91">Remarque pédagogique : Peut-on manipuler les différentielles ?</h3>
+<p>Rigueur mathématique : la dérivée \(\dfrac{dy}{dt}\) est une limite, pas une fraction. Mais dans un cadre intégral, on peut écrire :</p>
+<div class="course-equation" id="course-equation-120">\[\dfrac{dy}{dt} = f(y) \Rightarrow dy = f(y) \, dt \Rightarrow \dfrac{1}{f(y)} \, dy = dt\]<span class="course-equation-index">(107)</span></div>
+<p>Et ensuite intégrer des deux côtés :</p>
+<div class="course-equation" id="course-equation-121">\[\int \dfrac{1}{f(y)} \, dy = \int dt\]<span class="course-equation-index">(108)</span></div>
+<p>Ce n’est donc pas une manipulation algébrique naïve, mais une méthode rigoureuse fondée sur le calcul intégral.</p>
+<h3 class="course-subheading" id="course-section-92">Limites de la méthode de séparation des variables</h3>
+<p>La méthode ne s’applique pas quand les variables \(y\) et \(t\) sont mélangées dans une même fonction de manière inséparable.</p>
+<ul>
+<li>
+<p><strong>Exemple 1 :</strong> \( \dfrac{dy}{dt} = y + t \) — dépendance mixte : non séparable.</p>
+</li>
+<li>
+<p><strong>Exemple 2 :</strong> \( \dfrac{dy}{dt} = \sin(t + y) \) — fonction non factorisable.</p>
+</li>
+<li>
+<p><strong>Exemple 3 :</strong> \( \dfrac{dy}{dt} = ty^2 + \ln(y) \) — dépendance non isolable.</p>
+</li>
+</ul>
+<p>Dans ces cas, on utilise d’autres méthodes : facteur intégrant, substitution, résolution numérique…</p>
+<h4 class="course-subheading" id="course-section-93">Équations différentielles linéaires d’ordre 1</h4>
+<p>Forme :</p>
+<div class="course-equation" id="course-equation-122">\[\dfrac{dy}{dt} + a(t)y = b(t)\]<span class="course-equation-index">(109)</span></div>
+<h3 class="course-subheading" id="course-section-94">Exemple : Circuit RC</h3>
+<div class="course-equation" id="course-equation-123">\[\dfrac{dq}{dt} + \dfrac{1}{RC}q = \dfrac{V}{R} \Rightarrow q(t) = CV(1 - e^{-t/RC})\]<span class="course-equation-index">(110)</span></div>
+<h4 class="course-subheading" id="course-section-95">Équations différentielles d’ordre 2</h4>
+<p>Forme générale :</p>
+<div class="course-equation" id="course-equation-124">\[\dfrac{d^2x}{dt^2} + a \dfrac{dx}{dt} + b x = f(t)\]<span class="course-equation-index">(111)</span></div>
+<h3 class="course-subheading" id="course-section-96">Oscillateur harmonique libre</h3>
+<div class="course-equation" id="course-equation-125">\[\dfrac{d^2x}{dt^2} + \omega_0^2 x = 0 \Rightarrow x(t) = A\cos(\omega_0 t) + B\sin(\omega_0 t)\]<span class="course-equation-index">(112)</span></div>
+<h3 class="course-subheading" id="course-section-97">Oscillateur amorti</h3>
+<div class="course-equation" id="course-equation-126">\[\dfrac{d^2x}{dt^2} + 2\gamma \dfrac{dx}{dt} + \omega_0^2 x = 0\]<span class="course-equation-index">(113)</span></div>
+<h3 class="course-subheading" id="course-section-98">Oscillateur forcé</h3>
+<div class="course-equation" id="course-equation-127">\[\dfrac{d^2x}{dt^2} + 2\gamma \dfrac{dx}{dt} + \omega_0^2 x = F_0 \cos(\omega t)\]<span class="course-equation-index">(114)</span></div>
+<h3 class="course-subheading" id="course-section-99">Équations différentielles en physique</h3>
+<h3 class="course-subheading" id="course-section-100"> Radioactivité</h3>
+<p>L’évolution d’un nombre de noyaux radioactifs est donnée par :</p>
+<div class="course-equation" id="course-equation-128">\[\dfrac{dN}{dt} = -\lambda N\]<span class="course-equation-index">(115)</span></div>
+<ul>
+<li>
+<p>Résoudre l’équation avec \(N(0) = N_0\).</p>
+</li>
+<li>
+<p>Tracer la courbe \(N(t)\).</p>
+</li>
+<li>
+<p>Déterminer le temps de demi-vie.</p>
+</li>
+</ul>
+<h3 class="course-subheading" id="course-section-101">Chute avec frottement</h3>
+<p>Un objet de masse \(m\) est soumis à la gravité et à une force de frottement proportionnelle à sa vitesse :</p>
+<div class="course-equation" id="course-equation-129">\[m \dfrac{dv}{dt} = mg - \alpha v\]<span class="course-equation-index">(116)</span></div>
+<ul>
+<li>
+<p>Résoudre l’équation pour \(v(0) = 0\).</p>
+</li>
+<li>
+<p>Quelle est la vitesse limite ?</p>
+</li>
+</ul>
+<h3 class="course-subheading" id="course-section-102"> Oscillateur harmonique</h3>
+<div class="course-equation" id="course-equation-130">\[\dfrac{d^2x}{dt^2} + 4x = 0\]<span class="course-equation-index">(117)</span></div>
+<ul>
+<li>
+<p>Trouver la solution générale.</p>
+</li>
+<li>
+<p>Discuter le comportement temporel du système.</p>
+</li>
+</ul>
+<h3 class="course-subheading" id="course-section-103">Refroidissement de Newton</h3>
+<div class="course-equation" id="course-equation-131">\[\dfrac{dT}{dt} = -k(T - T_{\text{ext}})\]<span class="course-equation-index">(118)</span></div>
+<ul>
+<li>
+<p>Résoudre l’équation avec \(T(0) = T_0\).</p>
+</li>
+<li>
+<p>Représenter graphiquement \(T(t)\).</p>
+</li>
+</ul>
+<h3 class="course-subheading" id="course-section-104">Circuit RC</h3>
+<p>Un condensateur de capacité \(C\) est branché en série avec une résistance \(R\) et une source constante \(V\) :</p>
+<div class="course-equation" id="course-equation-132">\[\dfrac{dq}{dt} + \dfrac{1}{RC}q = \dfrac{V}{R}\]<span class="course-equation-index">(119)</span></div>
+<ul>
+<li>
+<p>Résoudre avec \(q(0) = 0\).</p>
+</li>
+<li>
+<p>Représenter \(q(t)\) et \(i(t) = \dfrac{dq}{dt}\).</p>
+</li>
+</ul>
+<h2 class="course-chapter" id="course-section-105">Vecteurs et ses opérations (2 séances)</h2>
+<p>Un <strong>vecteur</strong> est une grandeur mathématique définie par :</p>
+<ul>
+<li>
+<p>une direction,</p>
+</li>
+<li>
+<p>un sens,</p>
+</li>
+<li>
+<p>une norme (ou longueur).</p>
+</li>
+</ul>
+<p>On le note généralement en gras ou avec une flèche : \(\vec{A}\), \(\vec{v}\), etc. Un vecteur dans l’espace peut être représenté par ses composantes :</p>
+<div class="course-equation" id="course-equation-133">\[\vec{A} = A_x\,\vec{i} + A_y\,\vec{j} + A_z\,\vec{k}\]<span class="course-equation-index">(120)</span></div>
+<p>où \(\vec{i}, \vec{j}, \vec{k}\) sont les vecteurs unitaires des axes \(x\), \(y\) et \(z\). Une autre possibilité est de définir les vecteurs unitaires comme \(\vec{e}_x\), \(\vec{e}_y\) et \(\vec{e}_z\).</p>
+<h3 class="course-subheading" id="course-section-106"> Opérations vectorielles</h3>
+<h4 class="course-subheading" id="course-section-107"> Somme et multiplication par un scalaire</h4>
+<ul>
+<li>
+<p>\(\vec{C} = \vec{A} + \vec{B}\) : addition composante par composante.</p>
+</li>
+<li>
+<p>\(\lambda \vec{A}\) : multiplie la norme du vecteur par \(\lambda\), et inverse son sens si \(\lambda &lt; 0\).</p>
+</li>
+</ul>
+<h4 class="course-subheading" id="course-section-108">Addition et soustraction des vecteurs</h4>
+<h3 class="course-subheading" id="course-section-109">Définition géométrique</h3>
+<ul>
+<li>
+<p><strong>Addition</strong> : Pour deux vecteurs \(\vec{u}\) et \(\vec{v}\), leur somme \(\vec{u} + \vec{v}\) est obtenue en plaçant l’origine de \(\vec{v}\) à l’extrémité de \(\vec{u}\) (règle du parallélogramme).</p>
+</li>
+<li>
+<p><strong>Soustraction</strong> : La différence \(\vec{u} - \vec{v}\) correspond à l’addition de \(\vec{u}\) avec l’opposé de \(\vec{v}\) :</p>
+<div class="course-equation" id="course-equation-134">\[\vec{u} - \vec{v} = \vec{u} + (-\vec{v})\]<span class="course-equation-index">(121)</span></div>
+</li>
+<li>
+<p>L’opposé \(-\vec{v}\) est le vecteur de même direction, de sens opposé, et de même norme que \(\vec{v}\).</p>
+</li>
+</ul>
+<h3 class="course-subheading" id="course-section-110">Coordonnées cartésiennes</h3>
+<p>Si \(\vec{u} = (u_x, u_y)\) et \(\vec{v} = (v_x, v_y)\) dans un plan, alors :</p>
+<div class="course-equation" id="course-equation-58">\[\begin{aligned}\vec{u} + \vec{v} &amp;= (u_x + v_x, \ u_y + v_y) \\
+    \vec{u} - \vec{v} &amp;= (u_x - v_x, \ u_y - v_y)\end{aligned}\]<span class="course-equation-index">(122)</span></div>
+<h3 class="course-subheading" id="course-section-111">ATTENTION/ Les vecteurs peuvent glisser librement dans l’espace à condition qu’ils ne changent pas de direction ou de taille.</h3>
+<h3 class="course-subheading" id="course-section-112">Représentation graphique</h3>
+<figure class="course-figure" id="course-figure-16"><img src="resources/Classes/booster-physique/diagram-7.png" alt="Illustration du cours 16" loading="lazy"><figcaption>Figure 11.</figcaption></figure>
+<h3 class="course-subheading" id="course-section-113">Applications en physique</h3>
+<ul>
+<li>
+<p>Addition de forces (principe de superposition)</p>
+</li>
+<li>
+<p>Décomposition du mouvement (ex. vitesse résultante)</p>
+</li>
+</ul>
+<h4 class="course-subheading" id="course-section-114"> Produit scalaire (dot product)</h4>
+<p>Le produit scalaire de deux vecteurs \(\vec{A}\) et \(\vec{B}\) est une opérations mathématique de projection d&#x27;une vecteur sur l&#x27;autre en les emmenant à un scalaire représentée :</p>
+<div class="course-equation" id="course-equation-41">\[\begin{gathered}\vec{A}\cdot\vec{B}\equiv(\vec{A},\vec{B})=|\vec{A}|\,|\vec{B}|\cos \theta \, ~~.\end{gathered}\]<span class="course-equation-index">(123)</span></div>
+<p>où \(\theta\) est l’angle entre \(\vec{A}\) et \(\vec{B}\).</p>
+<p><strong>Propriétés</strong> :</p>
+<ul>
+<li>
+<p>Symétrie : \(\vec{A} \cdot \vec{B} = \vec{B} \cdot \vec{A}\)</p>
+</li>
+<li>
+<p>Linéarité : \(\vec{A} \cdot (\vec{B} + \vec{C}) = \vec{A} \cdot \vec{B} + \vec{A} \cdot \vec{C}\)</p>
+</li>
+<li>
+<p>\(\vec{A} \cdot \vec{A} = \norm{\vec{A}}^2\)</p>
+</li>
+</ul>
+<p>Dans la fig.<a href="#course-figure-5">12</a> nous montrons la projection  \(B_A\) i.e., la projection du vecteur \(\vec{B}\) sur le vecteur \(\vec{A}\) donnée par \(B_A=|\vec{B}|\cos\theta\). Puisque la projection se trouve selon la même direction du vecteur \(\vec{A}\) nous pouvons simplement  multiplier les projections \(\vec{A}\cdot\vec{B}=|\vec{A}||\vec{B}|\cos\theta=B_A\,|\vec{A}|\).</p>
+<figure class="course-figure" id="course-figure-5"><img src="resources/Classes/booster-physique/scalar_product_AB.png" alt="Projection du vecteur B sur le vecteur A." loading="lazy"><figcaption><span class="course-figure-index">Figure 12.</span> Projection du vecteur \(\vec{B}\) sur le vecteur \(\vec{A}\).</figcaption></figure>
+<p>Au lieu de projeter le vecteur \(\vec{B}\) sur  \(\vec{A}\) nous pouvons projeter \(\vec{A}\) sur \(\vec{B}\).(Regardez la fig. <a href="#course-figure-6">13</a> ). Cela correspond à  \(\vec{A}\cdot\vec{B}=|\vec{A}||\vec{B}|\cos\theta=A_B\,|\vec{B}|\).</p>
+<figure class="course-figure" id="course-figure-6"><img src="resources/Classes/booster-physique/scalar_product_BA.png" alt="Représentation de la projection de A sur B." loading="lazy"><figcaption><span class="course-figure-index">Figure 13.</span> Représentation de la projection de \(\vec{A}\) sur \(\vec{B}\).</figcaption></figure>
+<p>Algébriquement un vecteur peut être écrit en termes des ses vecteurs de base</p>
+<div class="course-equation" id="course-equation-42">\[\begin{gathered}\vec{A}=a_x\,\vec{e}_x+a_y\,\vec{e}_y+a_z\,\vec{e}_z ~.\end{gathered}\]<span class="course-equation-index">(124)</span></div>
+<p>Le produit scalaire entre deux vecteurs est</p>
+<div class="course-equation" id="course-equation-43">\[\begin{gathered}\vec{A}\cdot\vec{B}=(a_x\,\vec{e}_x+a_y\,\vec{e}_y+a_z\,\vec{e}_z)\cdot(b_x\,\vec{e}_x+b_y\,\vec{e}_y+b_z\,\vec{e}_z)  \\
+=a_x\,b_x\,\cancelto{1}{(\vec{e}_x\cdot\vec{e}_x)}+a_x\,b_y\,\cancelto{0}{(\vec{e}_x\cdot\vec{e}_y)}+a_x\,b_z\,\cancelto{0}{(\vec{e}_x\cdot\vec{e}_z)}+a_y\,b_x\,\cancelto{0}{(\vec{e}_y\cdot\vec{e}_x)}+a_y\,b_y\,\cancelto{1}{(\vec{e}_y\cdot\vec{e}_y)}+a_y\,b_z\,\cancelto{0}{(\vec{e}_y\cdot\vec{e}_z)}   \\
++a_z\,b_x\,\cancelto{0}{(\vec{e}_z\cdot\vec{e}_x)}+a_z\,b_y\,\cancelto{0}{(\vec{e}_z\cdot\vec{e}_y)}+a_z\,b_z\,\cancelto{1}{(\vec{e}_z\cdot\vec{e}_z)}
+ \\
+=a_x\,b_x+a_y\,b_y+a_z\,b_z ~~.\end{gathered}\]<span class="course-equation-index">(125)</span></div>
+<p>Ci-dessus nous avons utilisé orthogonalité du produit scalaire.</p>
+<p>Pour les vecteur bidimensionnelles  \(\vec{A}=a_x\,\vec{e}_x+a_y\,\vec{e}_y\) et \(\vec{B}=b_x\,\vec{e}_x+b_y\,\vec{e}_y\) montrez que le produit scalaire peut s&#x27;écrire comme \(a_x\,b_x+a_y\,b_y=|\vec{A}||\vec{B}|\cos\theta\).</p>
+<h2 class="course-subheading" id="course-section-115">Exercices de révision</h2>
+<p>Calculez les produit scalaires \(\vec{A}\cdot\vec{B}\) des vecteurs suivants:</p>
+<ul>
+<li>
+<p>\(\vec{e}_x\cdot\vec{e}_x\)</p>
+</li>
+<li>
+<p>\(\vec{e}_x\cdot\vec{e}_y\)</p>
+</li>
+<li>
+<p>\(\vec{e}_x\cdot\vec{e}_z\)</p>
+</li>
+<li>
+<p>\(\vec{e}_y\cdot\vec{e}_y\)</p>
+</li>
+<li>
+<p>\(\vec{e}_y\cdot\vec{e}_z\)</p>
+</li>
+<li>
+<p>\(\vec{A}=(3,~5)  ~~~\vec{B}=(5,1)\)</p>
+</li>
+<li>
+<p>\(\vec{A}=(0,~1)  ~~~\vec{B}=(-3,2)\)</p>
+</li>
+<li>
+<p>\(\vec{A}=2\,\vec{e}_x-3\,\vec{e}_y  ~~~\vec{B}=5\,\vec{e}_x+2\,\vec{e}_y\)</p>
+</li>
+<li>
+<p>\(\vec{A}=2\,\vec{e}_y  ~~~\vec{B}=5\,\vec{e}_x\)</p>
+</li>
+<li>
+<p>\(\vec{A}=2\,\vec{e}_x+2\,\vec{e}_y  ~~~\vec{B}=5\,\vec{e}_x\)</p>
+</li>
+<li>
+<p>\(\vec{A}=2\hat{x}+2\hat{y}  ~~~\vec{B}=-2\hat{x}+2\hat{y}\)</p>
+</li>
+</ul>
+<p><strong>Application  physique</strong> : Le <strong>travail</strong> d&#x27;une force est définit par un produit scalaire de la force et le déplacement :</p>
+<div class="course-equation" id="course-equation-135">\[W = \vec{F} \cdot \vec{d} = Fd\cos\theta\]<span class="course-equation-index">(126)</span></div>
+<p>où \(\vec{F}\) est une force et \(\vec{d}\) un déplacement.</p>
+<h4 class="course-subheading" id="course-section-116">Le produit vectorielle</h4>
+<p>Auparavant, nous avons défini une opération qui transforme deux vecteurs en un scalaire, qui c&#x27;est la projection d&#x27;un vecteur sur l&#x27;autre. Maintenant, nous définissons une opérations qui transforme deux vecteur en un vecteur perpendiculaire au plan formé par ces deux vecteurs d&#x27;origine \(\vec{A}\) et \(\vec{B}\)</p>
+<div class="course-equation" id="course-equation-44">\[\begin{gathered}\vec{A}\wedge\vec{B}\equiv\vec{A}\times\vec{B}=|\vec{A}|\,|\vec{B}|\sin(\theta)\,\hat{n}=\vec{C} ~~\end{gathered}\]<span class="course-equation-index">(127)</span></div>
+<p>où le vecteur unitaire \(\hat{n}\) est perpendiculaire au plan formé par les vecteurs \(\vec{A}\) et \(\vec{B}\). Le deux vecteurs forment un angle \(\theta\). Différemment du produit scalaire, l&#x27;ordre du produit vectorielle joue un rôle important changent le signe de l&#x27;opération. Puisque l&#x27;angle \(\theta\) est définit à partir de  \(A\) vers \(B\), si on change l&#x27;ordre de l&#x27;opération \(\vec{B}\wedge\vec{A}\) , nous changeons la direction de cet angle \(\theta\to-\theta\) ce qu&#x27;implique \(\sin \theta\to\sin (-\theta)=-\sin (\theta)\). Comme résultat,</p>
+<div class="course-equation" id="course-equation-45">\[\begin{gathered}\vec{B}\wedge\vec{A}=-|\vec{A}|\,|\vec{B}|\sin(\theta)\,\hat{n}=-\vec{A}\wedge\vec{B}=-\vec{C} ~~.\end{gathered}\]<span class="course-equation-index">(128)</span></div>
+<p>Dans la  fig. <a href="#course-figure-7">14</a> nous représentons deux vecteurs arbitraires \(\vec{A}\) et \(\vec{B}\) définis sur le plan \(x-y\) et un axe \(z\) perpendiculaire au plan avec un vecteur \(\vec{C}\).</p>
+<figure class="course-figure" id="course-figure-7"><img src="resources/Classes/booster-physique/vector_product_0.png" alt="Représentation de deux vecteurs arbitraires sur le plan x-y." loading="lazy"><figcaption><span class="course-figure-index">Figure 14.</span> Représentation de deux vecteurs arbitraires sur le plan  x-y.</figcaption></figure>
+<p>Dans la  fig. <a href="#course-figure-8">15</a> nous représentons deux vecteurs arbitraires \(\vec{A}\) et \(\vec{B}\) définis sur le plan x-y. Notez que la projection du vecteur  \(\vec{A}\) perpendiculairement au vecteur  \(\vec{B}\) nous permets d&#x27;obtenir le vecteur \(\vec{D}\).</p>
+<div class="course-equation" id="course-equation-46">\[\begin{gathered}|\vec{D}|=|\vec{A}|\sin\theta\end{gathered}\]<span class="course-equation-index">(129)</span></div>
+<p>en multiplient la norme  \(|\vec{D}|\) par la norme  \(|\vec{B}|\) nous obtenons</p>
+<div class="course-equation" id="course-equation-47">\[\begin{gathered}|\vec{B}||\vec{D}|=|\vec{A}||\vec{B}|\sin\theta=|\vec{C}|\end{gathered}\]<span class="course-equation-index">(130)</span></div>
+<figure class="course-figure" id="course-figure-8"><img src="resources/Classes/booster-physique/vector_product_1.png" alt="Représentation de deux vecteurs arbitraires sur le plan x-y. Géométriquement la norme du produit vectorielle correspond à la surface d&#x27;un rectangle." loading="lazy"><figcaption><span class="course-figure-index">Figure 15.</span> Représentation de deux vecteurs arbitraires sur le plan x-y. Géométriquement la norme du produit vectorielle correspond à la surface d&#x27;un rectangle.</figcaption></figure>
+<p>Dans la fig. <a href="#course-figure-9">16</a> nous représentons deux vecteurs \(\vec{A}\) et \(\vec{B}\) définis sur le plan x-y. Comme auparavant, la projection du vecteur \(\vec{B}\) perpendiculairement au vecteur \(\vec{A}\) nous permet d&#x27;obtenir un vecteur \(\vec{E}\).</p>
+<div class="course-equation" id="course-equation-48">\[\begin{gathered}|\vec{E}|=|\vec{B}|\sin\theta\end{gathered}\]<span class="course-equation-index">(131)</span></div>
+<p>et si nous le multiplions par la norme  \(|\vec{A}|\) nous obtenons</p>
+<div class="course-equation" id="course-equation-49">\[\begin{gathered}|\vec{A}||\vec{E}|=|\vec{B}||\vec{A}|\sin\theta=|\vec{C}|\end{gathered}\]<span class="course-equation-index">(132)</span></div>
+<figure class="course-figure" id="course-figure-9"><img src="resources/Classes/booster-physique/vector_product_2.png" alt="Représentation de deux vecteurs arbitraires sur le plan x-y." loading="lazy"><figcaption><span class="course-figure-index">Figure 16.</span> Représentation de deux vecteurs arbitraires sur le plan x-y. </figcaption></figure>
+<p>Nous concluons que \(|\vec{A}||\vec{E}|=|\vec{B}||\vec{D}|=|\vec{C}|\). Nous pouvons interpréter le produit vectorielle comme l&#x27;aire du losange crée par les deux vecteurs orientée perpendiculairement au plan formé par eux.</p>
+<p>Notez que le produit vectorielle nous oblige à inclure une troisième dimension spatial.</p>
+<p>On suppose deux vecteurs quelconque</p>
+<div class="course-equation" id="course-equation-50">\[\begin{gathered}    \vec{A}=A_x\,\vec{e}_x +A_y\,\vec{e}_y+ A_z\,\vec{e}_z \\
+    \vec{B}=B_x\,\vec{e}_x +B_y\,\vec{e}_y +B_z\,\vec{e}_z~,\end{gathered}\]<span class="course-equation-index">(133)</span></div>
+<p>algébriquement nous définissons le produit vectorielle comme le déterminant</p>
+<div class="course-equation" id="course-equation-51">\[\begin{gathered}\vec{A}\wedge \vec{B} = {\rm Det}\begin{bmatrix} 
+\vec{e}_x &amp; \vec{e}_y &amp; \vec{e}_z\\
+A_x &amp; A_y &amp; A_z \\
+B_x &amp; B_y &amp; B_z 
+\end{bmatrix} =  \\
+=\vec{e}_x\,\Big(A_y B_z-A_z B_y\Big)+\vec{e}_y\,\Big(A_z B_x-A_x B_z\Big)+\vec{e}_z\,\Big(A_x B_y-A_y B_x\Big) ~~~.\end{gathered}\]<span class="course-equation-index">(134)</span></div>
+<p>Conformément à l&#x27;exemple antérieur, prenons les composantes \(A_z=B_z=0\), alors le produit vectorielle devient</p>
+<div class="course-equation" id="course-equation-52">\[\begin{gathered}\vec{A}\wedge \vec{B} = {\rm Det}\begin{bmatrix} 
+\vec{e}_x &amp; \vec{e}_y &amp; \vec{e}_z\\
+A_x &amp; A_y &amp; 0 \\
+B_x &amp; B_y &amp; 0 
+\end{bmatrix} = \vec{e}_z\,\Big(A_x B_y-A_y B_x\Big)= |\vec{C}|\,\vec{e}_z ~~~.\end{gathered}\]<span class="course-equation-index">(135)</span></div>
+<h3 class="course-subheading" id="course-section-117">Exercices d’entraînement</h3>
+<p>Démontrez que \(\Big(A_x B_y-A_y B_x\Big)=C\).</p>
+<p>Calculate the cross products below:</p>
+<ul>
+<li>
+<p>\(\hat{x}\times\hat{x}=\)</p>
+</li>
+<li>
+<p>\(\hat{y}\times\hat{y}=\)</p>
+</li>
+<li>
+<p>\(\hat{z}\times\hat{z}=\)</p>
+</li>
+<li>
+<p>\(\hat{x}\times\hat{y}=\)</p>
+</li>
+<li>
+<p>\(\hat{x}\times\hat{z}=\)</p>
+</li>
+<li>
+<p>\(\hat{z}\times\hat{y}=\)</p>
+</li>
+</ul>
+<p>Calculate the cross product between the two vectors:</p>
+<ul>
+<li>
+<p>\(\vec{A}=(3,~5)  ~~~\vec{B}=(5,1)\)</p>
+</li>
+<li>
+<p>\(\vec{A}=(0,~1)  ~~~\vec{B}=(-3,2)\)</p>
+</li>
+<li>
+<p>\(\vec{A}=2\,\vec{e}_x-3\,\vec{e}_y  ~~~\vec{B}=5\,\vec{e}_x+2\,\vec{e}_y\)</p>
+</li>
+<li>
+<p>\(\vec{A}=2\,\vec{e}_y  ~~~\vec{B}=5\,\vec{e}_x\)</p>
+</li>
+<li>
+<p>\(\vec{A}=2\,\vec{e}_x+2\,\vec{e}_y  ~~~\vec{B}=5\,\vec{e}_x\)</p>
+</li>
+<li>
+<p>\(\vec{A}=2\hat{x}+2\hat{y}  ~~~\vec{B}=-2\hat{x}+2\hat{y}\)</p>
+</li>
+</ul>
+<p><strong>Applications</strong> :</p>
+<ul>
+<li>
+<p>Moment d’une force : \(\vec{M} = \vec{r} \times \vec{F}\)</p>
+</li>
+<li>
+<p>Champ magnétique : force de Lorentz : \(\vec{F} = q\vec{v} \times \vec{B}\)</p>
+</li>
+</ul>
+<h4 class="course-subheading" id="course-section-118"> Produit mixte (triple produit scalaire)</h4>
+<p>Le produit mixte est défini par :</p>
+<div class="course-equation" id="course-equation-136">\[\vec{A} \cdot (\vec{B} \times \vec{C}) = \det(\vec{A}, \vec{B}, \vec{C})\]<span class="course-equation-index">(136)</span></div>
+<p>C’est un scalaire qui représente le <strong>volume orienté</strong> du parallélépipède défini par les trois vecteurs.</p>
+<p><strong>Propriétés</strong> :</p>
+<ul>
+<li>
+<p>\(\vec{A} \cdot (\vec{B} \times \vec{C}) = \vec{B} \cdot (\vec{C} \times \vec{A}) = \vec{C} \cdot (\vec{A} \times \vec{B})\)</p>
+</li>
+<li>
+<p>Nul si les vecteurs sont coplanaires.</p>
+</li>
+</ul>
+<h2 class="course-subheading" id="course-section-119">Applications physiques</h2>
+<h3 class="course-subheading" id="course-section-120">3.1 Travail d&#x27;une force</h3>
+<div class="course-equation" id="course-equation-137">\[W = \vec{F} \cdot \vec{d}\]<span class="course-equation-index">(137)</span></div>
+<p>Le travail est maximal quand la force est colinéaire au déplacement.</p>
+<h3 class="course-subheading" id="course-section-121"> Moment d&#x27;une force</h3>
+<div class="course-equation" id="course-equation-138">\[\vec{M} = \vec{r} \times \vec{F}\]<span class="course-equation-index">(138)</span></div>
+<p>Le moment exprime la tendance d’une force à faire tourner un corps autour d’un point.</p>
+<h3 class="course-subheading" id="course-section-122"> Volume</h3>
+<div class="course-equation" id="course-equation-139">\[V = \vec{A} \cdot (\vec{B} \times \vec{C})\]<span class="course-equation-index">(139)</span></div>
+<p>Utilisé en géométrie vectorielle et en mécanique pour décrire des volumes.</p>
+<h2 class="course-subheading" id="course-section-123"> Exercices</h2>
+<ol>
+<li>
+<p>Calculer le produit scalaire de \(\vec{A} = (2, -1, 3)\) et \(\vec{B} = (1, 4, -2)\).</p>
+</li>
+<li>
+<p>Calculer le produit vectoriel de \(\vec{u} = (1, 0, 2)\) et \(\vec{v} = (0, 3, -1)\).</p>
+</li>
+<li>
+<p>Montrer que \(\vec{A} \cdot (\vec{B} \times \vec{C}) = 0\) si les vecteurs sont coplanaires.</p>
+</li>
+<li>
+<p>Une force \(\vec{F} = (5, 0, 0)\,\text{N}\) agit sur un objet qui se déplace de \(\vec{d} = (4, 3, 0)\,\text{m}\). Calculer le travail effectué.</p>
+</li>
+<li>
+<p>Soit une force \(\vec{F} = (0, 5, 0)\) appliquée à un point situé en \(\vec{r} = (2, 0, 0)\). Calculer le moment \(\vec{M} = \vec{r} \times \vec{F}\).</p>
+</li>
+</ol></article>
+        </div>
+        <div class="course-end"><a class="cv-primary-link" href="teaching.html">Back to class material <span aria-hidden="true">↗</span></a></div>
+      </main>
+      <footer class="site-footer page-width"><span>© <span id="year">2026</span> Anderson Kohara</span><span>Physics · Research · Teaching</span></footer>
+    </div>
+  </body>
+</html>

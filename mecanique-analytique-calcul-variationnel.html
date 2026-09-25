@@ -58,11 +58,22 @@
             <div class="course-equation">\[\frac{d}{dx}\left(\frac{y'}{\sqrt{1+y'^2}}\right)=0\qquad\Longrightarrow\qquad \boxed{y(x)=ax+b}.\]<span class="course-equation-index">(9)</span></div>
             <p>La courbe de longueur minimale entre deux points du plan est donc une droite.</p>
 
-            <h2 class="course-chapter" id="beltrami">L’identité de Beltrami</h2>
-            <p>La dérivée totale de \(f(y,y',x)\) et l’équation d’Euler-Lagrange donnent :</p>
+            <h2 class="course-chapter" id="beltrami">Seconde forme d’Euler : l’identité de Beltrami</h2>
+            <p>Considérons d’abord le cas général où \(f=f(y,y',x)\). Le long d’une courbe \(y(x)\), la règle de dérivation en chaîne donne la dérivée totale :</p>
+            <div class="course-equation">\[\frac{df}{dx}=\frac{\partial f}{\partial x}+\frac{\partial f}{\partial y}\frac{dy}{dx}+\frac{\partial f}{\partial y'}\frac{dy'}{dx}.\]</div>
+            <p>En notant \(y'=dy/dx\) et \(y''=d^2y/dx^2\), cette expression devient :</p>
+            <div class="course-equation" id="beltrami-derivee-totale">\[\frac{df}{dx}=\frac{\partial f}{\partial x}+\frac{\partial f}{\partial y}y'+\frac{\partial f}{\partial y'}y''.\]</div>
+            <p>Utilisons maintenant la règle de dérivation d’un produit :</p>
+            <div class="course-equation">\[\frac{d}{dx}\left(y'\frac{\partial f}{\partial y'}\right)=y''\frac{\partial f}{\partial y'}+y'\frac{d}{dx}\left(\frac{\partial f}{\partial y'}\right).\]</div>
+            <p>En isolant le terme \(y''\,\partial f/\partial y'\) et en le substituant dans la dérivée totale, nous obtenons :</p>
+            <div class="course-equation">\[\frac{df}{dx}=\frac{\partial f}{\partial x}+\frac{d}{dx}\left(y'\frac{\partial f}{\partial y'}\right)+\left[\frac{\partial f}{\partial y}-\frac{d}{dx}\left(\frac{\partial f}{\partial y'}\right)\right]y'.\]</div>
+            <p>Sur une courbe qui satisfait l’équation d’Euler–Lagrange, le terme entre crochets s’annule :</p>
+            <div class="course-equation">\[\frac{df}{dx}=\frac{\partial f}{\partial x}+\frac{d}{dx}\left(y'\frac{\partial f}{\partial y'}\right)+\underbrace{\left[\frac{\partial f}{\partial y}-\frac{d}{dx}\left(\frac{\partial f}{\partial y'}\right)\right]}_{=\,0\;\text{par Euler–Lagrange}}\,y'.\]</div>
+            <p>En regroupant les dérivées totales, il vient :</p>
             <div class="course-equation">\[\boxed{\frac{d}{dx}\left(f-y'\frac{\partial f}{\partial y'}\right)=\frac{\partial f}{\partial x}}.\]<span class="course-equation-index">(10)</span></div>
-            <p>Si \(f\) ne dépend pas explicitement de \(x\), cette relation se simplifie :</p>
+            <p>Si \(f\) ne dépend pas explicitement de \(x\), alors \(\partial f/\partial x=0\). La quantité entre parenthèses est donc constante le long de la courbe :</p>
             <div class="course-equation">\[\boxed{f-y'\frac{\partial f}{\partial y'}=C}.\]<span class="course-equation-index">(11)</span></div>
+            <p>Cette relation, où \(C\) est une constante, est la <strong>seconde forme d’Euler</strong>, également appelée <strong>identité de Beltrami</strong>. L’absence de dépendance explicite en \(x\) n’implique pas que \(df/dx=0\) : \(f\) peut encore varier par l’intermédiaire de \(y(x)\) et de \(y'(x)\).</p>
 
             <h2 class="course-chapter" id="applications">Applications</h2>
             <h3 class="course-subheading">La brachistochrone</h3>

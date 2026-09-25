@@ -479,7 +479,7 @@ function translateStaticPage() {
 
   for (const anchor of document.querySelectorAll('a[href]')) {
     const href = anchor.getAttribute('href');
-    if (/^(index|cv|publications|teaching|booster-physique|mecanique-analytique|mecanique-analytique-calcul-variationnel)\.html(?:[?#]|$)/.test(href)) {
+    if (/^(index|cv|publications|teaching|booster-physique|mecanique-analytique|mecanique-analytique-calcul-variationnel|mecanique-analytique-coordonnees-generalisees)\.html(?:[?#]|$)/.test(href)) {
       const url = new URL(href, window.location.href);
       url.searchParams.set('lang', currentLanguage);
       anchor.href = url.href;

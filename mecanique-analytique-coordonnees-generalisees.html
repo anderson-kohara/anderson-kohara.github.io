@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Cours de mécanique analytique : chapitre 3, coordonnées généralisées, principe de D’Alembert et équations de Lagrange.">
+    <meta name="theme-color" content="#f5f5f0">
+    <title>Mécanique analytique — Coordonnées généralisées et équations de Lagrange — Anderson Kohara</title>
+    <script>try { document.documentElement.dataset.theme = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch { document.documentElement.dataset.theme = 'light'; }</script>
+    <link rel="stylesheet" href="styles.css">
+    <script src="i18n.js" defer></script><script src="script.js" defer></script>
+    <script>window.MathJax = { svg: { fontCache: 'global' } };</script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-svg.js"></script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header page-width">
+        <a class="brand" href="index.html" aria-label="Anderson Kohara, home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Anderson Kohara</span></a>
+        <div class="header-actions"><span class="header-location">ESME <span aria-hidden="true">·</span> Lyon</span><label class="sr-only" for="language-select">Language</label><select class="language-select" id="language-select"><option value="en">EN</option><option value="pt-BR">PT-BR</option><option value="fr">FR</option></select><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg><span class="theme-label">Dark mode</span></button></div>
+      </header>
+      <main class="course-main page-width" id="top" lang="fr" data-no-translate>
+        <a class="back-link" href="teaching.html"><span aria-hidden="true">←</span> Retour aux supports de cours</a>
+        <section class="course-hero" aria-labelledby="course-title"><div><p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> Support de cours · En français</p><h1 id="course-title">Mécanique<br><span>analytique</span><span class="title-dot">.</span></h1><p class="course-byline">Anderson Kohara <span aria-hidden="true">·</span> Chapitre 3 — Coordonnées généralisées et équations de Lagrange</p></div><div class="course-hero-mark" aria-hidden="true"><span>δ</span><span>𝓕</span><span>∫</span></div></section>
+        <section class="course-intro" aria-label="Introduction au chapitre"><p>Du principe de D’Alembert aux équations de Lagrange : ce chapitre développe les coordonnées généralisées, les déplacements virtuels et les forces généralisées, puis exprime la dynamique à l’aide de l’énergie cinétique et du lagrangien.</p><p class="course-session-meta"><span><strong>Prérequis :</strong> lois de Newton, contraintes holonomes, déplacements virtuels et dérivées partielles</span></p><div class="course-activity"><h3>Cadre de la démonstration</h3><p>Nous considérons des particules de masses constantes, soumises à des contraintes holonomes indépendantes et idéales : le travail virtuel total des forces de liaison est nul. Les forces \(\vec{F}_i\) désignent les forces appliquées, hors forces de liaison.</p></div></section>
+        <div class="course-layout">
+          <aside class="course-sidebar"><nav class="course-toc" aria-label="Sommaire du chapitre"><p>Dans ce chapitre</p><a href="#coordonnees"><span>01</span>Coordonnées généralisées</a><a href="#deplacement-virtuel"><span>02</span>Déplacement virtuel en coordonnées généralisées</a><a href="#forces-generalisees"><span>03</span>Forces généralisées</a><a href="#dalembert"><span>04</span>Principe de D&#x27;Alembert en coordonnées généralisées</a><a href="#energie-cinetique"><span>05</span>Introduction de l&#x27;énergie cinétique</a><a href="#lagrange"><span>06</span>Les équations de Lagrange</a><a href="#forces-conservatives"><span>07</span>Cas des forces conservatives</a><a class="course-toc-top" href="#top">Retour en haut ↑</a></nav></aside>
+          <article class="course-content">
+<h2 class="course-chapter" id="coordonnees">Coordonnées généralisées</h2><p>Le principe de D&#x27;Alembert s&#x27;écrit</p>
+<div class="course-equation" id="equation-1">\[\boxed{
+    \sum_{i=1}^{N}
+    \left(
+        \vec{F}_i-m_i\ddot{\vec{r}}_i
+    \right)
+    \cdot\delta\vec{r}_i
+    =0.
+}\]<span class="course-equation-index">(1)</span></div>
+<p>Nous allons maintenant exprimer cette relation en utilisant des coordonnées adaptées aux contraintes du système.</p>
+<p>Pour un système de \(N\) particules soumis à \(k\) contraintes holonomes indépendantes, le nombre de degrés de liberté est</p>
+<div class="course-equation" id="equation-2">\[n=3N-k.\]<span class="course-equation-index">(2)</span></div>
+<p>Nous introduisons alors \(n\) variables indépendantes</p>
+<div class="course-equation" id="equation-3">\[q_1,\ldots,q_n,\]<span class="course-equation-index">(3)</span></div>
+<p>appelées <strong>coordonnées généralisées</strong>.</p>
+<p>Les vecteurs positions des particules peuvent être écrits sous la forme</p>
+<div class="course-equation" id="equation-4">\[\boxed{
+    \vec{r}_i
+    =
+    \vec{r}_i(q_1,\ldots,q_n,t).
+}\]<span class="course-equation-index">(4)</span></div>
+<p>Les coordonnées généralisées ne sont pas nécessairement des distances. Elles peuvent être des angles, des longueurs ou toute autre variable permettant de décrire de manière indépendante la configuration du système.</p>
+<p>Pour le pendule simple, par exemple, au lieu d&#x27;utiliser les coordonnées cartésiennes \(x\) et \(y\) soumises à la contrainte</p>
+<div class="course-equation" id="equation-5">\[x^2+y^2=\ell^2,\]<span class="course-equation-index">(5)</span></div>
+<p>nous pouvons choisir directement</p>
+<div class="course-equation" id="equation-6">\[q=\theta.\]<span class="course-equation-index">(6)</span></div>
+
+<h2 class="course-chapter" id="deplacement-virtuel">Déplacement virtuel en coordonnées généralisées</h2><p>Puisque</p>
+<div class="course-equation" id="equation-7">\[\vec{r}_i
+    =
+    \vec{r}_i(q_1,\ldots,q_n,t),\]<span class="course-equation-index">(7)</span></div>
+<p>une variation infinitésimale générale de la position s&#x27;écrit</p>
+<div class="course-equation" id="equation-8">\[d\vec{r}_i
+    =
+    \sum_{j=1}^{n}
+    \frac{\partial\vec{r}_i}{\partial q_j}\,dq_j
+    +
+    \frac{\partial\vec{r}_i}{\partial t}\,dt.\]<span class="course-equation-index">(8)</span></div>
+<p>Mais un déplacement virtuel est effectué à temps fixé :</p>
+<div class="course-equation" id="equation-9">\[\delta t=0.\]<span class="course-equation-index">(9)</span></div>
+<p>Par conséquent,</p>
+<div class="course-equation" id="equation-10">\[\boxed{
+    \delta\vec{r}_i
+    =
+    \sum_{j=1}^{n}
+    \frac{\partial\vec{r}_i}{\partial q_j}\,
+    \delta q_j.
+}\]<span class="course-equation-index">(10)</span></div>
+<p>Les quantités \(\delta q_j\) représentent donc les déplacements virtuels exprimés dans l&#x27;espace des coordonnées généralisées.</p>
+
+<h2 class="course-chapter" id="forces-generalisees">Forces généralisées</h2><p>Le travail virtuel des forces appliquées est</p>
+<div class="course-equation" id="equation-11">\[\delta W
+    =
+    \sum_{i=1}^{N}
+    \vec{F}_i\cdot\delta\vec{r}_i.\]<span class="course-equation-index">(11)</span></div>
+<p>En utilisant l&#x27;équation (<a href="#equation-10">10</a>), nous obtenons</p>
+<div class="course-equation" id="equation-12">\[\begin{aligned}\delta W
+    &amp;=
+    \sum_{i=1}^{N}
+    \vec{F}_i\cdot
+    \left(
+        \sum_{j=1}^{n}
+        \frac{\partial\vec{r}_i}{\partial q_j}
+        \delta q_j
+    \right)
+    \\
+    &amp;=
+    \sum_{j=1}^{n}
+    \left[
+        \sum_{i=1}^{N}
+        \vec{F}_i\cdot
+        \frac{\partial\vec{r}_i}{\partial q_j}
+    \right]
+    \delta q_j.\end{aligned}\]<span class="course-equation-index">(12)</span></div>
+<p>Cette expression nous conduit naturellement à définir la <strong>force généralisée</strong> associée à la coordonnée \(q_j\) :</p>
+<div class="course-equation" id="equation-13">\[\boxed{
+    Q_j
+    =
+    \sum_{i=1}^{N}
+    \vec{F}_i\cdot
+    \frac{\partial\vec{r}_i}{\partial q_j}.
+}\]<span class="course-equation-index">(13)</span></div>
+<p>Le travail virtuel prend alors la forme particulièrement simple</p>
+<div class="course-equation" id="equation-14">\[\boxed{
+    \delta W
+    =
+    \sum_{j=1}^{n}Q_j\,\delta q_j.
+}\]<span class="course-equation-index">(14)</span></div>
+<p>La quantité \(Q_j\) est appelée force généralisée, mais elle n&#x27;a pas nécessairement la dimension d&#x27;une force.</p>
+<ul><li>Si \(q_j\) est une longueur, \(Q_j\) possède la dimension d&#x27;une force.</li><li>Si \(q_j\) est un angle, \(Q_j\) possède la dimension d&#x27;un moment de force.</li></ul>
+
+<h2 class="course-chapter" id="dalembert">Principe de D&#x27;Alembert en coordonnées généralisées</h2><p>Revenons maintenant au principe de D&#x27;Alembert :</p>
+<div class="course-equation" id="equation-15">\[\sum_i
+    \left(
+        \vec{F}_i-m_i\ddot{\vec{r}}_i
+    \right)
+    \cdot\delta\vec{r}_i
+    =0.\]<span class="course-equation-index">(15)</span></div>
+<p>En utilisant</p>
+<div class="course-equation" id="equation-16">\[\delta\vec{r}_i
+    =
+    \sum_j
+    \frac{\partial\vec{r}_i}{\partial q_j}\delta q_j,\]<span class="course-equation-index">(16)</span></div>
+<p>nous obtenons</p>
+<div class="course-equation" id="equation-17">\[\sum_j
+    \left[
+        \sum_i
+        \vec{F}_i\cdot
+        \frac{\partial\vec{r}_i}{\partial q_j}
+        -
+        \sum_i
+        m_i\ddot{\vec{r}}_i\cdot
+        \frac{\partial\vec{r}_i}{\partial q_j}
+    \right]
+    \delta q_j
+    =0.\]<span class="course-equation-index">(17)</span></div>
+<p>En utilisant la définition de \(Q_j\),</p>
+<div class="course-equation" id="equation-18">\[\sum_j
+    \left[
+        Q_j
+        -
+        \sum_i
+        m_i\ddot{\vec{r}}_i\cdot
+        \frac{\partial\vec{r}_i}{\partial q_j}
+    \right]
+    \delta q_j
+    =0.\]<span class="course-equation-index">(18)</span></div>
+<p>Les coordonnées généralisées \(q_j\) étant indépendantes, les variations \(\delta q_j\) peuvent être choisies indépendamment. Il faut donc que chaque coefficient soit nul :</p>
+<div class="course-equation" id="equation-19">\[\boxed{
+    Q_j
+    =
+    \sum_i
+    m_i\ddot{\vec{r}}_i\cdot
+    \frac{\partial\vec{r}_i}{\partial q_j}.
+}\]<span class="course-equation-index">(19)</span></div>
+<p>Nous avons ainsi transformé le principe de D&#x27;Alembert en une équation portant directement sur les coordonnées généralisées.</p>
+
+<h2 class="course-chapter" id="energie-cinetique">Introduction de l&#x27;énergie cinétique</h2><p>Nous souhaitons maintenant réécrire le terme</p>
+<div class="course-equation" id="equation-20">\[\sum_i
+    m_i\ddot{\vec{r}}_i\cdot
+    \frac{\partial\vec{r}_i}{\partial q_j}\]<span class="course-equation-index">(20)</span></div>
+<p>en fonction de l&#x27;énergie cinétique du système.</p>
+<p>L&#x27;énergie cinétique totale est</p>
+<div class="course-equation" id="equation-21">\[\boxed{
+    T
+    =
+    \frac{1}{2}
+    \sum_i
+    m_i\dot{\vec{r}}_i^{\,2}.
+}\]<span class="course-equation-index">(21)</span></div>
+<p>La vitesse de la particule \(i\) est</p>
+<div class="course-equation" id="equation-22">\[\dot{\vec{r}}_i
+    =
+    \sum_{p=1}^{n}
+    \frac{\partial\vec{r}_i}{\partial q_p}\dot q_p
+    +
+    \frac{\partial\vec{r}_i}{\partial t}.\]<span class="course-equation-index">(22)</span></div>
+<p>Cette expression implique l&#x27;identité</p>
+<div class="course-equation" id="equation-23">\[\boxed{
+    \frac{\partial\dot{\vec{r}}_i}{\partial\dot q_j}
+    =
+    \frac{\partial\vec{r}_i}{\partial q_j}.
+}\]<span class="course-equation-index">(23)</span></div>
+<p>D&#x27;autre part,</p>
+<div class="course-equation" id="equation-24">\[\boxed{
+    \frac{d}{dt}
+    \left(
+        \frac{\partial\vec{r}_i}{\partial q_j}
+    \right)
+    =
+    \frac{\partial\dot{\vec{r}}_i}{\partial q_j}.
+}\]<span class="course-equation-index">(24)</span></div>
+<p>Calculons maintenant</p>
+<div class="course-equation" id="equation-25">\[\begin{aligned}\frac{\partial T}{\partial\dot q_j}
+    &amp;=
+    \sum_i
+    m_i\dot{\vec{r}}_i\cdot
+    \frac{\partial\dot{\vec{r}}_i}{\partial\dot q_j}
+    \\
+    &amp;=
+    \sum_i
+    m_i\dot{\vec{r}}_i\cdot
+    \frac{\partial\vec{r}_i}{\partial q_j}.\end{aligned}\]<span class="course-equation-index">(25)</span></div>
+<p>En prenant la dérivée temporelle,</p>
+<div class="course-equation" id="equation-26">\[\begin{aligned}\frac{d}{dt}
+    \left(
+        \frac{\partial T}{\partial\dot q_j}
+    \right)
+    &amp;=
+    \sum_i
+    m_i\ddot{\vec{r}}_i\cdot
+    \frac{\partial\vec{r}_i}{\partial q_j}
+    +
+    \sum_i
+    m_i\dot{\vec{r}}_i\cdot
+    \frac{d}{dt}
+    \left(
+        \frac{\partial\vec{r}_i}{\partial q_j}
+    \right).\end{aligned}\]<span class="course-equation-index">(26)</span></div>
+<p>En utilisant l&#x27;identité (<a href="#equation-24">24</a>),</p>
+<div class="course-equation" id="equation-27">\[\frac{d}{dt}
+    \left(
+        \frac{\partial T}{\partial\dot q_j}
+    \right)
+    =
+    \sum_i
+    m_i\ddot{\vec{r}}_i\cdot
+    \frac{\partial\vec{r}_i}{\partial q_j}
+    +
+    \sum_i
+    m_i\dot{\vec{r}}_i\cdot
+    \frac{\partial\dot{\vec{r}}_i}{\partial q_j}.\]<span class="course-equation-index">(27)</span></div>
+<p>Mais</p>
+<div class="course-equation" id="equation-28">\[\frac{\partial T}{\partial q_j}
+    =
+    \sum_i
+    m_i\dot{\vec{r}}_i\cdot
+    \frac{\partial\dot{\vec{r}}_i}{\partial q_j}.\]<span class="course-equation-index">(28)</span></div>
+<p>Par conséquent,</p>
+<div class="course-equation" id="equation-29">\[\boxed{
+    \sum_i
+    m_i\ddot{\vec{r}}_i\cdot
+    \frac{\partial\vec{r}_i}{\partial q_j}
+    =
+    \frac{d}{dt}
+    \left(
+        \frac{\partial T}{\partial\dot q_j}
+    \right)
+    -
+    \frac{\partial T}{\partial q_j}.
+}\]<span class="course-equation-index">(29)</span></div>
+
+<h2 class="course-chapter" id="lagrange">Les équations de Lagrange</h2><p>En combinant les équations (<a href="#equation-19">19</a>) et (<a href="#equation-29">29</a>), nous obtenons</p>
+<div class="course-equation" id="equation-30">\[\boxed{
+    \frac{d}{dt}
+    \left(
+        \frac{\partial T}{\partial\dot q_j}
+    \right)
+    -
+    \frac{\partial T}{\partial q_j}
+    =
+    Q_j.
+}\]<span class="course-equation-index">(30)</span></div>
+<p>Cette équation constitue une première forme des <strong>équations de Lagrange</strong>.</p>
+<p>Elle est particulièrement importante car elle ne suppose pas encore que les forces appliquées soient conservatives.</p>
+
+<h2 class="course-chapter" id="forces-conservatives">Cas des forces conservatives</h2><p>Supposons maintenant que les forces appliquées dérivent d&#x27;une énergie potentielle</p>
+<div class="course-equation" id="equation-31">\[U=U(q_1,\ldots,q_n,t).\]<span class="course-equation-index">(31)</span></div>
+<p>Dans ce cas, les forces généralisées sont données par</p>
+<div class="course-equation" id="equation-32">\[\boxed{
+    Q_j
+    =
+    -\frac{\partial U}{\partial q_j}.
+}\]<span class="course-equation-index">(32)</span></div>
+<p>L&#x27;équation (<a href="#equation-30">30</a>) devient</p>
+<div class="course-equation" id="equation-33">\[\frac{d}{dt}
+    \left(
+        \frac{\partial T}{\partial\dot q_j}
+    \right)
+    -
+    \frac{\partial T}{\partial q_j}
+    +
+    \frac{\partial U}{\partial q_j}
+    =0.\]<span class="course-equation-index">(33)</span></div>
+<p>Puisque \(U\) ne dépend pas des vitesses généralisées,</p>
+<div class="course-equation" id="equation-34">\[\frac{\partial U}{\partial\dot q_j}=0.\]<span class="course-equation-index">(34)</span></div>
+<p>Nous pouvons alors introduire le <strong>lagrangien</strong></p>
+<div class="course-equation" id="equation-35">\[\boxed{
+    L=T-U.
+}\]<span class="course-equation-index">(35)</span></div>
+<p>Il vient immédiatement</p>
+<div class="course-equation" id="equation-36">\[\boxed{
+    \frac{d}{dt}
+    \left(
+        \frac{\partial L}{\partial\dot q_j}
+    \right)
+    -
+    \frac{\partial L}{\partial q_j}
+    =0,
+    \qquad
+    j=1,\ldots,n.
+}\]<span class="course-equation-index">(36)</span></div>
+<p>Nous retrouvons ainsi exactement l&#x27;équation d&#x27;Euler–Lagrange obtenue précédemment dans le cadre du calcul des variations.</p>
+<p>Il est cependant important de remarquer que nous y sommes arrivés ici par un chemin complètement différent :</p>
+<div class="course-equation" id="equation-37">\[\boxed{
+\text{Newton}
+\longrightarrow
+\text{D&#x27;Alembert}
+\longrightarrow
+\text{coordonnées généralisées}
+\longrightarrow
+Q_j
+\longrightarrow
+\text{équations de Lagrange}.
+}\]<span class="course-equation-index">(37)</span></div>
+<p>Le principe de Hamilton, présenté au chapitre 2, permet également d’obtenir ces équations à partir d’un principe variationnel.</p>
+<p class="course-end"><a class="course-download" href="mecanique-analytique-calcul-variationnel.html">← Chapitre 2 : Calcul variationnel</a></p>
+</article>
+        </div>
+      </main>
+      <footer class="site-footer page-width"><span>© <span id="year">2026</span> Anderson Kohara</span><span>Physics · Research · Teaching</span></footer>
+    </div>
+  </body>
+</html>

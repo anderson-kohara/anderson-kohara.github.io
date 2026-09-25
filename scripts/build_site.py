@@ -11,6 +11,7 @@ PAGES = (
     'index.html', 'cv.html', 'publications.html', 'teaching.html',
     'booster-physique.html', 'mecanique-analytique.html',
     'mecanique-analytique-calcul-variationnel.html',
+    'mecanique-analytique-coordonnees-generalisees.html',
 )
 ALLOWED = {'.html', '.css', '.js', '.png', '.jpg', '.jpeg', '.svg', '.webp', '.ico', '.woff', '.woff2'}
 

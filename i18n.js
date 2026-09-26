@@ -388,7 +388,7 @@ Object.assign(translations["fr"], {
   "Year 3 · Quantum mechanics: elective course.": "Troisième année · Mécanique quantique : cours électif.",
   "Student success": "Réussite étudiante",
   "Previous teaching experience": "Expériences pédagogiques antérieures",
-  "Responsibility for student success in second-year physics.": "Responsabilité de la réussite étudiante en physique en deuxième année.",
+  "Responsibility for student success in second-year physics at ESME.": "Responsabilité de la réussite étudiante en physique en deuxième année à l’ESME.",
   "Teaching, qualification, and research focus updated in September 2026. Courses for the following semester are indicated as planned.": "Enseignements, qualification et axes de recherche actualisés en septembre 2026. Les cours du semestre suivant sont signalés comme prévus.",
   "Thesis: Elastic and diffractive scattering of hadrons at high energies": "Thèse : diffusion élastique et diffractive des hadrons à haute énergie"
 });
@@ -409,7 +409,7 @@ Object.assign(translations["pt-BR"], {
   "Year 3 · Quantum mechanics: elective course.": "Terceiro ano · Mecânica quântica: disciplina eletiva.",
   "Student success": "Sucesso acadêmico",
   "Previous teaching experience": "Experiências anteriores de ensino",
-  "Responsibility for student success in second-year physics.": "Responsabilidade pelo sucesso acadêmico em Física no segundo ano.",
+  "Responsibility for student success in second-year physics at ESME.": "Responsabilidade pelo sucesso acadêmico em Física no segundo ano na ESME.",
   "Teaching, qualification, and research focus updated in September 2026. Courses for the following semester are indicated as planned.": "Ensino, qualificação e eixos de pesquisa atualizados em setembro de 2026. As disciplinas do semestre seguinte estão indicadas como previstas.",
   "Thesis: Elastic and diffractive scattering of hadrons at high energies": "Tese: espalhamento elástico e difrativo de hádrons em altas energias"
 });

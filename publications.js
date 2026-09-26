@@ -46,7 +46,10 @@ function makePublication(publication) {
   body.className = 'publication-body';
   const title = document.createElement('h2');
   title.className = 'publication-title';
-  title.append(makeLink(readableTitle(publication.title), `https://inspirehep.net/literature/${publication.id}`));
+  const recordUrl = publication.id
+    ? `https://inspirehep.net/literature/${publication.id}`
+    : `https://doi.org/${publication.doi}`;
+  title.append(makeLink(readableTitle(publication.title), recordUrl));
   const authors = document.createElement('p');
   authors.className = 'publication-authors';
   authors.textContent = publication.authors.join(', ');
@@ -61,10 +64,10 @@ function makePublication(publication) {
 
   const links = document.createElement('div');
   links.className = 'publication-links';
-  links.append(makeLink(t('INSPIRE record ↗'), `https://inspirehep.net/literature/${publication.id}`));
+  if (publication.id) links.append(makeLink(t('INSPIRE record ↗'), recordUrl));
   if (publication.doi) links.append(makeLink(t('DOI ↗'), `https://doi.org/${publication.doi}`));
   if (publication.arxiv) links.append(makeLink(t('arXiv ↗'), `https://arxiv.org/abs/${publication.arxiv}`));
-  links.append(makeLink(t('BibTeX ↗'), `https://inspirehep.net/api/literature/${publication.id}?format=bibtex`));
+  if (publication.id) links.append(makeLink(t('BibTeX ↗'), `https://inspirehep.net/api/literature/${publication.id}?format=bibtex`));
   body.append(links);
 
   item.append(side, body);

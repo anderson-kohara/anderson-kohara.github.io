@@ -1,7 +1,9 @@
-// 33 INSPIRE-HEP literature records for author 1273364 (Anderson Kendi Kohara).
+// 35 publications: 33 INSPIRE-HEP records plus two DOI records supplied by the author.
+// INSPIRE-HEP records for author 1273364 (Anderson Kendi Kohara).
 // Duplicate preprint 2926507 omitted at the author's request; published version 3179351 retained.
 // Source: https://inspirehep.net/authors/1273364
 // Retrieved: 2026-09-16. Bibliographic metadata only; see each record for full details.
+// Additional DOI metadata verified with Crossref on 2026-09-26.
 window.PUBLICATIONS = [
   {
     "id": "3179351",
@@ -134,6 +136,21 @@ window.PUBLICATIONS = [
     "arxiv": "2011.13335"
   },
   {
+    "id": null,
+    "title": "Reflection properties of zeta related functions in terms of fractional derivatives",
+    "authors": [
+      "Ferreira, Erasmo M.",
+      "Kohara, Anderson K.",
+      "Sesma, Javier"
+    ],
+    "date": "2020-04",
+    "year": 2020,
+    "type": "article",
+    "journal": "Fractional Calculus and Applied Analysis 23(2), 520–533 (2020)",
+    "doi": "10.1515/fca-2020-0025",
+    "arxiv": null
+  },
+  {
     "id": "1738328",
     "title": "Forward scattering amplitudes of $pp$ and $p \\bar{p}$ with crossing symmetry and scaling properties",
     "authors": [
@@ -191,21 +208,6 @@ window.PUBLICATIONS = [
     "journal": "",
     "doi": null,
     "arxiv": "1806.03989"
-  },
-  {
-    "id": "1597320",
-    "title": "Exact treatment of dispersion relations in pp and $p\\overline p$ elastic scattering",
-    "authors": [
-      "Ferreira, E.",
-      "Kohara, A.K.",
-      "Sesma, J."
-    ],
-    "date": "2017-04-28",
-    "year": 2018,
-    "type": "article",
-    "journal": "Phys.Rev.C 97, 014003 (2018)",
-    "doi": "10.1103/PhysRevC.97.014003",
-    "arxiv": "1704.08866"
   },
   {
     "id": "1632947",
@@ -267,6 +269,36 @@ window.PUBLICATIONS = [
     "journal": "Eur.Phys.J.C 77, 600 (2017)",
     "doi": "10.1140/epjc/s10052-017-5173-2",
     "arxiv": "1705.08834"
+  },
+  {
+    "id": "1597320",
+    "title": "Exact treatment of dispersion relations in pp and $p\\overline p$ elastic scattering",
+    "authors": [
+      "Ferreira, E.",
+      "Kohara, A.K.",
+      "Sesma, J."
+    ],
+    "date": "2017-04-28",
+    "year": 2018,
+    "type": "article",
+    "journal": "Phys.Rev.C 97, 014003 (2018)",
+    "doi": "10.1103/PhysRevC.97.014003",
+    "arxiv": "1704.08866"
+  },
+  {
+    "id": null,
+    "title": "New properties of the Lerch's transcendent",
+    "authors": [
+      "Ferreira, E.M.",
+      "Kohara, A.K.",
+      "Sesma, J."
+    ],
+    "date": "2017-03",
+    "year": 2017,
+    "type": "article",
+    "journal": "Journal of Number Theory 172, 21–31 (2017)",
+    "doi": "10.1016/j.jnt.2016.08.013",
+    "arxiv": null
   },
   {
     "id": "1394003",

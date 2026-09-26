@@ -32,7 +32,7 @@ const translations = {
     '02 / Research': '02 / Pesquisa',
     'Publications': 'Publicações',
     'Publication list': 'Lista de publicações',
-    '33 records': '33 registros',
+    '35 records': '35 registros',
     '03 / Teaching': '03 / Ensino',
     'Class': 'Material',
     'material': 'didático',
@@ -146,7 +146,7 @@ const translations = {
     'Title, author, journal…': 'Título, autor, periódico…',
     'Year': 'Ano',
     'All years': 'Todos os anos',
-    'Showing 33 publications': 'Exibindo 33 publicações',
+    'Showing 35 publications': 'Exibindo 35 publicações',
     'No publications match your search.': 'Nenhuma publicação corresponde à sua busca.',
     'Enable JavaScript to browse the embedded list, or view all publications on': 'Ative o JavaScript para consultar a lista incorporada ou veja todas as publicações no',
     'Teaching': 'Ensino',
@@ -192,7 +192,7 @@ const translations = {
     '02 / Research': '02 / Recherche',
     'Publications': 'Publications',
     'Publication list': 'Liste des publications',
-    '33 records': '33 références',
+    '35 records': '35 références',
     '03 / Teaching': '03 / Enseignement',
     'Class': 'Supports',
     'material': 'de cours',
@@ -305,7 +305,7 @@ const translations = {
     'Title, author, journal…': 'Titre, auteur, revue…',
     'Year': 'Année',
     'All years': 'Toutes les années',
-    'Showing 33 publications': '33 publications affichées',
+    'Showing 35 publications': '35 publications affichées',
     'No publications match your search.': 'Aucune publication ne correspond à votre recherche.',
     'Enable JavaScript to browse the embedded list, or view all publications on': 'Activez JavaScript pour parcourir la liste intégrée, ou consultez toutes les publications sur',
     'Teaching': 'Enseignement',
@@ -438,13 +438,18 @@ Object.assign(translations["pt-BR"], {
 
 // Home biography approved by the author.
 Object.assign(translations["fr"], {
-  "Anderson Kohara holds a PhD in physics from the Universidade Federal do Rio de Janeiro. His research focuses on strong interactions, the evolution of elastic scattering amplitudes, and their connections with small-x physics. He develops approaches combining field theory, analytical methods, and comparison with experimental data.": "Anderson Kohara est docteur en physique de l’Universidade Federal do Rio de Janeiro. Ses recherches portent sur les interactions fortes, l’évolution des amplitudes de diffusion élastique et leurs liens avec la physique à petit x. Il développe des approches associant théorie des champs, méthodes analytiques et confrontation aux données expérimentales.",
+  "Anderson Kohara holds a PhD in physics from the Universidade Federal do Rio de Janeiro. He carried out part of his doctoral research at École Polytechnique in France. His research focuses on strong interactions, the evolution of elastic scattering amplitudes, and their connections with small-x physics. He develops approaches combining field theory, analytical methods, and comparison with experimental data.": "Anderson Kohara est docteur en physique de l’Universidade Federal do Rio de Janeiro. Il a effectué une partie de ses recherches doctorales à l’École polytechnique, en France. Ses recherches portent sur les interactions fortes, l’évolution des amplitudes de diffusion élastique et leurs liens avec la physique à petit x. Il développe des approches associant théorie des champs, méthodes analytiques et confrontation aux données expérimentales.",
   "He teaches physics in higher education in Lyon, in French and English. Qualified for maître de conférences positions by section 29 of the CNU since 2025, he aims to develop projects combining fundamental research, student education, and university collaborations.": "Il enseigne la physique dans l’enseignement supérieur à Lyon, en français et en anglais. Qualifié aux fonctions de maître de conférences en section 29 du CNU depuis 2025, il souhaite développer des projets associant recherche fondamentale, formation des étudiants et collaborations universitaires."
 });
 Object.assign(translations["pt-BR"], {
-  "Anderson Kohara holds a PhD in physics from the Universidade Federal do Rio de Janeiro. His research focuses on strong interactions, the evolution of elastic scattering amplitudes, and their connections with small-x physics. He develops approaches combining field theory, analytical methods, and comparison with experimental data.": "Anderson Kohara é doutor em Física pela Universidade Federal do Rio de Janeiro. Sua pesquisa aborda as interações fortes, a evolução das amplitudes de espalhamento elástico e suas relações com a física de pequeno x. Desenvolve abordagens que combinam teoria de campos, métodos analíticos e comparação com dados experimentais.",
+  "Anderson Kohara holds a PhD in physics from the Universidade Federal do Rio de Janeiro. He carried out part of his doctoral research at École Polytechnique in France. His research focuses on strong interactions, the evolution of elastic scattering amplitudes, and their connections with small-x physics. He develops approaches combining field theory, analytical methods, and comparison with experimental data.": "Anderson Kohara é doutor em Física pela Universidade Federal do Rio de Janeiro. Realizou parte de sua pesquisa de doutorado na École Polytechnique, na França. Sua pesquisa aborda as interações fortes, a evolução das amplitudes de espalhamento elástico e suas relações com a física de pequeno x. Desenvolve abordagens que combinam teoria de campos, métodos analíticos e comparação com dados experimentais.",
   "He teaches physics in higher education in Lyon, in French and English. Qualified for maître de conférences positions by section 29 of the CNU since 2025, he aims to develop projects combining fundamental research, student education, and university collaborations.": "Ensina Física no ensino superior em Lyon, em francês e inglês. Qualificado para as funções de maître de conférences pela seção 29 do CNU desde 2025, busca desenvolver projetos que associem pesquisa fundamental, formação de estudantes e colaborações universitárias."
 });
+
+
+// Publications include author-supplied DOI references outside INSPIRE.
+Object.assign(translations["fr"], {"and additional DOI references supplied by the author. Open a record for its full metadata.": "et de références DOI complémentaires fournies par l’auteur. Ouvrez une référence pour consulter ses métadonnées complètes."});
+Object.assign(translations["pt-BR"], {"and additional DOI references supplied by the author. Open a record for its full metadata.": "e referências DOI adicionais fornecidas pelo autor. Abra um registro para consultar seus metadados completos."});
 
 const supportedLanguages = ['en', 'pt-BR', 'fr'];
 const languageInUrl = new URLSearchParams(window.location.search).get('lang');

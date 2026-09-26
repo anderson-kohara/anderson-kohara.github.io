@@ -128,7 +128,7 @@ const translations = {
     'production': 'científica',
     'The 2024 CV lists 18 journal papers and notes 13 international conference proceedings. The dedicated publications page contains the broader INSPIRE-HEP record list.': 'O currículo de 2024 lista 18 artigos em periódicos e menciona 13 trabalhos em anais de conferências internacionais. A página de publicações reúne a lista mais ampla de registros do INSPIRE-HEP.',
     'Explore all publications': 'Ver todas as publicações',
-    'Journal papers listed in the 2024 CV': 'Artigos em periódicos listados no currículo de 2024',
+    'Selected journal articles': 'Seleção de artigos em periódicos',
     '18 entries': '18 itens',
     '06 / Beyond research': '06 / Além da pesquisa',
     'Patent': 'Patente',
@@ -287,7 +287,7 @@ const translations = {
     'production': 'scientifique',
     'The 2024 CV lists 18 journal papers and notes 13 international conference proceedings. The dedicated publications page contains the broader INSPIRE-HEP record list.': 'Le CV de 2024 recense 18 articles de revues et mentionne 13 actes de conférences internationales. La page Publications présente la liste plus complète des références INSPIRE-HEP.',
     'Explore all publications': 'Voir toutes les publications',
-    'Journal papers listed in the 2024 CV': 'Articles de revues figurant dans le CV de 2024',
+    'Selected journal articles': 'Sélection d’articles de revues',
     '18 entries': '18 références',
     '06 / Beyond research': '06 / Autres activités',
     'Patent': 'Brevet',
@@ -343,7 +343,7 @@ Object.assign(translations["fr"], {
   "05 / Training": "05 / Formation",
   "07 / Methods and tools": "07 / Méthodes et outils",
   "06 / Publications": "06 / Publications",
-  "Publications in hadronic scattering, QCD, and mathematical methods. The dedicated publications page provides the bibliographic records; the list below reproduces the journal articles included in the 2024 CV.": "Publications en diffusion hadronique, QCD et méthodes mathématiques. La page dédiée présente les références bibliographiques ; la liste ci-dessous reprend les articles de revues figurant dans le CV de 2024.",
+  "Publications in hadronic scattering, QCD, and mathematical methods. The dedicated publications page provides the bibliographic records.": "Publications en diffusion hadronique, QCD et méthodes mathématiques. La page dédiée présente les références bibliographiques.",
   "Academic service": "Responsabilités collectives"
 });
 Object.assign(translations["pt-BR"], {
@@ -366,7 +366,7 @@ Object.assign(translations["pt-BR"], {
   "05 / Training": "05 / Formação",
   "07 / Methods and tools": "07 / Métodos e ferramentas",
   "06 / Publications": "06 / Publicações",
-  "Publications in hadronic scattering, QCD, and mathematical methods. The dedicated publications page provides the bibliographic records; the list below reproduces the journal articles included in the 2024 CV.": "Publicações em espalhamento hadrônico, QCD e métodos matemáticos. A página dedicada apresenta os registros bibliográficos; a lista abaixo reproduz os artigos de periódicos incluídos no currículo de 2024.",
+  "Publications in hadronic scattering, QCD, and mathematical methods. The dedicated publications page provides the bibliographic records.": "Publicações em espalhamento hadrônico, QCD e métodos matemáticos. A página dedicada apresenta os registros bibliográficos.",
   "Academic service": "Responsabilidades acadêmicas"
 });
 

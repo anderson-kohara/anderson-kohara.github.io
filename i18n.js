@@ -21,8 +21,6 @@ const translations = {
     'Physics · Research · Teaching': 'Física · Pesquisa · Ensino',
     'Professor of Physics': 'Professor de Física',
     'Researcher': 'Pesquisador',
-    'Anderson Kohara holds a BSc, MSc, and PhD in physics from the Universidade Federal do Rio de Janeiro. He specializes in QCD and hadronic interactions and has worked extensively on the theoretical description of elastic proton–proton scattering.': 'Anderson Kohara é bacharel, mestre e doutor em Física pela Universidade Federal do Rio de Janeiro. Especialista em QCD e interações hadrônicas, trabalhou extensamente na descrição teórica do espalhamento elástico próton-próton.',
-    'He is currently a professor at ESME in Lyon.': 'Atualmente, é professor na ESME, em Lyon.',
     'Physics professor & researcher': 'Professor de Física e pesquisador',
     'Discover more': 'Saiba mais',
     'Explore my work': 'Explore meu trabalho',
@@ -183,8 +181,6 @@ const translations = {
     'Physics · Research · Teaching': 'Physique · Recherche · Enseignement',
     'Professor of Physics': 'Professeur de physique',
     'Researcher': 'Chercheur',
-    'Anderson Kohara holds a BSc, MSc, and PhD in physics from the Universidade Federal do Rio de Janeiro. He specializes in QCD and hadronic interactions and has worked extensively on the theoretical description of elastic proton–proton scattering.': 'Anderson Kohara est titulaire d’une licence, d’un master et d’un doctorat en physique de l’Universidade Federal do Rio de Janeiro. Spécialiste de la QCD et des interactions hadroniques, il a beaucoup travaillé sur la description théorique de la diffusion élastique proton-proton.',
-    'He is currently a professor at ESME in Lyon.': 'Il est actuellement professeur à l’ESME, à Lyon.',
     'Physics professor & researcher': 'Professeur de physique et chercheur',
     'Discover more': 'En savoir plus',
     'Explore my work': 'Découvrir mes travaux',
@@ -438,6 +434,16 @@ Object.assign(translations["pt-BR"], {
   "Work in progress · First-principles derivation": "Trabalho em andamento · Derivação a partir de primeiros princípios",
   "I am preparing an article aimed at deriving this equation from first principles using statistical mechanics and a microscopic description.": "Estou preparando um artigo que visa derivar essa equação a partir de primeiros princípios, utilizando a mecânica estatística e uma descrição microscópica.",
   "Other research experience and methods": "Outras experiências e métodos de pesquisa"
+});
+
+// Home biography approved by the author.
+Object.assign(translations["fr"], {
+  "Anderson Kohara holds a PhD in physics from the Universidade Federal do Rio de Janeiro. His research focuses on strong interactions, the evolution of elastic scattering amplitudes, and their connections with small-x physics. He develops approaches combining field theory, analytical methods, and comparison with experimental data.": "Anderson Kohara est docteur en physique de l’Universidade Federal do Rio de Janeiro. Ses recherches portent sur les interactions fortes, l’évolution des amplitudes de diffusion élastique et leurs liens avec la physique à petit x. Il développe des approches associant théorie des champs, méthodes analytiques et confrontation aux données expérimentales.",
+  "He teaches physics in higher education in Lyon, in French and English. Qualified for maître de conférences positions by section 29 of the CNU since 2025, he aims to develop projects combining fundamental research, student education, and university collaborations.": "Il enseigne la physique dans l’enseignement supérieur à Lyon, en français et en anglais. Qualifié aux fonctions de maître de conférences en section 29 du CNU depuis 2025, il souhaite développer des projets associant recherche fondamentale, formation des étudiants et collaborations universitaires."
+});
+Object.assign(translations["pt-BR"], {
+  "Anderson Kohara holds a PhD in physics from the Universidade Federal do Rio de Janeiro. His research focuses on strong interactions, the evolution of elastic scattering amplitudes, and their connections with small-x physics. He develops approaches combining field theory, analytical methods, and comparison with experimental data.": "Anderson Kohara é doutor em Física pela Universidade Federal do Rio de Janeiro. Sua pesquisa aborda as interações fortes, a evolução das amplitudes de espalhamento elástico e suas relações com a física de pequeno x. Desenvolve abordagens que combinam teoria de campos, métodos analíticos e comparação com dados experimentais.",
+  "He teaches physics in higher education in Lyon, in French and English. Qualified for maître de conférences positions by section 29 of the CNU since 2025, he aims to develop projects combining fundamental research, student education, and university collaborations.": "Ensina Física no ensino superior em Lyon, em francês e inglês. Qualificado para as funções de maître de conférences pela seção 29 do CNU desde 2025, busca desenvolver projetos que associem pesquisa fundamental, formação de estudantes e colaborações universitárias."
 });
 
 const supportedLanguages = ['en', 'pt-BR', 'fr'];

@@ -219,7 +219,7 @@ h1 > span:first-of-type { color: var(--accent); }
 .course-content { max-width: 920px; min-width: 0; color: var(--muted); font-size: 15px; line-height: 1.82; }
 .course-content > p, .course-content li > p { margin: 0 0 18px; }
 .course-content p strong, .course-content li strong { color: var(--text); }
-.course-content a { color: var(--accent); text-underline-offset: 3px; }
+.course-content a:not(.course-download) { color: var(--accent); text-underline-offset: 3px; }
 .course-content h2, .course-content h3, .course-content h4 { color: var(--text); scroll-margin-top: 35px; }
 .course-content h2.course-chapter { margin: 85px 0 28px; padding-top: 25px; border-top: 2px solid var(--accent); font-size: clamp(30px, 3.2vw, 44px); line-height: 1.15; letter-spacing: -.055em; }
 .course-content h2:first-child { margin-top: 0; }

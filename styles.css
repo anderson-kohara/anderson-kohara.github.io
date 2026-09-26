@@ -246,6 +246,8 @@ h1 > span:first-of-type { color: var(--accent); }
 .course-table-wrap th { background: var(--accent-soft); color: var(--text); font-weight: 700; }
 .course-orphan-item { color: var(--text); font-weight: 750; }
 .course-end { display: flex; justify-content: flex-end; margin-top: 70px; padding-top: 40px; border-top: 1px solid var(--line); }
+.course-content a.course-page-link { display: block; max-width: 100%; padding: 16px 20px; border: 2px solid var(--accent); background: var(--surface); color: var(--text); font-size: 15px; font-weight: 700; line-height: 1.6; text-decoration: underline; text-underline-offset: 4px; overflow-wrap: anywhere; }
+.course-content a.course-page-link:hover { background: var(--accent-soft); color: var(--text); }
 .course-session-meta { display: flex; flex-wrap: wrap; gap: 10px 22px; margin: 0; color: var(--muted); font-size: 13px; }
 .course-session-meta strong { color: var(--text); }
 .course-download { display: inline-flex; align-items: center; gap: 10px; margin-top: 24px; padding: 13px 16px; background: var(--accent); color: var(--bg); font-size: 12px; font-weight: 750; letter-spacing: .02em; text-decoration: none; transition: transform .2s, opacity .2s; }

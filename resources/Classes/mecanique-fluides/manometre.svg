@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" role="img" aria-labelledby="title">
+<title id="title">Manomètre en U : niveau plus haut dans la branche de pression plus faible</title><rect width="760" height="460" fill="white"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="context-stroke"/></marker></defs>
+<g font-family="Arial, sans-serif" font-size="22" fill="#17201e" stroke-linecap="round" stroke-linejoin="round">
+<path d="M175 225V305C175 375 485 375 485 305V155H445V300C445 327 215 327 215 300V225Z" fill="#d8edf5"/>
+<path d="M175 80V305C175 375 485 375 485 305V80M215 80V300C215 327 445 327 445 300V80" fill="none" stroke="#405b55" stroke-width="4"/>
+<path d="M175 225H215M445 155H485" stroke="#337b9a" stroke-width="3"/>
+<path d="M218 225H610M488 155H610" stroke="#758b92" stroke-dasharray="7 7" stroke-width="2"/>
+<path d="M585 158V222" stroke="#17201e" stroke-width="2" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+<text x="609" y="198">Δh</text><text x="177" y="60">p<tspan baseline-shift="sub" font-size="15">A</tspan></text><text x="447" y="60">p<tspan baseline-shift="sub" font-size="15">B</tspan></text>
+<text x="380" y="390" text-anchor="middle" font-size="18">Liquide de masse volumique ρ</text>
+<text x="380" y="425" text-anchor="middle" font-size="20">Configuration représentée : p<tspan baseline-shift="sub" font-size="14">A</tspan> &gt; p<tspan baseline-shift="sub" font-size="14">B</tspan> ; Δh = z<tspan baseline-shift="sub" font-size="14">B</tspan> − z<tspan baseline-shift="sub" font-size="14">A</tspan></text></g></svg>

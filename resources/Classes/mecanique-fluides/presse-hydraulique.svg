@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 460" role="img" aria-labelledby="title">
+<title id="title">Presse hydraulique : transmission de pression entre deux pistons</title><rect width="760" height="460" fill="white"/>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="context-stroke"/></marker></defs>
+<g font-family="Arial, sans-serif" font-size="22" fill="#17201e" stroke-linecap="round" stroke-linejoin="round">
+<path d="M100 175H190V310H430V175H630V380H100Z" fill="#d8edf5"/>
+<path d="M100 125V380H630V125M190 125V310H430V125" fill="none" stroke="#405b55" stroke-width="4"/>
+<path d="M102 175H188M432 175H628" stroke="#17201e" stroke-width="12"/>
+<path d="M145 62V153" stroke="#b54b38" stroke-width="4" marker-end="url(#arrow)"/>
+<path d="M530 153V62" stroke="#487867" stroke-width="4" marker-end="url(#arrow)"/>
+<text x="170" y="98">F₁</text><text x="550" y="98">F₂</text>
+<text x="130" y="235">S₁</text><text x="512" y="235">S₂</text>
+<text x="365" y="350" text-anchor="middle">Liquide incompressible</text>
+<text x="365" y="430" text-anchor="middle" font-size="19">Pistons au même niveau · Δp₁ = Δp₂</text></g></svg>

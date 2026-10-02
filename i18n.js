@@ -38,7 +38,7 @@ const translations = {
     'material': 'didático',
     'Physics resources': 'Recursos de Física',
     'Content pending': 'Conteúdo em preparação',
-    '1 course': '1 curso',
+    '3 courses': '3 cursos',
     'Course notes and exercises for students of physics.': 'Notas de aula e exercícios para estudantes de Física.',
     '01 / Course': '01 / Curso',
     'Foundations of mathematical physics, with lessons, worked examples, exercises, and diagrams.': 'Fundamentos de física matemática, com aulas, exemplos resolvidos, exercícios e diagramas.',
@@ -198,7 +198,7 @@ const translations = {
     'material': 'de cours',
     'Physics resources': 'Ressources de physique',
     'Content pending': 'Contenu à venir',
-    '1 course': '1 cours',
+    '3 courses': '3 cours',
     'Course notes and exercises for students of physics.': 'Notes de cours et exercices pour les étudiants en physique.',
     '01 / Course': '01 / Cours',
     'Foundations of mathematical physics, with lessons, worked examples, exercises, and diagrams.': 'Bases de physique mathématique avec leçons, exemples corrigés, exercices et schémas.',
@@ -490,7 +490,7 @@ function translateStaticPage() {
 
   for (const anchor of document.querySelectorAll('a[href]')) {
     const href = anchor.getAttribute('href');
-    if (/^(index|cv|publications|teaching|booster-physique|mecanique-analytique|mecanique-analytique-calcul-variationnel|mecanique-analytique-coordonnees-generalisees)\.html(?:[?#]|$)/.test(href)) {
+    if (/^(index|cv|publications|teaching|booster-physique|mecanique-analytique|mecanique-analytique-calcul-variationnel|mecanique-analytique-coordonnees-generalisees|mecanique-fluides-hydrostatique)\.html(?:[?#]|$)/.test(href)) {
       const url = new URL(href, window.location.href);
       url.searchParams.set('lang', currentLanguage);
       anchor.href = url.href;

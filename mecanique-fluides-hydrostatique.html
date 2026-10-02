@@ -1,0 +1,411 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mécanique des fluides — Chapitre 1 : hydrostatique, pression, principes de Pascal et d’Archimède, manomètre et exercices.">
+    <meta name="theme-color" content="#f5f5f0">
+    <title>Mécanique des fluides — Hydrostatique — Anderson Kohara</title>
+    <script>try { document.documentElement.dataset.theme = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch { document.documentElement.dataset.theme = 'light'; }</script>
+    <link rel="stylesheet" href="styles.css?v=20260926-navigation2">
+    <script src="i18n.js" defer></script><script src="script.js" defer></script>
+    <script>window.MathJax = { tex: { macros: { oiint: '\\mathop{∯}\\nolimits' } }, svg: { fontCache: 'global' } };</script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-svg.js"></script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header page-width">
+        <a class="brand" href="index.html" aria-label="Anderson Kohara, home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Anderson Kohara</span></a>
+        <div class="header-actions"><span class="header-location"> Lyon</span><label class="sr-only" for="language-select">Language</label><select class="language-select" id="language-select"><option value="en">EN</option><option value="pt-BR">PT-BR</option><option value="fr">FR</option></select><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg><span class="theme-label">Dark mode</span></button></div>
+      </header>
+      <main class="course-main page-width" id="top" lang="fr" data-no-translate>
+        <a class="back-link" href="teaching.html"><span aria-hidden="true">←</span> Retour aux supports de cours</a>
+        <section class="course-hero" aria-labelledby="course-title"><div><p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> Support de cours · En français</p><h1 id="course-title">Mécanique<br><span>des fluides</span><span class="title-dot">.</span></h1><p class="course-byline">Anderson Kohara <span aria-hidden="true">·</span> Chapitre 1 — Hydrostatique</p></div><div class="course-hero-mark" aria-hidden="true"><span>ρ</span><span>p</span><span>∇</span></div></section>
+        <section class="course-intro" aria-label="Introduction au chapitre"><p>Déterminer la pression dans un fluide au repos et comprendre ses effets : relation fondamentale de l’hydrostatique, fluides incompressibles et compressibles, systèmes hydrauliques et flottabilité.</p><p class="course-session-meta"><span><strong>Prérequis :</strong> lois de Newton, forces, intégration et masse volumique</span><span><strong>Contenu :</strong> 3 schémas et 5 exercices</span></p></section>
+        
+        <div class="course-layout">
+          <aside class="course-sidebar"><nav class="course-toc" aria-label="Sommaire du chapitre"><p>Dans ce chapitre</p><a href="#introduction"><span>01</span>Fluides au repos</a><a href="#relation-fondamentale-de-l-hydrostatique"><span>02</span>Relation fondamentale de l&#x27;hydrostatique</a><a href="#fluide-incompressible"><span>03</span>Fluide incompressible</a><a href="#pression-absolue-et-pression-relative"><span>04</span>Pression absolue et pression relative</a><a href="#fluide-compressible"><span>05</span>Fluide compressible</a><a href="#le-principe-de-pascal"><span>06</span>Le principe de Pascal</a><a href="#le-manometre"><span>07</span>Le manomètre</a><a href="#la-poussee-d-archimede"><span>08</span>La poussée d&#x27;Archimède</a><a href="#remarque-fluide-soumis-a-une-acceleration"><span>09</span>Remarque : fluide soumis à une accélération</a><a href="#exercices-rapides"><span>10</span>Exercices rapides</a><a href="#a-retenir"><span>11</span>À retenir</a><a class="course-toc-top" href="#top">Retour en haut ↑</a></nav></aside>
+          <article class="course-content">
+<h2 class="course-chapter" id="introduction">Fluides au repos et forces de pression</h2>
+<p>En hydrostatique, on s'intéresse aux fluides au repos. L'objectif principal est de déterminer la pression en tout point d'un fluide, qu'il soit compressible ou incompressible.</p>
+<p>L'équation fondamentale de l'hydrostatique découle directement de la deuxième loi de Newton,</p>
+<div class="course-equation" id="equation-1">\[\sum_k \vec{F}_k = m\vec{a}.\]<span class="course-equation-index">(1)</span></div>
+<p>Pour un fluide au repos,</p>
+<div class="course-equation" id="equation-2">\[\vec{a}=\vec{0},\]<span class="course-equation-index">(2)</span></div>
+<p>et la résultante des forces agissant sur tout élément de fluide doit donc être nulle.</p>
+<p>Deux types de forces peuvent agir sur un élément de fluide :</p>
+<ul><li><p>les <strong>forces volumiques</strong>, qui agissent sur l'ensemble du volume du fluide ;</p></li><li><p>les <strong>forces surfaciques</strong>, qui agissent sur sa surface.</p></li></ul>
+<p>Dans les situations étudiées ici, la force volumique sera essentiellement la force gravitationnelle. Pour un élément de volume \(dV\),</p>
+<div class="course-equation" id="equation-3">\[d\vec{F}_g = \rho\,\vec{g}\,dV,\]<span class="course-equation-index">(3)</span></div>
+<p>où \(\rho\) représente la masse volumique du fluide.</p>
+<p>En choisissant l'axe \(z\) orienté vers le haut,</p>
+<div class="course-equation" id="equation-4">\[\vec{g}=-g\,\vec{e}_z,\]<span class="course-equation-index">(4)</span></div>
+<p>et donc</p>
+<div class="course-equation" id="equation-5">\[d\vec{F}_g
+    =
+    -\rho g\,dV\,\vec{e}_z.\]<span class="course-equation-index">(5)</span></div>
+<p>Les forces surfaciques sont dues à la pression exercée par le fluide environnant. Sur un élément de surface orienté</p>
+<div class="course-equation" id="equation-6">\[d\vec{S}=\vec{n}\,dS,\]<span class="course-equation-index">(6)</span></div>
+<p>la force de pression est</p>
+<div class="course-equation" id="equation-7">\[d\vec{F}_p=-p\,d\vec{S}.\]<span class="course-equation-index">(7)</span></div>
+<p>Le signe négatif indique que la force de pression est dirigée vers l'intérieur de l'élément de fluide, contrairement au vecteur normal \(\vec n\), orienté vers l'extérieur.</p>
+<h2 class="course-chapter" id="relation-fondamentale-de-l-hydrostatique">Relation fondamentale de l&#x27;hydrostatique</h2>
+<p>Considérons un volume quelconque \(V\) de fluide au repos. La deuxième loi de Newton donne</p>
+<div class="course-equation" id="equation-8">\[\oiint_S d\vec{F}_p
+    +
+    \iiint_V d\vec{F}_g
+    =
+    \vec{0}.\]<span class="course-equation-index">(8)</span></div>
+<p>Ainsi,</p>
+<div class="course-equation" id="equation-9">\[-\oiint_S p\,d\vec{S}
+    +
+    \iiint_V \rho\vec{g}\,dV
+    =
+    \vec{0}.\]<span class="course-equation-index">(9)</span></div>
+<p>En utilisant le théorème de Green–Ostrogradski,</p>
+<div class="course-equation" id="equation-10">\[\oiint_S p\,d\vec{S}
+    =
+    \iiint_V \vec{\nabla}p\,dV,\]<span class="course-equation-index">(10)</span></div>
+<p>on obtient</p>
+<div class="course-equation" id="equation-11">\[\iiint_V
+    \left(
+    -\vec{\nabla}p+\rho\vec{g}
+    \right)dV
+    =
+    \vec{0}.\]<span class="course-equation-index">(11)</span></div>
+<p>Cette relation devant être vraie pour tout volume \(V\), on trouve</p>
+<div class="course-equation" id="equation-12">\[\boxed{
+    \vec{\nabla}p=\rho\vec{g}
+    }.\]<span class="course-equation-index">(12)</span></div>
+<p>Cette équation constitue la <strong>relation fondamentale de l'hydrostatique</strong>.</p>
+<p>Avec l'axe \(z\) orienté vers le haut,</p>
+<div class="course-equation" id="equation-13">\[\vec{g}=-g\vec{e}_z,\]<span class="course-equation-index">(13)</span></div>
+<p>et par conséquent</p>
+<div class="course-equation" id="equation-14">\[\boxed{
+    \frac{\partial p}{\partial z}
+    =
+    -\rho g
+    }.\]<span class="course-equation-index">(14)</span></div>
+<p>La pression diminue donc lorsque l'altitude augmente.</p>
+<p><strong>Attention :</strong> le signe négatif provient du choix de l'axe \(z\) orienté vers le haut. Si l'axe vertical était orienté vers le bas, le signe serait positif.</p>
+<h2 class="course-chapter" id="fluide-incompressible">Fluide incompressible</h2>
+<p>Pour un fluide incompressible, la masse volumique \(\rho\) est constante.</p>
+<p>L'équation (<a href="#equation-14">14</a>) devient</p>
+<div class="course-equation" id="equation-15">\[dp=-\rho g\,dz.\]<span class="course-equation-index">(15)</span></div>
+<p>En intégrant entre deux points \(i\) et \(f\),</p>
+<div class="course-equation" id="equation-16">\[\int_{p_i}^{p_f}dp
+    =
+    -\rho g
+    \int_{z_i}^{z_f}dz,\]<span class="course-equation-index">(16)</span></div>
+<p>d'où</p>
+<div class="course-equation" id="equation-17">\[p_f-p_i
+    =
+    -\rho g(z_f-z_i).\]<span class="course-equation-index">(17)</span></div>
+<p>Finalement,</p>
+<div class="course-equation" id="equation-18">\[\boxed{
+    p_f+\rho gz_f
+    =
+    p_i+\rho gz_i
+    =
+    \mathrm{cste}
+    }.\]<span class="course-equation-index">(18)</span></div>
+<p>On peut également écrire</p>
+<div class="course-equation" id="equation-19">\[\boxed{
+    p(z)=p(z_0)+\rho g(z_0-z)
+    }.\]<span class="course-equation-index">(19)</span></div>
+<p>Cette relation montre immédiatement que la pression augmente avec la profondeur.</p>
+<p><strong>Question :</strong> qu'est-ce qui changerait dans l'équation (<a href="#equation-18">18</a>) si nous avions défini l'axe vertical vers le bas ?</p>
+<h2 class="course-chapter" id="pression-absolue-et-pression-relative">Pression absolue et pression relative</h2>
+<p>Dans de nombreuses situations, il est utile de distinguer la pression absolue de la pression relative, également appelée pression manométrique.</p>
+<p>La pression absolue est mesurée par rapport au vide, tandis que la pression relative est mesurée par rapport à la pression atmosphérique :</p>
+<div class="course-equation" id="equation-20">\[\boxed{
+    p_{\mathrm{rel}}
+    =
+    p_{\mathrm{abs}}
+    -
+    p_{\mathrm{atm}}
+    }.\]<span class="course-equation-index">(20)</span></div>
+<p>Ainsi, à la surface libre d'un réservoir ouvert,</p>
+<div class="course-equation" id="equation-21">\[p_{\mathrm{abs}}=p_{\mathrm{atm}},\]<span class="course-equation-index">(21)</span></div>
+<p>et donc</p>
+<div class="course-equation" id="equation-22">\[p_{\mathrm{rel}}=0.\]<span class="course-equation-index">(22)</span></div>
+<p>À une profondeur \(h\) sous la surface libre,</p>
+<div class="course-equation" id="equation-23">\[\boxed{
+    p_{\mathrm{abs}}
+    =
+    p_{\mathrm{atm}}
+    +
+    \rho gh
+    },\]<span class="course-equation-index">(23)</span></div>
+<p>tandis que</p>
+<div class="course-equation" id="equation-24">\[\boxed{
+    p_{\mathrm{rel}}
+    =
+    \rho gh
+    }.\]<span class="course-equation-index">(24)</span></div>
+<h2 class="course-chapter" id="fluide-compressible">Fluide compressible</h2>
+<p>Pour un fluide compressible, la masse volumique varie avec la pression. Il est donc nécessaire d'introduire une équation d'état reliant \(\rho\) et \(p\).</p>
+<p>Le modèle le plus simple est celui du gaz parfait :</p>
+<div class="course-equation" id="equation-25">\[pV=nRT.\]<span class="course-equation-index">(25)</span></div>
+<p>Comme</p>
+<div class="course-equation" id="equation-26">\[n=\frac{m}{M}
+    \qquad\text{et}\qquad
+    \rho=\frac{m}{V},\]<span class="course-equation-index">(26)</span></div>
+<p>on obtient</p>
+<div class="course-equation" id="equation-27">\[\boxed{
+    p=\rho\frac{RT}{M}
+    }.\]<span class="course-equation-index">(27)</span></div>
+<p>On suppose ici que la température \(T\) est constante avec l'altitude.</p>
+<p>Ainsi,</p>
+<div class="course-equation" id="equation-28">\[\rho=\frac{Mp}{RT}.\]<span class="course-equation-index">(28)</span></div>
+<p>En substituant cette expression dans l'équation fondamentale,</p>
+<div class="course-equation" id="equation-29">\[\frac{dp}{dz}
+    =
+    -p\frac{Mg}{RT}.\]<span class="course-equation-index">(29)</span></div>
+<p>On sépare les variables :</p>
+<div class="course-equation" id="equation-30">\[\frac{dp}{p}
+    =
+    -\frac{Mg}{RT}\,dz.\]<span class="course-equation-index">(30)</span></div>
+<p>Après intégration entre \(z_i\) et \(z_f\),</p>
+<div class="course-equation" id="equation-31">\[\ln\left(\frac{p_f}{p_i}\right)
+    =
+    -\frac{Mg}{RT}(z_f-z_i).\]<span class="course-equation-index">(31)</span></div>
+<p>Finalement,</p>
+<div class="course-equation" id="equation-32">\[\boxed{
+    p(z_f)
+    =
+    p(z_i)
+    \exp\left[
+    -\frac{Mg}{RT}(z_f-z_i)
+    \right]
+    }.\]<span class="course-equation-index">(32)</span></div>
+<p>Cette relation montre que, dans une atmosphère isotherme idéale, la pression diminue exponentiellement avec l'altitude.</p>
+<h2 class="course-chapter" id="le-principe-de-pascal">Le principe de Pascal</h2>
+<p>Considérons maintenant un fluide incompressible au repos et confiné dans un récipient.</p>
+<p>D'après l'équation fondamentale,</p>
+<div class="course-equation" id="equation-33">\[p+\rho gz=\mathrm{cste}.\]<span class="course-equation-index">(33)</span></div>
+<p>Si une variation de pression \(\Delta p\) est appliquée en un point du fluide, cette variation est transmise à l'ensemble du fluide.</p>
+<div class="course-activity"><p><strong>Principe de Pascal :</strong> Toute variation de pression appliquée à un fluide incompressible confiné est transmise intégralement à l'ensemble du fluide et aux parois du récipient.</p></div>
+<p>Ce principe constitue la base du fonctionnement de nombreux systèmes hydrauliques : presses, vérins, freins hydrauliques, etc.</p>
+<h3 class="course-subheading" id="la-presse-hydraulique">La presse hydraulique</h3>
+<p>Considérons deux pistons reliés par un liquide incompressible.</p>
+<figure class="course-figure"><img src="resources/Classes/mecanique-fluides/presse-hydraulique.svg" alt="La presse hydraulique : une même augmentation de pression agit sur deux surfaces différentes." width="760" height="460" loading="lazy"><figcaption><span class="course-figure-index">Figure 1.</span> La presse hydraulique : une même augmentation de pression agit sur deux surfaces différentes.</figcaption></figure>
+<p>Une force \(F_1\) appliquée sur le premier piston de surface \(S_1\) produit une augmentation de pression</p>
+<div class="course-equation" id="equation-34">\[\Delta p_1=\frac{F_1}{S_1}.\]<span class="course-equation-index">(34)</span></div>
+<p>Le principe de Pascal impose</p>
+<div class="course-equation" id="equation-35">\[\Delta p_1=\Delta p_2,\]<span class="course-equation-index">(35)</span></div>
+<p>donc</p>
+<div class="course-equation" id="equation-36">\[\frac{F_1}{S_1}
+    =
+    \frac{F_2}{S_2}.\]<span class="course-equation-index">(36)</span></div>
+<p>Ainsi,</p>
+<div class="course-equation" id="equation-37">\[\boxed{
+    F_2=F_1\frac{S_2}{S_1}
+    }.\]<span class="course-equation-index">(37)</span></div>
+<p>Une petite force peut donc produire une force importante si \(S_2\gg S_1\).</p>
+<p>Mais attention : une presse hydraulique ne crée pas d'énergie !</p>
+<p>La conservation du volume impose</p>
+<div class="course-equation" id="equation-38">\[S_1\,dx_1=S_2\,dx_2.\]<span class="course-equation-index">(38)</span></div>
+<p>Par conséquent,</p>
+<div class="course-equation" id="equation-39">\[\frac{dx_1}{dx_2}
+    =
+    \frac{S_2}{S_1}.\]<span class="course-equation-index">(39)</span></div>
+<p>On retrouve alors</p>
+<div class="course-equation" id="equation-40">\[F_1dx_1=F_2dx_2.\]<span class="course-equation-index">(40)</span></div>
+<p>Le gain en force est donc compensé par une diminution du déplacement.</p>
+<h2 class="course-chapter" id="le-manometre">Le manomètre</h2>
+<p>Un manomètre permet de mesurer une différence de pression à partir de la différence de hauteur entre deux colonnes de liquide.</p>
+<p>Considérons un tube en U contenant un liquide de masse volumique \(\rho\).</p>
+<figure class="course-figure"><img src="resources/Classes/mecanique-fluides/manometre.svg" alt="Manomètre en U : la différence de hauteur traduit la différence de pression entre les deux branches." width="760" height="460" loading="lazy"><figcaption><span class="course-figure-index">Figure 2.</span> Manomètre en U : la différence de hauteur traduit la différence de pression entre les deux branches.</figcaption></figure>
+<p>Dans un même liquide au repos,</p>
+<div class="course-equation" id="equation-41">\[p+\rho gz=\mathrm{cste}.\]<span class="course-equation-index">(41)</span></div>
+<p>En comparant les deux branches du manomètre, on obtient</p>
+<div class="course-equation" id="equation-42">\[\boxed{
+    p_A-p_B
+    =
+    \rho g\,\Delta h
+    },\]<span class="course-equation-index">(42)</span></div>
+<p>où le signe dépend naturellement de la différence de niveau observée.</p>
+<p>Ainsi, une différence de pression est directement convertie en une différence de hauteur mesurable.</p>
+<h2 class="course-chapter" id="la-poussee-d-archimede">La poussée d&#x27;Archimède</h2>
+<p>La poussée d'Archimède est une conséquence directe du gradient de pression dans un fluide.</p>
+<p>La pression augmente avec la profondeur. La partie inférieure d'un objet immergé est donc soumise à des forces de pression plus importantes que sa partie supérieure. La résultante des forces de pression est ainsi dirigée vers le haut.</p>
+<figure class="course-figure"><img src="resources/Classes/mecanique-fluides/poussee-archimede.svg" alt="Forces de pression, poussée d’Archimède et poids d’un objet immergé." width="760" height="460" loading="lazy"><figcaption><span class="course-figure-index">Figure 3.</span> Forces de pression, poussée d’Archimède et poids d’un objet immergé.</figcaption></figure>
+<p>La force résultante exercée par la pression sur la surface \(S\) de l'objet est</p>
+<div class="course-equation" id="equation-43">\[\vec{\Pi}
+    =
+    -\oiint_S p\,d\vec{S}.\]<span class="course-equation-index">(43)</span></div>
+<p>En appliquant le théorème de Green–Ostrogradski,</p>
+<div class="course-equation" id="equation-44">\[\vec{\Pi}
+    =
+    -\iiint_{V_d}
+    \vec{\nabla}p\,dV,\]<span class="course-equation-index">(44)</span></div>
+<p>où \(V_d\) représente le volume de fluide déplacé.</p>
+<p>D'après l'équation fondamentale de l'hydrostatique,</p>
+<div class="course-equation" id="equation-45">\[\vec{\nabla}p=\rho_f\vec{g}.\]<span class="course-equation-index">(45)</span></div>
+<p>Si \(\rho_f\) est uniforme,</p>
+<div class="course-equation" id="equation-46">\[\vec{\Pi}
+    =
+    -\rho_f V_d\vec{g}.\]<span class="course-equation-index">(46)</span></div>
+<p>Avec l'axe \(z\) orienté vers le haut,</p>
+<div class="course-equation" id="equation-47">\[\boxed{
+    \vec{\Pi}
+    =
+    \rho_f gV_d\,\vec{e}_z
+    }.\]<span class="course-equation-index">(47)</span></div>
+<p>La norme de la poussée d'Archimède est donc égale au poids du fluide déplacé.</p>
+<div class="course-activity"><p><strong>Principe d'Archimède :</strong> Tout corps totalement ou partiellement immergé dans un fluide subit une force verticale dirigée vers le haut dont la norme est égale au poids du fluide déplacé.</p></div>
+<p>Il faut faire attention à ne pas confondre :</p>
+<ul><li><p>\(\rho_f\) : masse volumique du fluide ;</p></li><li><p>\(\rho_o\) : masse volumique de l'objet ;</p></li><li><p>\(V_d\) : volume de fluide déplacé, égal au volume immergé de l'objet.</p></li></ul>
+<h3 class="course-subheading" id="objet-totalement-immerge">Objet totalement immergé</h3>
+<p>Pour un objet homogène totalement immergé de volume \(V\),</p>
+<div class="course-equation" id="equation-48">\[\vec{P}
+    =
+    -\rho_o Vg\,\vec e_z,\]<span class="course-equation-index">(48)</span></div>
+<p>et</p>
+<div class="course-equation" id="equation-49">\[\vec{\Pi}
+    =
+    \rho_f Vg\,\vec e_z.\]<span class="course-equation-index">(49)</span></div>
+<p>La résultante est donc</p>
+<div class="course-equation" id="equation-50">\[\boxed{
+    \vec{F}
+    =
+    (\rho_f-\rho_o)Vg\,\vec e_z
+    }.\]<span class="course-equation-index">(50)</span></div>
+<p>Ainsi,</p>
+<div class="course-equation" id="equation-51">\[\begin{cases}
+\rho_o&gt;\rho_f
+&amp;\Rightarrow \text{l'objet tend à couler},\\[2mm]
+\rho_o=\rho_f
+&amp;\Rightarrow \text{l'objet peut rester en équilibre},\\[2mm]
+\rho_o&lt;\rho_f
+&amp;\Rightarrow \text{l'objet tend à remonter}.
+\end{cases}\]<span class="course-equation-index">(51)</span></div>
+<h3 class="course-subheading" id="objet-flottant">Objet flottant</h3>
+<p>Lorsqu'un objet flotte à l'équilibre, seule une fraction de son volume est immergée.</p>
+<p>L'équilibre vertical impose</p>
+<div class="course-equation" id="equation-52">\[\Pi=P.\]<span class="course-equation-index">(52)</span></div>
+<p>Ainsi,</p>
+<div class="course-equation" id="equation-53">\[\rho_f gV_{\mathrm{imm}}
+    =
+    \rho_o gV.\]<span class="course-equation-index">(53)</span></div>
+<p>On obtient donc</p>
+<div class="course-equation" id="equation-54">\[\boxed{
+    \frac{V_{\mathrm{imm}}}{V}
+    =
+    \frac{\rho_o}{\rho_f}
+    }.\]<span class="course-equation-index">(54)</span></div>
+<p>La fraction immergée dépend uniquement du rapport entre la masse volumique de l'objet et celle du fluide.</p>
+<h2 class="course-chapter" id="remarque-fluide-soumis-a-une-acceleration">Remarque : fluide soumis à une accélération</h2>
+<p>La relation fondamentale peut être généralisée lorsqu'un fluide est observé dans un référentiel accéléré.</p>
+<p>On peut introduire une gravité effective</p>
+<div class="course-equation" id="equation-55">\[\vec{g}_{\mathrm{eff}}
+    =
+    \vec{g}-\vec{a}_0,\]<span class="course-equation-index">(55)</span></div>
+<p>où \(\vec a_0\) est l'accélération du référentiel.</p>
+<p>L'équation hydrostatique devient alors</p>
+<div class="course-equation" id="equation-56">\[\boxed{
+    \vec{\nabla}p
+    =
+    \rho\vec{g}_{\mathrm{eff}}
+    }.\]<span class="course-equation-index">(56)</span></div>
+<p>La poussée d'Archimède généralisée s'écrit donc</p>
+<div class="course-equation" id="equation-57">\[\boxed{
+    \vec{\Pi}
+    =
+    -\rho_fV_d\vec{g}_{\mathrm{eff}}
+    }.\]<span class="course-equation-index">(57)</span></div>
+<p>La poussée est ainsi opposée à la direction de la gravité effective.</p>
+<h2 class="course-chapter" id="exercices-rapides">Exercices rapides</h2>
+<h3 class="course-subheading" id="exercice-1-pression-au-fond-d-un-reservoir">Exercice 1 — Pression au fond d&#x27;un réservoir</h3>
+<p>Un réservoir ouvert contient de l'eau jusqu'à une hauteur</p>
+<div class="course-equation">\[h=3{,}0\,\mathrm{m}.\]</div>
+<p>On prendra</p>
+<div class="course-equation">\[\rho_{\mathrm{eau}}
+=
+1000\,\mathrm{kg\,m^{-3}},
+\qquad
+g=9{,}81\,\mathrm{m\,s^{-2}},\]</div>
+<p>et</p>
+<div class="course-equation">\[p_{\mathrm{atm}}
+=
+1{,}013\times10^5\,\mathrm{Pa}.\]</div>
+<ol><li><p>Calculer la pression relative au fond du réservoir.</p></li><li><p>Calculer la pression absolue au fond du réservoir.</p></li><li><p>Que devient la pression au fond si la surface horizontale du réservoir est doublée sans modifier la hauteur d'eau ?</p></li><li><p>La pression au fond dépend-elle du volume total d'eau contenu dans le réservoir ?</p></li></ol>
+<h3 class="course-subheading" id="exercice-2-manometre">Exercice 2 — Manomètre</h3>
+<p>Un manomètre en U contenant de l'eau est relié à un réservoir contenant un gaz. L'autre branche est ouverte à l'atmosphère.</p>
+<p>La différence entre les niveaux d'eau est</p>
+<div class="course-equation">\[\Delta h=25\,\mathrm{cm}.\]</div>
+<p>On prendra</p>
+<div class="course-equation">\[\rho_{\mathrm{eau}}
+=
+1000\,\mathrm{kg\,m^{-3}}.\]</div>
+<ol><li><p>Calculer la différence entre la pression du gaz et la pression atmosphérique.</p></li><li><p>Calculer la pression absolue du gaz si</p>
+<div class="course-equation">\[p_{\mathrm{atm}}
+    =
+    1{,}013\times10^5\,\mathrm{Pa}.\]</div></li><li><p>Que deviendrait la différence de hauteur si l'eau était remplacée par un liquide deux fois plus dense ?</p></li></ol>
+<h3 class="course-subheading" id="exercice-3-presse-hydraulique">Exercice 3 — Presse hydraulique</h3>
+<p>Une presse hydraulique possède deux pistons de surfaces</p>
+<div class="course-equation">\[S_1=5{,}0\,\mathrm{cm^2},
+\qquad
+S_2=200\,\mathrm{cm^2}.\]</div>
+<p>Une force</p>
+<div class="course-equation">\[F_1=150\,\mathrm{N}\]</div>
+<p>est appliquée sur le petit piston.</p>
+<ol><li><p>Calculer l'augmentation de pression produite dans le liquide.</p></li><li><p>Calculer la force \(F_2\) exercée par le grand piston.</p></li><li><p>Déterminer le facteur d'amplification de la force.</p></li><li><p>Si le petit piston descend de \(40\,\mathrm{cm}\), de quelle distance le grand piston monte-t-il ?</p></li><li><p>Vérifier la conservation du travail mécanique dans le cas idéal.</p></li></ol>
+<h3 class="course-subheading" id="exercice-4-poussee-d-archimede">Exercice 4 — Poussée d&#x27;Archimède</h3>
+<p>Un cube de côté</p>
+<div class="course-equation">\[a=10\,\mathrm{cm}\]</div>
+<p>et de masse</p>
+<div class="course-equation">\[m=0{,}80\,\mathrm{kg}\]</div>
+<p>est entièrement immergé dans l'eau.</p>
+<ol><li><p>Calculer le volume du cube.</p></li><li><p>Calculer son poids.</p></li><li><p>Calculer la poussée d'Archimède.</p></li><li><p>Calculer la résultante des forces.</p></li><li><p>Si le cube est lâché sans vitesse initiale, dans quelle direction commence-t-il à accélérer ?</p></li><li><p>Calculer son accélération initiale en négligeant les forces de traînée.</p></li></ol>
+<h3 class="course-subheading" id="exercice-5-objet-flottant">Exercice 5 — Objet flottant</h3>
+<p>Un bloc homogène de masse volumique</p>
+<div class="course-equation">\[\rho_o
+=
+750\,\mathrm{kg\,m^{-3}}\]</div>
+<p>flotte à la surface de l'eau.</p>
+<ol><li><p>Quelle fraction de son volume est immergée ?</p></li><li><p>Quelle fraction de son volume se trouve au-dessus de l'eau ?</p></li><li><p>La réponse dépend-elle de la masse totale du bloc ?</p></li><li><p>Que se passerait-il si ce même bloc était placé dans un liquide de masse volumique</p>
+<div class="course-equation">\[\rho_f=700\,\mathrm{kg\,m^{-3}}?\]</div></li></ol>
+<h2 class="course-chapter" id="a-retenir">À retenir</h2>
+<p>Pour un fluide au repos,</p>
+<div class="course-equation" id="equation-58">\[\boxed{
+    \vec{\nabla}p=\rho\vec{g}
+    }.\]<span class="course-equation-index">(58)</span></div>
+<p>Pour un liquide incompressible dans un champ de pesanteur uniforme,</p>
+<div class="course-equation" id="equation-59">\[\boxed{
+    p+\rho gz=\mathrm{cste}
+    }.\]<span class="course-equation-index">(59)</span></div>
+<p>À une profondeur \(h\) sous une surface libre,</p>
+<div class="course-equation" id="equation-60">\[\boxed{
+    p=p_{\mathrm{surface}}+\rho gh
+    }.\]<span class="course-equation-index">(60)</span></div>
+<p>Principe de Pascal :</p>
+<div class="course-equation" id="equation-61">\[\boxed{
+    \frac{F_1}{S_1}
+    =
+    \frac{F_2}{S_2}
+    }.\]<span class="course-equation-index">(61)</span></div>
+<p>Manomètre simple :</p>
+<div class="course-equation" id="equation-62">\[\boxed{
+    \Delta p=\rho g\Delta h
+    }.\]<span class="course-equation-index">(62)</span></div>
+<p>Poussée d'Archimède :</p>
+<div class="course-equation" id="equation-63">\[\boxed{
+    \vec{\Pi}
+    =
+    -\rho_fV_d\vec{g}
+    }.\]<span class="course-equation-index">(63)</span></div>
+<p>Pour un objet flottant :</p>
+<div class="course-equation" id="equation-64">\[\boxed{
+    \frac{V_{\mathrm{imm}}}{V}
+    =
+    \frac{\rho_o}{\rho_f}
+    }.\]<span class="course-equation-index">(64)</span></div><p class="course-end"><a class="course-page-link" href="teaching.html">← Retour aux supports de cours</a></p>
+</article>
+        </div>
+      </main>
+      <footer class="site-footer page-width"><span>© <span id="year">2026</span> Anderson Kohara</span><span>Physics · Research · Teaching</span></footer>
+    </div>
+  </body>
+</html>

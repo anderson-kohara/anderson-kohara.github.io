@@ -1,0 +1,641 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Mécanique des fluides — Chapitre 2 : dérivée particulaire, Euler, Bernoulli, débits, continuité et effet Venturi. Démonstrations, quatre schémas et six exercices.">
+    <meta name="theme-color" content="#f5f5f0">
+    <title>Mécanique des fluides — Fluides parfaits — Anderson Kohara</title>
+    <script>try { document.documentElement.dataset.theme = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch { document.documentElement.dataset.theme = 'light'; }</script>
+    <link rel="stylesheet" href="styles.css?v=20261003-fluides2">
+    <script src="i18n.js" defer></script><script src="script.js" defer></script>
+    <script>window.MathJax = { loader: { load: ['[tex]/cancel'] }, tex: { packages: { '[+]': ['cancel'] }, macros: { oiint: '\\mathop{∯}\\nolimits' } }, svg: { fontCache: 'global' } };</script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-svg.js"></script>
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header page-width">
+        <a class="brand" href="index.html" aria-label="Anderson Kohara, home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Anderson Kohara</span></a>
+        <div class="header-actions"><span class="header-location"> Lyon</span><label class="sr-only" for="language-select">Language</label><select class="language-select" id="language-select"><option value="en">EN</option><option value="pt-BR">PT-BR</option><option value="fr">FR</option></select><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg><span class="theme-label">Dark mode</span></button></div>
+      </header>
+      <main class="course-main page-width" id="top" lang="fr" data-no-translate>
+        <a class="back-link" href="teaching.html"><span aria-hidden="true">←</span> Retour aux supports de cours</a>
+        <section class="course-hero" aria-labelledby="course-title"><div><p class="eyebrow"><span class="eyebrow-line" aria-hidden="true"></span> Support de cours · En français</p><h1 id="course-title">Mécanique<br><span>des fluides</span><span class="title-dot">.</span></h1><p class="course-byline">Anderson Kohara <span aria-hidden="true">·</span> Chapitre 2 — Fluides parfaits</p></div><div class="course-hero-mark" aria-hidden="true"><span>ρ</span><span>p</span><span>∇</span></div></section>
+        <section class="course-intro" aria-label="Introduction au chapitre"><p>Passer des fluides au repos aux fluides en mouvement : comprendre la dérivée particulaire, établir les équations d’Euler et de continuité, puis appliquer Bernoulli à l’effet Venturi.</p><p class="course-session-meta"><span><strong>Prérequis :</strong> hydrostatique, dérivées partielles et calcul vectoriel</span><span><strong>Contenu :</strong> 4 schémas et 6 exercices</span></p><p>Les démonstrations sont conservées dans le fil du cours. Ouvrez les encadrés pour lire les exercices et l’interprétation détaillée des termes d’Euler.</p></section><nav class="cv-nav course-chapter-nav" aria-label="Chapitres de mécanique des fluides"><a href="mecanique-fluides-hydrostatique.html">Chapitre 1 · Hydrostatique</a><a href="mecanique-fluides-parfaits.html" aria-current="page">Chapitre 2 · Fluides parfaits</a></nav>
+        
+        <div class="course-layout">
+          <aside class="course-sidebar"><nav class="course-toc" aria-label="Sommaire du chapitre"><p>Dans ce chapitre</p><a href="#les-fluides-parfaits"><span>01</span>Les fluides parfaits</a><a href="#description-eulerienne-du-mouvement"><span>02</span>Description eulérienne du mouvement</a><a href="#la-derivee-particulaire"><span>03</span>La dérivée particulaire</a><a href="#l-equation-d-euler"><span>04</span>L&#x27;équation d&#x27;Euler</a><a href="#acceleration-convective-et-rotation-du-fluide"><span>05</span>Accélération convective et rotation du fluide</a><a href="#lignes-de-courant"><span>06</span>Lignes de courant</a><a href="#le-theoreme-de-bernoulli"><span>07</span>Le théorème de Bernoulli</a><a href="#le-debit-volumique"><span>08</span>Le débit volumique</a><a href="#le-debit-massique"><span>09</span>Le débit massique</a><a href="#conservation-de-la-masse"><span>10</span>Conservation de la masse</a><a href="#continuite-et-derivee-particulaire"><span>11</span>Continuité et dérivée particulaire</a><a href="#cas-d-un-fluide-incompressible"><span>12</span>Cas d&#x27;un fluide incompressible</a><a href="#continuite-et-bernoulli-effet-venturi"><span>13</span>Continuité et Bernoulli : effet Venturi</a><a href="#a-retenir"><span>14</span>À retenir</a><a href="#exercices"><span>15</span>Exercices</a><a class="course-toc-top" href="#top">Retour en haut ↑</a></nav></aside>
+          <article class="course-content"><h2 class="course-chapter" id="les-fluides-parfaits">Les fluides parfaits</h2>
+<p>Dans le chapitre précédent, nous avons étudié des fluides au repos. La vitesse était donc nulle,</p>
+<div class="course-equation course-equation-step" id="equation-1">\[\vec{v}=\vec{0},\]<span class="course-equation-index">(1)</span></div>
+<p>et l'équilibre mécanique conduisait à l'équation fondamentale de l'hydrostatique</p>
+<div class="course-equation course-equation-step" id="equation-2">\[\vec{\nabla}p=\rho\vec{g}.\]<span class="course-equation-index">(2)</span></div>
+<p>Nous allons maintenant considérer des fluides en mouvement. Le champ de vitesse devient alors une fonction de la position et du temps,</p>
+<div class="course-equation" id="equation-3">\[\boxed{
+\vec{v}=\vec{v}(\vec{r},t)
+}.\]<span class="course-equation-index">(3)</span></div>
+<p>La description du mouvement d'un fluide nécessite donc de comprendre comment les grandeurs physiques telles que la vitesse, la pression ou la masse volumique évoluent dans l'espace et dans le temps.</p>
+<h2 class="course-chapter" id="description-eulerienne-du-mouvement">Description eulérienne du mouvement</h2>
+<p>Pour décrire le mouvement d'une particule solide, on suit généralement sa position</p>
+<div class="course-equation course-equation-step" id="equation-4">\[\vec r=\vec r(t).\]<span class="course-equation-index">(4)</span></div>
+<p>Pour un fluide, constitué d'un très grand nombre de particules, cette approche serait peu pratique.</p>
+<p>On préfère généralement adopter une <strong>description eulérienne</strong> : on observe les grandeurs physiques en chaque point de l'espace.</p>
+<p>On définit ainsi des champs :</p>
+<div class="course-equation course-equation-step" id="equation-5">\[\rho=\rho(\vec r,t),\]<span class="course-equation-index">(5)</span></div>
+<div class="course-equation course-equation-step" id="equation-6">\[p=p(\vec r,t),\]<span class="course-equation-index">(6)</span></div>
+<p>et</p>
+<div class="course-equation course-equation-step" id="equation-7">\[\vec v=\vec v(\vec r,t).\]<span class="course-equation-index">(7)</span></div>
+<p>Une particule de fluide se déplace à travers ces champs. Elle peut donc observer une variation d'une grandeur physique même lorsque le champ est indépendant du temps.</p>
+<h2 class="course-chapter" id="la-derivee-particulaire">La dérivée particulaire</h2>
+<p>Considérons une grandeur scalaire quelconque</p>
+<div class="course-equation course-equation-step" id="equation-8">\[f=f(x,y,z,t).\]<span class="course-equation-index">(8)</span></div>
+<p>Une particule de fluide suit une trajectoire</p>
+<div class="course-equation course-equation-step" id="equation-9">\[\vec r(t)
+=
+x(t)\vec e_x
++
+y(t)\vec e_y
++
+z(t)\vec e_z.\]<span class="course-equation-index">(9)</span></div>
+<p>La variation de \(f\) ressentie par cette particule est obtenue à l'aide de la dérivée totale :</p>
+<div class="course-equation course-equation-step" id="equation-10">\[\frac{Df}{Dt}
+=
+\frac{\partial f}{\partial t}
++
+\frac{\partial f}{\partial x}\frac{dx}{dt}
++
+\frac{\partial f}{\partial y}\frac{dy}{dt}
++
+\frac{\partial f}{\partial z}\frac{dz}{dt}.\]<span class="course-equation-index">(10)</span></div>
+<p>Or,</p>
+<div class="course-equation course-equation-step" id="equation-11">\[\frac{dx}{dt}=v_x,
+\qquad
+\frac{dy}{dt}=v_y,
+\qquad
+\frac{dz}{dt}=v_z.\]<span class="course-equation-index">(11)</span></div>
+<p>Par conséquent,</p>
+<div class="course-equation course-equation-step" id="equation-12">\[\frac{Df}{Dt}
+=
+\frac{\partial f}{\partial t}
++
+v_x\frac{\partial f}{\partial x}
++
+v_y\frac{\partial f}{\partial y}
++
+v_z\frac{\partial f}{\partial z}.\]<span class="course-equation-index">(12)</span></div>
+<p>En utilisant l'opérateur d'advection,</p>
+<div class="course-equation course-equation-step" id="equation-13">\[\vec v\cdot\vec\nabla
+=
+v_x\frac{\partial}{\partial x}
++
+v_y\frac{\partial}{\partial y}
++
+v_z\frac{\partial}{\partial z},\]<span class="course-equation-index">(13)</span></div>
+<p>on obtient</p>
+<div class="course-equation" id="equation-14">\[\boxed{
+\frac{D}{Dt}
+=
+\frac{\partial}{\partial t}
++
+(\vec v\cdot\vec\nabla)
+}.\]<span class="course-equation-index">(14)</span></div>
+<p>Cet opérateur est appelé <strong>dérivée particulaire</strong>, <strong>dérivée matérielle</strong> ou <strong>dérivée totale</strong>.</p>
+<p>Il contient deux contributions :</p>
+<div class="course-equation" id="equation-15">\[\boxed{
+\underbrace{\frac{\partial}{\partial t}}_{\text{variation locale}}
++
+\underbrace{(\vec v\cdot\vec\nabla)}_{\text{advection}}
+}.\]<span class="course-equation-index">(15)</span></div>
+<p>Le premier terme décrit la variation temporelle observée en un point fixe de l'espace.</p>
+<p>Le second terme décrit la variation ressentie par une particule parce qu'elle se déplace dans une région où le champ n'est pas uniforme.</p>
+<h3 class="course-subheading" id="un-exemple-important">Un exemple important</h3>
+<p>Considérons un écoulement stationnaire dans lequel</p>
+<div class="course-equation course-equation-step" id="equation-16">\[\frac{\partial\vec v}{\partial t}=\vec 0.\]<span class="course-equation-index">(16)</span></div>
+<p>Cela ne signifie pas nécessairement que l'accélération d'une particule de fluide est nulle.</p>
+<p>En effet,</p>
+<div class="course-equation course-equation-step" id="equation-17">\[\frac{D\vec v}{Dt}
+=
+\cancelto{\vec 0}{\frac{\partial\vec v}{\partial t}}
++
+(\vec v\cdot\vec\nabla)\vec v.\]<span class="course-equation-index">(17)</span></div>
+<p>Ainsi,</p>
+<div class="course-equation" id="equation-18">\[\boxed{
+\frac{D\vec v}{Dt}
+=
+(\vec v\cdot\vec\nabla)\vec v
+}.\]<span class="course-equation-index">(18)</span></div>
+<p>Un écoulement peut donc être stationnaire tout en présentant une accélération.</p>
+<p>C'est par exemple le cas d'un fluide qui traverse une conduite dont la section diminue : le champ ne change pas avec le temps, mais les particules accélèrent lorsqu'elles pénètrent dans la partie plus étroite.</p>
+<figure class="course-figure"><img src="resources/Classes/mecanique-fluides/acceleration-convective.svg" alt="Accélération convective dans un écoulement stationnaire." width="760" height="380" loading="lazy"><figcaption>Figure 1. Accélération convective dans un écoulement stationnaire.</figcaption></figure>
+<h2 class="course-chapter" id="l-equation-d-euler">L&#x27;équation d&#x27;Euler</h2>
+<p>Nous pouvons maintenant appliquer la deuxième loi de Newton à un élément de fluide.</p>
+<p>Pour une masse élémentaire \(dm\),</p>
+<div class="course-equation course-equation-step" id="equation-19">\[\sum_k d\vec F_k
+=
+dm\,\frac{D\vec v}{Dt}.\]<span class="course-equation-index">(19)</span></div>
+<p>On considère ici un <strong>fluide parfait</strong>, c'est-à-dire un fluide dont les effets de viscosité sont négligés.</p>
+<p>Les forces agissant sur l'élément de fluide sont alors principalement :</p>
+<ul><li><p>les forces de pression ;</p></li><li><p>les forces volumiques, notamment la pesanteur.</p></li></ul>
+<p>Pour un volume élémentaire \(dV\),</p>
+<div class="course-equation course-equation-step" id="equation-20">\[dm=\rho\,dV.\]<span class="course-equation-index">(20)</span></div>
+<p>La résultante des forces de pression par unité de volume est</p>
+<div class="course-equation course-equation-step" id="equation-21">\[-\vec\nabla p,\]<span class="course-equation-index">(21)</span></div>
+<p>tandis que la force gravitationnelle par unité de volume est</p>
+<div class="course-equation course-equation-step" id="equation-22">\[\rho\vec g.\]<span class="course-equation-index">(22)</span></div>
+<p>La deuxième loi de Newton donne donc</p>
+<div class="course-equation course-equation-step" id="equation-23">\[\rho\frac{D\vec v}{Dt}
+=
+-\vec\nabla p
++
+\rho\vec g.\]<span class="course-equation-index">(23)</span></div>
+<p>En utilisant la dérivée particulaire,</p>
+<div class="course-equation" id="equation-24">\[\boxed{
+\rho
+\left[
+\frac{\partial\vec v}{\partial t}
++
+(\vec v\cdot\vec\nabla)\vec v
+\right]
+=
+-\vec\nabla p
++
+\rho\vec g
+}.\]<span class="course-equation-index">(24)</span></div>
+<p>Cette relation est appelée <strong>équation d'Euler</strong>.</p>
+<p>Elle représente simplement la deuxième loi de Newton appliquée localement à un fluide parfait.</p>
+<details class="course-disclosure" id="interpretation-de-l-equation-d-euler"><summary>Interprétation de l&#x27;équation d&#x27;Euler</summary><div>
+<p>L'équation d'Euler</p>
+<div class="course-equation course-equation-step" id="equation-25">\[\rho
+\left[
+\frac{\partial\vec v}{\partial t}
++
+(\vec v\cdot\vec\nabla)\vec v
+\right]
+=
+-\vec\nabla p
++
+\rho\vec g\]<span class="course-equation-index">(25)</span></div>
+<p>peut être interprétée terme par terme.</p>
+<p>Le terme</p>
+<div class="course-equation course-equation-step" id="equation-26">\[\rho\frac{\partial\vec v}{\partial t}\]<span class="course-equation-index">(26)</span></div>
+<p>représente la masse volumique multipliée par l'accélération locale du fluide.</p>
+<p>Le terme</p>
+<div class="course-equation course-equation-step" id="equation-27">\[\rho(\vec v\cdot\vec\nabla)\vec v\]<span class="course-equation-index">(27)</span></div>
+<p>représente la masse volumique multipliée par l'accélération convective.</p>
+<p>Le terme</p>
+<div class="course-equation course-equation-step" id="equation-28">\[-\vec\nabla p\]<span class="course-equation-index">(28)</span></div>
+<p>représente la force de pression par unité de volume.</p>
+<p>Finalement,</p>
+<div class="course-equation course-equation-step" id="equation-29">\[\rho\vec g\]<span class="course-equation-index">(29)</span></div>
+<p>représente la force gravitationnelle par unité de volume.</p>
+<p>On peut donc résumer l'équation d'Euler sous la forme</p>
+<div class="course-equation" id="equation-30">\[\boxed{
+\text{inertie}
+=
+\text{forces de pression}
++
+\text{forces volumiques}
+}.\]<span class="course-equation-index">(30)</span></div>
+</div></details>
+<h2 class="course-chapter" id="acceleration-convective-et-rotation-du-fluide">Accélération convective et rotation du fluide</h2>
+<p>Une identité importante du calcul vectoriel permet d'écrire</p>
+<div class="course-equation" id="equation-31">\[\boxed{
+(\vec v\cdot\vec\nabla)\vec v
+=
+\vec\nabla\left(\frac{v^2}{2}\right)
++
+(\vec\nabla\wedge\vec v)\wedge\vec v
+}.\]<span class="course-equation-index">(31)</span></div>
+<p>On définit la <strong>vorticité</strong></p>
+<div class="course-equation" id="equation-32">\[\boxed{
+\vec\omega
+=
+\vec\nabla\wedge\vec v
+}.\]<span class="course-equation-index">(32)</span></div>
+<p>La vorticité mesure la rotation locale du fluide.</p>
+<p>L'identité précédente devient</p>
+<div class="course-equation course-equation-step" id="equation-33">\[(\vec v\cdot\vec\nabla)\vec v
+=
+\vec\nabla\left(\frac{v^2}{2}\right)
++
+\vec\omega\wedge\vec v.\]<span class="course-equation-index">(33)</span></div>
+<p>Un écoulement est dit <strong>irrotationnel</strong> lorsque</p>
+<div class="course-equation" id="equation-34">\[\boxed{
+\vec\omega
+=
+\vec\nabla\wedge\vec v
+=
+\vec 0
+}.\]<span class="course-equation-index">(34)</span></div>
+<p>Dans ce cas,</p>
+<div class="course-equation course-equation-step" id="equation-35">\[(\vec v\cdot\vec\nabla)\vec v
+=
+\vec\nabla\left(\frac{v^2}{2}\right).\]<span class="course-equation-index">(35)</span></div>
+<h2 class="course-chapter" id="lignes-de-courant">Lignes de courant</h2>
+<p>Une ligne de courant est une courbe qui est, en chaque point, tangente au vecteur vitesse \(\vec v\).</p>
+<p>Si \(d\vec\ell\) représente un déplacement infinitésimal le long d'une ligne de courant, alors</p>
+<div class="course-equation course-equation-step" id="equation-36">\[d\vec\ell\parallel\vec v.\]<span class="course-equation-index">(36)</span></div>
+<p>En coordonnées cartésiennes,</p>
+<div class="course-equation" id="equation-37">\[\boxed{
+\frac{dx}{v_x}
+=
+\frac{dy}{v_y}
+=
+\frac{dz}{v_z}
+}.\]<span class="course-equation-index">(37)</span></div>
+<p>Dans un écoulement stationnaire, les lignes de courant ne changent pas avec le temps.</p>
+<figure class="course-figure"><img src="resources/Classes/mecanique-fluides/lignes-courant.svg" alt="La vitesse et le déplacement élémentaire sont tangents à la ligne de courant." width="760" height="380" loading="lazy"><figcaption>Figure 2. La vitesse et le déplacement élémentaire sont tangents à la ligne de courant.</figcaption></figure>
+<h2 class="course-chapter" id="le-theoreme-de-bernoulli">Le théorème de Bernoulli</h2>
+<p>Le théorème de Bernoulli peut être obtenu directement à partir de l'équation d'Euler.</p>
+<p>Considérons un écoulement :</p>
+<ul><li><p>stationnaire ;</p></li><li><p>d'un fluide parfait ;</p></li><li><p>incompressible ;</p></li><li><p>soumis à la pesanteur.</p></li></ul>
+<p>L'équation d'Euler devient</p>
+<div class="course-equation course-equation-step" id="equation-38">\[\rho(\vec v\cdot\vec\nabla)\vec v
+=
+-\vec\nabla p+\rho\vec g.\]<span class="course-equation-index">(38)</span></div>
+<p>Considérons maintenant un déplacement infinitésimal \(d\vec\ell\) le long d'une ligne de courant.</p>
+<p>On effectue le produit scalaire de l'équation d'Euler avec \(d\vec\ell\) :</p>
+<div class="course-equation course-equation-step" id="equation-39">\[\rho
+(\vec v\cdot\vec\nabla)\vec v
+\cdot d\vec\ell
+=
+-\vec\nabla p\cdot d\vec\ell
++
+\rho\vec g\cdot d\vec\ell.\]<span class="course-equation-index">(39)</span></div>
+<p>Comme \(d\vec\ell\) est parallèle à \(\vec v\), le terme associé à la vorticité ne contribue pas :</p>
+<div class="course-equation course-equation-step" id="equation-40">\[\left[
+(\vec\nabla\times\vec v)\times\vec v
+\right]\cdot d\vec\ell
+=
+0.\]<span class="course-equation-index">(40)</span></div>
+<p>On obtient donc</p>
+<div class="course-equation course-equation-step" id="equation-41">\[\rho\,
+\vec\nabla\left(\frac{v^2}{2}\right)
+\cdot d\vec\ell
+=
+-\vec\nabla p\cdot d\vec\ell
++
+\rho\vec g\cdot d\vec\ell.\]<span class="course-equation-index">(41)</span></div>
+<p>Avec</p>
+<div class="course-equation course-equation-step" id="equation-42">\[\vec g=-g\vec e_z,\]<span class="course-equation-index">(42)</span></div>
+<p>on trouve</p>
+<div class="course-equation course-equation-step" id="equation-43">\[\rho\,d\left(\frac{v^2}{2}\right)
++
+dp
++
+\rho g\,dz
+=
+0.\]<span class="course-equation-index">(43)</span></div>
+<p>Pour un fluide incompressible en régime stationnaire, \(\rho\) est constante le long d'une ligne de courant. L'intégration donne alors</p>
+<div class="course-equation" id="equation-44">\[\boxed{
+\frac{1}{2}\rho v^2
++
+p
++
+\rho gz
+=
+\mathrm{cste}
+}.\]<span class="course-equation-index">(44)</span></div>
+<p>C'est le <strong>théorème de Bernoulli</strong>.</p>
+<p>Entre deux points \(1\) et \(2\) appartenant à une même ligne de courant,</p>
+<div class="course-equation" id="equation-45">\[\boxed{
+p_1+\frac{1}{2}\rho v_1^2+\rho gz_1
+=
+p_2+\frac{1}{2}\rho v_2^2+\rho gz_2
+}.\]<span class="course-equation-index">(45)</span></div>
+<h3 class="course-subheading" id="interpretation-physique">Interprétation physique</h3>
+<p>Les trois termes de Bernoulli ont les dimensions d'une pression, ou de manière équivalente d'une énergie par unité de volume :</p>
+<div class="course-equation course-equation-step" id="equation-46">\[\underbrace{p}_{\text{pression statique}}
++
+\underbrace{\frac{1}{2}\rho v^2}_{\text{pression dynamique}}
++
+\underbrace{\rho gz}_{\text{terme hydrostatique}}
+=
+\mathrm{cste}.\]<span class="course-equation-index">(46)</span></div>
+<p>Bernoulli traduit donc une conservation de l'énergie mécanique du fluide parfait le long d'une ligne de courant.</p>
+<h3 class="course-subheading" id="une-distinction-importante">Une distinction importante</h3>
+<p>Dans un écoulement rotationnel, la constante de Bernoulli peut être différente d'une ligne de courant à une autre.</p>
+<p>Ainsi,</p>
+<div class="course-equation course-equation-step" id="equation-47">\[p+\frac{1}{2}\rho v^2+\rho gz
+=
+C_{\text{ligne de courant}}.\]<span class="course-equation-index">(47)</span></div>
+<p>En revanche, si la masse volumique est uniforme dans le domaine et si l'écoulement est également <strong>irrotationnel</strong>,</p>
+<div class="course-equation course-equation-step" id="equation-48">\[\vec\nabla\times\vec v=\vec 0,\]<span class="course-equation-index">(48)</span></div>
+<p>alors l'équation d'Euler peut être écrite directement sous la forme</p>
+<div class="course-equation course-equation-step" id="equation-49">\[\vec\nabla
+\left(
+\frac{1}{2}\rho v^2
++
+p
++
+\rho gz
+\right)
+=
+\vec 0.\]<span class="course-equation-index">(49)</span></div>
+<p>Dans ce cas,</p>
+<div class="course-equation" id="equation-50">\[\boxed{
+p+\frac{1}{2}\rho v^2+\rho gz
+=
+\mathrm{cste}
+}\]<span class="course-equation-index">(50)</span></div>
+<p>dans tout le domaine fluide connecté.</p>
+<p><strong>Attention :</strong> l'irrotationnalité n'est donc pas nécessaire pour appliquer Bernoulli entre deux points d'une même ligne de courant. Elle permet d'utiliser la même constante de Bernoulli dans tout l'écoulement.</p>
+<h2 class="course-chapter" id="le-debit-volumique">Le débit volumique</h2>
+<p>Considérons une surface \(\mathcal S\) traversée par un fluide.</p>
+<p>Pendant un intervalle de temps \(dt\), le volume traversant un élément de surface \(dS\) est</p>
+<div class="course-equation course-equation-step" id="equation-51">\[dV
+=
+\vec v\cdot d\vec S\,dt.\]<span class="course-equation-index">(51)</span></div>
+<p>Le débit volumique est défini par</p>
+<div class="course-equation course-equation-step" id="equation-52">\[Q_V
+=
+\frac{dV}{dt}.\]<span class="course-equation-index">(52)</span></div>
+<p>Ainsi,</p>
+<div class="course-equation" id="equation-53">\[\boxed{
+Q_V
+=
+\iint_{\mathcal S}
+\vec v\cdot d\vec S
+}.\]<span class="course-equation-index">(53)</span></div>
+<p>Son unité dans le système international est</p>
+<div class="course-equation course-equation-step" id="equation-54">\[[Q_V]=\mathrm{m^3\,s^{-1}}.\]<span class="course-equation-index">(54)</span></div>
+<p>Si la vitesse est uniforme et normale à une section de surface \(S\),</p>
+<div class="course-equation" id="equation-55">\[\boxed{
+Q_V=vS
+}.\]<span class="course-equation-index">(55)</span></div>
+<h2 class="course-chapter" id="le-debit-massique">Le débit massique</h2>
+<p>Le débit massique représente la masse de fluide traversant une surface par unité de temps :</p>
+<div class="course-equation course-equation-step" id="equation-56">\[Q_m
+=
+\frac{dm}{dt}.\]<span class="course-equation-index">(56)</span></div>
+<p>Il s'écrit</p>
+<div class="course-equation" id="equation-57">\[\boxed{
+Q_m
+=
+\iint_{\mathcal S}
+\rho\vec v\cdot d\vec S
+}.\]<span class="course-equation-index">(57)</span></div>
+<p>Son unité est</p>
+<div class="course-equation course-equation-step" id="equation-58">\[[Q_m]=\mathrm{kg\,s^{-1}}.\]<span class="course-equation-index">(58)</span></div>
+<p>Pour un fluide incompressible de masse volumique uniforme,</p>
+<div class="course-equation" id="equation-59">\[\boxed{
+Q_m=\rho\, Q_V
+}.\]<span class="course-equation-index">(59)</span></div>
+<h2 class="course-chapter" id="conservation-de-la-masse">Conservation de la masse</h2>
+<p>Considérons maintenant un volume de contrôle fixe \(\mathcal V\), limité par une surface fermée \(\mathcal S\).</p>
+<p>La masse contenue dans ce volume est</p>
+<div class="course-equation course-equation-step" id="equation-60">\[m
+=
+\iiint_{\mathcal V}\rho\,dV.\]<span class="course-equation-index">(60)</span></div>
+<p>Par convention, le vecteur surface \(d\vec S\) est orienté vers l'extérieur du volume.</p>
+<p>Ainsi,</p>
+<div class="course-equation course-equation-step" id="equation-61">\[\oiint_{\mathcal S}
+\rho\vec v\cdot d\vec S\]<span class="course-equation-index">(61)</span></div>
+<p>représente le débit massique net <strong>sortant</strong> du volume.</p>
+<p>La conservation de la masse impose donc</p>
+<div class="course-equation" id="equation-62">\[\boxed{
+\frac{\partial}{\partial t}
+\iiint_{\mathcal V}\rho\,dV
+=
+-
+\oiint_{\mathcal S}
+\rho\vec v\cdot d\vec S
+}.\]<span class="course-equation-index">(62)</span></div>
+<p>Le signe négatif signifie simplement qu'un débit net sortant entraîne une diminution de la masse contenue dans le volume.</p>
+<p>En utilisant le théorème de Green–Ostrogradski,</p>
+<div class="course-equation course-equation-step" id="equation-63">\[\oiint_{\mathcal S}
+\rho\vec v\cdot d\vec S
+=
+\iiint_{\mathcal V}
+\vec\nabla\cdot(\rho\vec v)\,dV.\]<span class="course-equation-index">(63)</span></div>
+<p>On obtient alors</p>
+<div class="course-equation course-equation-step" id="equation-64">\[\iiint_{\mathcal V}
+\left[
+\frac{\partial\rho}{\partial t}
++
+\vec\nabla\cdot(\rho\vec v)
+\right]dV
+=
+0.\]<span class="course-equation-index">(64)</span></div>
+<p>Cette relation étant vraie pour tout volume de contrôle,</p>
+<div class="course-equation" id="equation-65">\[\boxed{
+\frac{\partial\rho}{\partial t}
++
+\vec\nabla\cdot(\rho\vec v)
+=
+0
+}.\]<span class="course-equation-index">(65)</span></div>
+<p>Cette relation est appelée <strong>équation de continuité</strong>. Elle exprime localement la conservation de la masse.</p>
+<figure class="course-figure"><img src="resources/Classes/mecanique-fluides/volume-controle.svg" alt="Volume de contrôle : le flux sortant est positif et le flux entrant négatif." width="760" height="380" loading="lazy"><figcaption>Figure 3. Volume de contrôle : le flux sortant est positif et le flux entrant négatif.</figcaption></figure>
+<h2 class="course-chapter" id="continuite-et-derivee-particulaire">Continuité et dérivée particulaire</h2>
+<p>En utilisant l'identité</p>
+<div class="course-equation course-equation-step" id="equation-66">\[\vec\nabla\cdot(\rho\vec v)
+=
+\vec v\cdot\vec\nabla\rho
++
+\rho\vec\nabla\cdot\vec v,\]<span class="course-equation-index">(66)</span></div>
+<p>l'équation de continuité devient</p>
+<div class="course-equation course-equation-step" id="equation-67">\[\frac{\partial\rho}{\partial t}
++
+(\vec v\cdot\vec\nabla)\rho
++
+\rho\vec\nabla\cdot\vec v
+=
+0.\]<span class="course-equation-index">(67)</span></div>
+<p>Or,</p>
+<div class="course-equation course-equation-step" id="equation-68">\[\frac{D\rho}{Dt}
+=
+\frac{\partial\rho}{\partial t}
++
+(\vec v\cdot\vec\nabla)\rho.\]<span class="course-equation-index">(68)</span></div>
+<p>Par conséquent,</p>
+<div class="course-equation" id="equation-69">\[\boxed{
+\frac{D\rho}{Dt}
++
+\rho\vec\nabla\cdot\vec v
+=
+0
+}.\]<span class="course-equation-index">(69)</span></div>
+<p>Cette écriture donne une interprétation physique particulièrement intéressante de la divergence.</p>
+<p>Si</p>
+<div class="course-equation course-equation-step" id="equation-70">\[\vec\nabla\cdot\vec v&gt;0,\]<span class="course-equation-index">(70)</span></div>
+<p>un élément de fluide tend localement à se dilater.</p>
+<p>Si</p>
+<div class="course-equation course-equation-step" id="equation-71">\[\vec\nabla\cdot\vec v&lt;0,\]<span class="course-equation-index">(71)</span></div>
+<p>il tend localement à se comprimer.</p>
+<h2 class="course-chapter" id="cas-d-un-fluide-incompressible">Cas d&#x27;un fluide incompressible</h2>
+<p>Pour un fluide incompressible, la masse volumique d'une particule de fluide reste constante pendant son mouvement :</p>
+<div class="course-equation" id="equation-72">\[\boxed{
+\frac{D\rho}{Dt}=0
+}.\]<span class="course-equation-index">(72)</span></div>
+<p>L'équation (<a href="#equation-69">69</a>) donne alors</p>
+<div class="course-equation" id="equation-73">\[\boxed{
+\vec\nabla\cdot\vec v=0
+}.\]<span class="course-equation-index">(73)</span></div>
+<p>La divergence nulle du champ de vitesse est donc la condition locale d'incompressibilité.</p>
+<h3 class="course-subheading" id="application-conduite-de-section-variable">Application : conduite de section variable</h3>
+<p>Considérons un écoulement stationnaire incompressible dans une conduite.</p>
+<p>La conservation du débit volumique impose</p>
+<div class="course-equation course-equation-step" id="equation-74">\[Q_V=S_1v_1=S_2v_2.\]<span class="course-equation-index">(74)</span></div>
+<p>Ainsi,</p>
+<div class="course-equation" id="equation-75">\[\boxed{
+S_1v_1=S_2v_2
+}.\]<span class="course-equation-index">(75)</span></div>
+<p>Si la section diminue,</p>
+<div class="course-equation course-equation-step" id="equation-76">\[S_2&lt;S_1,\]<span class="course-equation-index">(76)</span></div>
+<p>alors</p>
+<div class="course-equation course-equation-step" id="equation-77">\[v_2&gt;v_1.\]<span class="course-equation-index">(77)</span></div>
+<p>Le fluide accélère donc lorsqu'il traverse un rétrécissement.</p>
+<h2 class="course-chapter" id="continuite-et-bernoulli-effet-venturi">Continuité et Bernoulli : effet Venturi</h2>
+<p>Considérons un écoulement stationnaire d’un fluide parfait incompressible dans une conduite horizontale dont la section diminue.</p>
+<p>La continuité donne</p>
+<div class="course-equation course-equation-step" id="equation-78">\[S_1v_1=S_2v_2.\]<span class="course-equation-index">(78)</span></div>
+<p>Si</p>
+<div class="course-equation course-equation-step" id="equation-79">\[S_2&lt;S_1,\]<span class="course-equation-index">(79)</span></div>
+<p>alors</p>
+<div class="course-equation course-equation-step" id="equation-80">\[v_2&gt;v_1.\]<span class="course-equation-index">(80)</span></div>
+<p>Comme la conduite est horizontale,</p>
+<div class="course-equation course-equation-step" id="equation-81">\[z_1=z_2.\]<span class="course-equation-index">(81)</span></div>
+<p>L'équation de Bernoulli donne alors</p>
+<div class="course-equation course-equation-step" id="equation-82">\[p_1+\frac{1}{2}\rho v_1^2
+=
+p_2+\frac{1}{2}\rho v_2^2.\]<span class="course-equation-index">(82)</span></div>
+<p>Puisque \(v_2&gt;v_1\), on obtient</p>
+<div class="course-equation" id="equation-83">\[\boxed{
+p_2&lt;p_1
+}.\]<span class="course-equation-index">(83)</span></div>
+<p>Ainsi, dans un écoulement horizontal idéal, une augmentation de la vitesse s'accompagne d'une diminution de la pression statique.</p>
+<p>Ce phénomène est appelé <strong>effet Venturi</strong>.</p>
+<figure class="course-figure"><img src="resources/Classes/mecanique-fluides/venturi.svg" alt="Effet Venturi : la vitesse augmente et la pression statique diminue dans le rétrécissement." width="760" height="380" loading="lazy"><figcaption>Figure 4. Effet Venturi : la vitesse augmente et la pression statique diminue dans le rétrécissement.</figcaption></figure>
+<h2 class="course-chapter" id="a-retenir">À retenir</h2>
+<p>La dérivée particulaire est</p>
+<div class="course-equation" id="equation-84">\[\boxed{
+\frac{D}{Dt}
+=
+\frac{\partial}{\partial t}
++
+(\vec v\cdot\vec\nabla)
+}.\]<span class="course-equation-index">(84)</span></div>
+<p>L'accélération d'une particule de fluide est</p>
+<div class="course-equation" id="equation-85">\[\boxed{
+\frac{D\vec v}{Dt}
+=
+\frac{\partial\vec v}{\partial t}
++
+(\vec v\cdot\vec\nabla)\vec v
+}.\]<span class="course-equation-index">(85)</span></div>
+<p>Pour un fluide parfait, l'équation d'Euler est</p>
+<div class="course-equation" id="equation-86">\[\boxed{
+\rho\frac{D\vec v}{Dt}
+=
+-\vec\nabla p+\rho\vec g
+}.\]<span class="course-equation-index">(86)</span></div>
+<p>La conservation de la masse est donnée par</p>
+<div class="course-equation" id="equation-87">\[\boxed{
+\frac{\partial\rho}{\partial t}
++
+\vec\nabla\cdot(\rho\vec v)
+=
+0
+}.\]<span class="course-equation-index">(87)</span></div>
+<p>Pour un fluide incompressible,</p>
+<div class="course-equation" id="equation-88">\[\boxed{
+\vec\nabla\cdot\vec v=0
+}.\]<span class="course-equation-index">(88)</span></div>
+<p>Pour un écoulement stationnaire d'un fluide parfait incompressible, Bernoulli donne, le long d'une ligne de courant,</p>
+<div class="course-equation" id="equation-89">\[\boxed{
+p+\frac{1}{2}\rho v^2+\rho gz
+=
+\mathrm{cste}
+}.\]<span class="course-equation-index">(89)</span></div>
+<p>Enfin, dans une conduite sans fuite en régime incompressible, avec une vitesse uniforme et normale à chaque section (ou une vitesse moyenne de section),</p>
+<div class="course-equation" id="equation-90">\[\boxed{
+Q_V=vS=\mathrm{cste}
+}.\]<span class="course-equation-index">(90)</span></div>
+<h2 class="course-chapter" id="exercices">Exercices</h2>
+<details class="course-disclosure" id="exercice-1-acceleration-convective"><summary>Exercice 1 — Accélération convective</summary><div>
+<p>On considère un écoulement stationnaire unidimensionnel dont le champ de vitesse est</p>
+<div class="course-equation course-equation-step" id="equation-91">\[\vec v(x)=\alpha x\,\vec e_x,\]<span class="course-equation-index">(91)</span></div>
+<p>où \(\alpha\) est une constante positive de dimension \(\mathrm{s^{-1}}\).</p>
+<ol><li><p>Calculer la dérivée locale</p>
+<div class="course-equation course-equation-step">\[\frac{\partial\vec v}{\partial t}.\]</div></li><li><p>Calculer l'accélération convective</p>
+<div class="course-equation course-equation-step">\[(\vec v\cdot\vec\nabla)\vec v.\]</div></li><li><p>En déduire l'accélération totale</p>
+<div class="course-equation course-equation-step">\[\frac{D\vec v}{Dt}.\]</div></li><li><p>L'écoulement est stationnaire. Une particule de fluide est-elle pour autant soumise à une accélération nulle ? Commenter.</p></li></ol>
+</div></details>
+<details class="course-disclosure" id="exercice-2-equation-d-euler"><summary>Exercice 2 — Équation d&#x27;Euler</summary><div>
+<p>On considère un fluide parfait au repos dans le champ de pesanteur terrestre,</p>
+<div class="course-equation course-equation-step" id="equation-92">\[\vec v=\vec 0,
+    \qquad
+    \vec g=-g\vec e_z.\]<span class="course-equation-index">(92)</span></div>
+<ol><li><p>Partir de l'équation d'Euler</p>
+<div class="course-equation course-equation-step">\[\rho\frac{D\vec v}{Dt}
+        =
+        -\vec\nabla p+\rho\vec g\]</div>
+<p>et montrer que</p>
+<div class="course-equation course-equation-step">\[\vec\nabla p=\rho\vec g.\]</div></li><li><p>Retrouver l'équation fondamentale de l'hydrostatique</p>
+<div class="course-equation course-equation-step">\[\frac{\partial p}{\partial z}=-\rho g.\]</div></li><li><p>Pour un liquide incompressible, retrouver la relation</p>
+<div class="course-equation course-equation-step">\[p+\rho gz=\mathrm{cste}.\]</div></li></ol>
+<p><em>Cet exercice montre que l'hydrostatique est simplement un cas particulier de l'équation d'Euler.</em></p>
+</div></details>
+<details class="course-disclosure" id="exercice-3-debit-et-continuite"><summary>Exercice 3 — Débit et continuité</summary><div>
+<p>De l'eau circule dans une conduite dont la section passe de</p>
+<div class="course-equation course-equation-step" id="equation-93">\[S_1=20\,\mathrm{cm^2}\]<span class="course-equation-index">(93)</span></div>
+<p>à</p>
+<div class="course-equation course-equation-step" id="equation-94">\[S_2=5\,\mathrm{cm^2}.\]<span class="course-equation-index">(94)</span></div>
+<p>La vitesse dans la première section est</p>
+<div class="course-equation course-equation-step" id="equation-95">\[v_1=1{,}5\,\mathrm{m\,s^{-1}}.\]<span class="course-equation-index">(95)</span></div>
+<p>On considère l'eau comme incompressible.</p>
+<ol><li><p>Calculer le débit volumique \(Q_V\).</p></li><li><p>En utilisant la conservation du débit,</p>
+<div class="course-equation course-equation-step">\[S_1v_1=S_2v_2,\]</div>
+<p>calculer la vitesse \(v_2\).</p></li><li><p>Calculer le débit massique en prenant</p>
+<div class="course-equation course-equation-step">\[\rho=1000\,\mathrm{kg\,m^{-3}}.\]</div></li><li><p>Expliquer physiquement pourquoi la vitesse augmente lorsque la section de la conduite diminue.</p></li></ol>
+</div></details>
+<details class="course-disclosure" id="exercice-4-theoreme-de-bernoulli"><summary>Exercice 4 — Théorème de Bernoulli</summary><div>
+<p>De l'eau s'écoule dans une conduite entre deux points \(A\) et \(B\).</p>
+<p>On donne</p>
+<div class="course-equation course-equation-step" id="equation-96">\[v_A=2{,}0\,\mathrm{m\,s^{-1}},
+    \qquad
+    v_B=4{,}0\,\mathrm{m\,s^{-1}},\]<span class="course-equation-index">(96)</span></div>
+<div class="course-equation course-equation-step" id="equation-97">\[z_A=0,
+    \qquad
+    z_B=2{,}0\,\mathrm{m},\]<span class="course-equation-index">(97)</span></div>
+<p>et</p>
+<div class="course-equation course-equation-step" id="equation-98">\[p_A=2{,}0\times10^5\,\mathrm{Pa}.\]<span class="course-equation-index">(98)</span></div>
+<p>On prendra</p>
+<div class="course-equation course-equation-step" id="equation-99">\[\rho=1000\,\mathrm{kg\,m^{-3}},
+    \qquad
+    g=9{,}81\,\mathrm{m\,s^{-2}}.\]<span class="course-equation-index">(99)</span></div>
+<p>On suppose l'écoulement stationnaire et le fluide parfait et incompressible ; les points A et B appartiennent à une même ligne de courant.</p>
+<ol><li><p>Écrire l'équation de Bernoulli entre les points \(A\) et \(B\).</p></li><li><p>Calculer la pression \(p_B\).</p></li><li><p>Identifier séparément l'effet de l'augmentation de la vitesse et celui de l'augmentation de l'altitude sur la pression.</p></li><li><p>La pression en \(B\) doit-elle être supérieure ou inférieure à celle en \(A\) ? Vérifier la cohérence avec le résultat numérique.</p></li></ol>
+</div></details>
+<details class="course-disclosure" id="exercice-5-effet-venturi"><summary>Exercice 5 — Effet Venturi</summary><div>
+<p>Un tube de Venturi horizontal transporte de l'eau. Les sections aux points \(1\) et \(2\) sont</p>
+<div class="course-equation course-equation-step" id="equation-100">\[S_1=12\,\mathrm{cm^2},
+    \qquad
+    S_2=4\,\mathrm{cm^2}.\]<span class="course-equation-index">(100)</span></div>
+<p>La vitesse dans la première section est</p>
+<div class="course-equation course-equation-step" id="equation-101">\[v_1=2{,}0\,\mathrm{m\,s^{-1}}.\]<span class="course-equation-index">(101)</span></div>
+<p>On prendra</p>
+<div class="course-equation course-equation-step" id="equation-102">\[\rho=1000\,\mathrm{kg\,m^{-3}}.\]<span class="course-equation-index">(102)</span></div>
+<ol><li><p>À partir de l'équation de continuité, calculer \(v_2\).</p></li><li><p>Écrire l'équation de Bernoulli entre les deux sections.</p></li><li><p>Calculer la différence de pression</p>
+<div class="course-equation course-equation-step">\[p_1-p_2.\]</div></li><li><p>Dans quelle section la pression est-elle la plus faible ?</p></li><li><p>Expliquer avec vos propres mots pourquoi une diminution de la section conduit ici à une diminution de la pression.</p></li></ol>
+</div></details>
+<details class="course-disclosure" id="exercice-6-champ-de-vitesse-divergence-et-incompressibilite"><summary>Exercice 6 — Champ de vitesse, divergence et incompressibilité</summary><div>
+<p>On considère le champ de vitesse bidimensionnel</p>
+<div class="course-equation course-equation-step" id="equation-103">\[\vec v(x,y)
+    =
+    \alpha x\,\vec e_x
+    -
+    \alpha y\,\vec e_y,\]<span class="course-equation-index">(103)</span></div>
+<p>où \(\alpha\) est une constante.</p>
+<ol><li><p>Calculer</p>
+<div class="course-equation course-equation-step">\[\vec\nabla\cdot\vec v.\]</div></li><li><p>Cet écoulement peut-il représenter un fluide incompressible ?</p></li><li><p>Calculer la vorticité</p>
+<div class="course-equation course-equation-step">\[\vec\omega=\vec\nabla\wedge\vec v.\]</div></li><li><p>L'écoulement est-il rotationnel ou irrotationnel ?</p></li><li><p>Calculer l'accélération convective</p>
+<div class="course-equation course-equation-step">\[(\vec v\cdot\vec\nabla)\vec v.\]</div></li></ol></div></details>
+<p class="course-end"><a class="course-page-link" href="mecanique-fluides-hydrostatique.html">← Chapitre 1 · Hydrostatique</a> <a class="course-page-link" href="teaching.html">Tous les cours</a></p></article>
+        </div>
+      </main>
+      <footer class="site-footer page-width"><span>© <span id="year">2026</span> Anderson Kohara</span><span>Physics · Research · Teaching</span></footer>
+    </div>
+  </body>
+</html>

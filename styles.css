@@ -217,6 +217,12 @@ h1 > span:first-of-type { color: var(--accent); }
 .course-toc a span { color: var(--accent); font-weight: 800; }
 .course-toc .course-toc-top { margin-top: 15px; border: 0; color: var(--accent); font-weight: 700; }
 .course-content { max-width: 920px; min-width: 0; color: var(--muted); font-size: 15px; line-height: 1.82; }
+.course-disclosure { margin: 24px 0; border: 1px solid var(--line); border-radius: 6px; background: var(--surface); scroll-margin-top: 35px; }
+.course-disclosure > summary { padding: 18px 22px; color: var(--text); font-weight: 700; cursor: pointer; }
+.course-disclosure > summary:hover { background: var(--accent-soft); }
+.course-disclosure > div { padding: 0 22px 16px; min-width: 0; }
+.course-disclosure[open] > summary { border-bottom: 1px solid var(--line); margin-bottom: 18px; }
+.course-content .course-equation-step { margin: 12px 0 18px; padding: 10px 40px 10px 12px; border: 0; background: transparent; }
 .course-content > p, .course-content li > p { margin: 0 0 18px; }
 .course-content p strong, .course-content li strong { color: var(--text); }
 .course-content a:not(.course-download) { color: var(--accent); text-underline-offset: 3px; }

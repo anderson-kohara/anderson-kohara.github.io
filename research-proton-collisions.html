@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="From proton structure to elastic scattering: an introduction to Anderson Kohara’s research on energy evolution and unitarity.">
+    <meta name="theme-color" content="#f5f5f0">
+    <title>What happens when two protons collide? — Anderson Kohara</title>
+    <script>try { document.documentElement.dataset.theme = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'); } catch { document.documentElement.dataset.theme = 'light'; }</script>
+    <link rel="stylesheet" href="styles.css?v=20261003-research">
+    <script src="i18n.js" defer></script>
+    <script src="script.js" defer></script>
+  <script>window.MathJax = { svg: { fontCache: "global" } };</script><script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-svg.js"></script>
+</head>
+  <body>
+    <div class="site-shell">
+      <header class="site-header page-width">
+        <a class="brand" href="index.html" aria-label="Anderson Kohara, home"><span class="brand-mark" aria-hidden="true"><span></span><span></span><span></span></span><span>Anderson Kohara</span></a>
+        <div class="header-actions"><span class="header-location">Lyon</span><label class="sr-only" for="language-select">Language</label><select class="language-select" id="language-select"><option value="en">EN</option><option value="pt-BR">PT-BR</option><option value="fr">FR</option></select><button class="theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false"><svg class="theme-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg><span class="theme-label">Dark mode</span></button></div>
+      </header>
+      <main class="research-main page-width" lang="en" data-no-translate id="top"><a class="back-link" href="research.html">← Research &amp; perspectives</a>
+<header class="research-hero"><p class="eyebrow">Research notes · Article 01 · In English</p><h1>What happens when<br>two protons collide?</h1><p class="research-subtitle">From the structure of the proton to elastic scattering at the LHC</p><p class="research-meta">Anderson Kohara <span>·</span> Approximately 10 minutes <span>·</span> 3 optional technical notes</p></header>
+<div class="research-layout"><aside><nav class="research-toc" aria-label="Article contents"><p>In this article</p><a href="#proton">Inside the proton</a><a href="#outcomes">Elastic and inelastic</a><a href="#measurement">What experiments measure</a><a href="#geometry">Impact parameter</a><a href="#evolution">My research question</a><a href="#saturation">Growth and saturation</a><a href="#references">Sources</a><a href="#top">Back to top ↑</a></nav></aside><article class="research-article"><p class="research-lead">Two protons can collide at the LHC and emerge as two protons. Their identities have not changed, but their momenta have. That small change is the starting point of my research on elastic scattering.</p>
+<p>I study how the interaction changes with collision energy. If a model describes elastic scattering at one energy, can we evolve its amplitude to another energy, while respecting the constraints of quantum mechanics? This first article introduces the experimental and geometrical ideas behind that question. The next articles will develop the nonlinear evolution equation and its relation to my published work.</p>
+
+<section id="proton"><h2>1. What the three-quark picture tells us</h2>
+<p>A proton has valence content \(uud\): two up quarks and one down quark. Their charges add to the proton’s charge, \(2/3+2/3-1/3=1\), in units of the elementary charge. This statement fixes net quark content; it does not mean that a proton contains only three particles.</p>
+<p>In quantum chromodynamics (QCD), quarks interact through gluons. Gluons also interact with one another, and the proton’s quantum state includes quark–antiquark contributions, usually called the sea. The number and distribution of partons—quarks, antiquarks and gluons—depend on the resolution at which the proton is probed.</p>
+<p>The drawing below is a guide to these ingredients, not a photograph of objects inside a rigid sphere. In particular, its colours are illustrative and do not identify QCD colour charges.</p>
+<figure class="research-figure" id="figure-1"><a href="resources/research/figure1-proton-qcd.png" target="_blank" rel="noopener" aria-label="Open figure 1 at full size"><img src="resources/research/figure1-proton-qcd.png" alt="The valence content uud and a schematic QCD picture with sea quarks and gluons." width="1536" height="1024" loading="lazy" decoding="async"></a><figcaption><strong>Figure 1.</strong> The valence content fixes net flavour quantum numbers. The QCD picture includes sea quark–antiquark contributions and gluons; neither panel is a literal spatial snapshot. <a href="resources/research/figure1-proton-qcd.png" target="_blank" rel="noopener">View full size ↗</a></figcaption></figure>
+<p>Higher collision energy opens access to partons carrying smaller fractions \(x\) of a proton’s longitudinal momentum. This is one reason high-energy scattering connects to small-\(x\) physics. Increasing energy and increasing spatial resolution are nevertheless different operations: a high-energy collision can still involve a small momentum transfer and long-distance strong-interaction physics.</p>
+</section>
+
+<section id="outcomes"><h2>2. Elastic does not mean no interaction</h2>
+<p>In elastic scattering, the final state contains the same two protons and no additional particles:</p>
+<div class="research-equation">\[p+p\longrightarrow p+p.\]</div>
+<p>In the centre-of-mass frame, each outgoing proton has the same energy as before the collision, but a different momentum direction. At the small momentum transfers considered here, the deflection angles are tiny.</p>
+<p>An inelastic event has a different final state, which we can write as \(p+p\to X\), with \(X\neq pp\). Many such events produce numerous particles. But “inelastic” does not require both protons to break apart: diffractive reactions can leave one proton intact, or even both if additional particles are produced. The distinction is the complete final state, not simply whether a proton survives. <a href="#ref-diffraction">[1]</a></p>
+<figure class="research-figure" id="figure-2"><a href="resources/research/figure2-elastic-inelastic.png" target="_blank" rel="noopener" aria-label="Open figure 2 at full size"><img src="resources/research/figure2-elastic-inelastic.png" alt="Incoming protons approach from opposite directions. Elastic scattering leaves only two outgoing protons; inelastic processes have a different final state." width="1471" height="1069" loading="lazy" decoding="async"></a><figcaption><strong>Figure 2.</strong> Elastic and inelastic final states. Incoming and outgoing trajectories are shown together for illustration; deflection angles are exaggerated. Proton survival alone does not identify an elastic event. <a href="resources/research/figure2-elastic-inelastic.png" target="_blank" rel="noopener">View full size ↗</a></figcaption></figure>
+</section>
+
+<section id="measurement"><h2>3. What a tiny deflection measures</h2>
+<p>The change in a proton’s four-momentum is described by</p>
+<div class="research-equation">\[t=(p_{\mathrm{out}}-p_{\mathrm{in}})^2.\]</div>
+<p>Here \(p\) denotes a four-momentum, not the particle symbol in the reaction above. With the metric convention \((+,-,-,-)\), elastic scattering has \(t\leq0\); the forward limit is \(t=0\). Measurements are therefore usually plotted against \(|t|\).</p>
+<p>The <strong>differential elastic cross section</strong>, \(d\sigma_{\mathrm{el}}/dt\), describes how the elastic event rate is distributed in momentum transfer after accounting for the luminosity of the colliding beams. A cross section has units of area, but it is not a literal photograph of the proton’s outline.</p>
+<p>At LHC energies, the measured distribution falls steeply in the forward hadronic region, then reaches a diffractive minimum, the <em>dip</em>, followed by a secondary maximum, the <em>bump</em>. For example, TOTEM measured the dip near \(|t|=0.47\,\mathrm{GeV}^2\) at \(\sqrt{s}=13\,\mathrm{TeV}\). This gives us a concrete feature that a scattering model must reproduce. At extremely small \(|t|\), electromagnetic scattering and its interference with the strong amplitude must also be included. <a href="#ref-totem">[2]</a></p>
+<details class="research-detail"><summary>Technical note · Angle, amplitude and the dip</summary><div>
+<p>In units with \(c=1\), for centre-of-mass momentum magnitude \(p_{\mathrm{cm}}\),</p>
+<div class="research-equation">\[t=-2p_{\mathrm{cm}}^2(1-\cos\theta)\simeq-p_{\mathrm{cm}}^2\theta^2.\]</div>
+<p>In a dominant-amplitude description, \(d\sigma_{\mathrm{el}}/dt\propto|A(s,t)|^2\), with a prefactor set by the amplitude convention. More generally one sums and averages over spin amplitudes. A dip probes a minimum of this intensity; it is not a direct measurement of a hole in a spatial density. The real and imaginary parts both matter, and a measured modulus alone does not determine their relative phase.</p>
+</div></details>
+</section>
+
+<section id="geometry"><h2>4. The same interaction in the transverse plane</h2>
+<p>Imagine viewing the incoming beams along their axis. Their transverse separation is the <strong>impact parameter</strong>, \(b\). Small \(b\) describes approximately central geometry; larger \(b\) describes more peripheral geometry. This is a useful high-energy representation, not an event-by-event measurement of two classical proton trajectories.</p>
+<figure class="research-figure" id="figure-3"><a href="resources/research/figure3-impact-parameter.png" target="_blank" rel="noopener" aria-label="Open figure 3 at full size"><img src="resources/research/figure3-impact-parameter.png" alt="Counter-propagating incoming trajectories separated by b; transverse view showing the same centre-to-centre separation." width="2163" height="727" loading="lazy" decoding="async"></a><figcaption><strong>Figure 3.</strong> The impact parameter is the transverse separation of incoming trajectories. The collision energy is √s, while s is its square. The profile T(s,b) represents an interaction amplitude, not a measured classical trajectory. <a href="resources/research/figure3-impact-parameter.png" target="_blank" rel="noopener">View full size ↗</a></figcaption></figure>
+<p>The elastic amplitude can be represented as \(T(s,b)\). The variable \(s=(p_1+p_2)^2\) is the square of the centre-of-mass energy: the collider energy quoted as “13 TeV” is \(\sqrt{s}\), not \(s\).</p>
+<p>The momentum-transfer amplitude \(A(s,t)\) and the impact-parameter profile \(T(s,b)\) are related by a Fourier transform in the transverse plane. They describe the same interaction in different variables. The profile helps us ask where in transverse space the interaction is strong, while the momentum-transfer distribution is what experiments measure.</p>
+<details class="research-detail"><summary>Technical note · What the Fourier transform does—and does not—give us</summary><div>
+<p>At high energy and small scattering angles, \(t\simeq-\boldsymbol q_{\perp}^{\,2}\). Schematically, suppressing convention-dependent normalisation factors,</p>
+<div class="research-equation">\[A(s,-\boldsymbol q_{\perp}^{\,2})\ \propto\ \int d^2\boldsymbol b\;e^{i\boldsymbol q_{\perp}\cdot\boldsymbol b}\,T(s,\boldsymbol b).\]</div>
+<p>For azimuthal symmetry the transform reduces to a Fourier–Bessel integral with kernel \(J_0(b\sqrt{|t|})\). One transforms the <em>complex amplitude</em>, not the cross section. Reconstructing a profile from data therefore requires information or assumptions about the phase, as well as the unmeasured momentum-transfer regions. The resulting interaction profile is not the proton’s electromagnetic charge density.</p>
+</div></details>
+</section>
+
+<section id="evolution"><h2>5. My question: how does the amplitude evolve?</h2>
+<p>Suppose a phenomenological model supplies an initial profile \(T(s_0,b)\). Instead of fitting an unrelated profile at every energy, I want an evolution law that connects these descriptions:</p>
+<div class="research-equation">\[T(s_0,b)\ \longrightarrow\ T(s,b).\]</div>
+<p>One can then transform the evolved amplitude back to momentum-transfer space and compare its predictions with measured cross sections. The initial profile remains an input: an evolution equation does not remove the uncertainty of the starting model.</p>
+<aside class="research-focus"><p class="eyebrow">Connection to my work</p><h3>From an initial profile to energy evolution</h3>
+<p>In my paper <a href="https://doi.org/10.1103/xz23-bqg9"><em>Complex logistic equation for universal energy evolution in hadronic elastic scattering</em></a>, I develop a complex nonlinear evolution equation in a Reggeon field-theory framework. It evolves input profiles from existing elastic-scattering models and allows comparison with differential and integrated observables. <a href="#ref-kohara">[3]</a></p>
+<p>The connection to small-\(x\) QCD is a research direction: shared features with BK and JIMWLK evolution do not by themselves establish that the equations are identical, or that the effective model is a first-principles derivation of QCD.</p>
+</aside>
+<p>The physical constraint is <strong>unitarity</strong>: probabilities summed over all possible outcomes must add to one. An elastic amplitude is complex and is not itself a probability. Its allowed values are constrained by the elastic and inelastic channels together. <a href="#ref-review">[4]</a></p>
+</section>
+
+<section id="saturation"><h2>6. Growth, saturation and the next step</h2>
+<p>A useful distinction is between the interaction strength at a fixed impact parameter and the transverse area over which the interaction is appreciable. Local saturation can coexist with a growing total cross section if that area expands with energy. Unitarity does not say that the total cross section must tend to a constant.</p>
+<details class="research-detail"><summary>Technical note · A local probability constraint</summary><div>
+<p>In the high-energy impact-parameter description, let \(S(s,b)\) be the elastic-channel S-matrix element. Summing over the other channels gives</p>
+<div class="research-equation">\[|S(s,b)|^2+G_{\mathrm{inel}}(s,b)=1,\qquad G_{\mathrm{inel}}(s,b)\geq0.\]</div>
+<p>This expresses the local unitarity constraint. Relating \(S\) to \(T\) requires an amplitude convention; no numerical saturation value for \(T\) is implied here. Unitarity restricts an evolution law, but does not uniquely select the logistic equation or a particular asymptotic limit.</p>
+</div></details>
+<p>The next article begins with the real logistic equation,</p>
+<div class="research-equation">\[\frac{dN}{d\tau}=\epsilon N-\lambda N^2.\]</div>
+<p>For positive coefficients and positive initial data, its linear term drives growth and its quadratic term limits it. We will first understand that balance, then examine what changes when the evolving variable is a complex scattering amplitude. In an energy-evolution problem, the relevant evolution variable is related to a logarithm such as \(Y=\ln(s/s_0)\), not ordinary laboratory time.</p>
+<p>The analogy is a way into the mathematics. Establishing the physical equation requires its field-theory assumptions, its initial conditions and comparison with data.</p>
+<aside class="research-next"><span class="eyebrow">Next in the series · Planned</span><h3>From population growth to complex amplitudes</h3><p>What the logistic equation explains, and what must change for a quantum scattering amplitude.</p><a href="research.html#series">See the proposed five-part series →</a></aside>
+</section>
+
+<section id="references" class="research-references"><h2>Sources and further reading</h2>
+<ol>
+<li id="ref-diffraction">ALICE Collaboration, <a href="https://doi.org/10.1140/epjc/s10052-013-2456-0">Measurement of inelastic, single- and double-diffraction cross sections in proton–proton collisions at the LHC</a>, <em>Eur. Phys. J. C</em> 73, 2456 (2013).</li>
+<li id="ref-totem">TOTEM Collaboration, <a href="https://arxiv.org/abs/1812.08283">Elastic differential cross-section measurement at √s = 13 TeV by TOTEM</a>, <em>Eur. Phys. J. C</em> 79, 861 (2019). Experimental reference for the dip–bump structure.</li>
+<li id="ref-kohara">A. K. Kohara, <a href="https://doi.org/10.1103/xz23-bqg9">Complex logistic equation for universal energy evolution in hadronic elastic scattering</a>, <em>Phys. Rev. D</em> 113, 116041 (2026).</li>
+<li id="ref-review">Particle Data Group, <a href="https://pdg.lbl.gov/2025/reviews/rpp2024-rev-soft-qcd.pdf">High Energy Soft QCD and Diffraction</a>. Background on amplitudes, unitarity and diffractive processes.</li>
+</ol>
+<p class="research-small">Illustrations are schematic, not experimental images. Adapted from the author’s supplied illustrations with AI-assisted editing.</p>
+<p><a href="publications.html">Complete publication list →</a></p>
+</section>
+</article></div></main>
+      <footer class="site-footer page-width"><span>© <span id="year">2026</span> Anderson Kohara</span><span>Physics · Research · Teaching</span></footer>
+    </div>
+  </body>
+</html>

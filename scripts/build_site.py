@@ -8,6 +8,7 @@ import shutil
 ROOT = Path(__file__).resolve().parent.parent
 OUTPUT = ROOT / '_site'
 PAGES = (
+    'research.html', 'research-proton-collisions.html',
     'mecanique-fluides-hydrostatique.html',
     'mecanique-fluides-parfaits.html',
     'index.html', 'cv.html', 'publications.html', 'teaching.html',

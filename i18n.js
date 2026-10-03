@@ -451,6 +451,9 @@ Object.assign(translations["pt-BR"], {
 Object.assign(translations["fr"], {"and additional DOI references supplied by the author. Open a record for its full metadata.": "et de références DOI complémentaires fournies par l’auteur. Ouvrez une référence pour consulter ses métadonnées complètes."});
 Object.assign(translations["pt-BR"], {"and additional DOI references supplied by the author. Open a record for its full metadata.": "e referências DOI adicionais fornecidas pelo autor. Abra um registro para consultar seus metadados completos."});
 
+Object.assign(translations["fr"], {"04 / Research notes": "04 / Recherche", "Research &": "Recherche &", "perspectives": "perspectives", "From concepts to results": "Des concepts aux résultats", "Read the series": "Lire la série"});
+Object.assign(translations["pt-BR"], {"04 / Research notes": "04 / Pesquisa", "Research &": "Pesquisa &", "perspectives": "perspectivas", "From concepts to results": "Dos conceitos aos resultados", "Read the series": "Ler a série"});
+
 const supportedLanguages = ['en', 'pt-BR', 'fr'];
 const languageInUrl = new URLSearchParams(window.location.search).get('lang');
 let savedLanguage;
@@ -490,7 +493,7 @@ function translateStaticPage() {
 
   for (const anchor of document.querySelectorAll('a[href]')) {
     const href = anchor.getAttribute('href');
-    if (/^(index|cv|publications|teaching|booster-physique|mecanique-analytique|mecanique-analytique-calcul-variationnel|mecanique-analytique-coordonnees-generalisees|mecanique-fluides-hydrostatique|mecanique-fluides-parfaits)\.html(?:[?#]|$)/.test(href)) {
+    if (/^(index|cv|publications|teaching|booster-physique|mecanique-analytique|mecanique-analytique-calcul-variationnel|mecanique-analytique-coordonnees-generalisees|mecanique-fluides-hydrostatique|mecanique-fluides-parfaits|research|research-proton-collisions)\.html(?:[?#]|$)/.test(href)) {
       const url = new URL(href, window.location.href);
       url.searchParams.set('lang', currentLanguage);
       anchor.href = url.href;
